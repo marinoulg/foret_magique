@@ -2,19 +2,44 @@ from collections import defaultdict
 from src.helper_functions.specific_functions import *
 from src.Tree import *
 
-class Player():
+class Player:
+    """
+    This class defines the characteristics of a Player.
+    Each player has:
+        - a player_id (for the database)
+        - a certain number of cards at each precise moment in time
+        - a total number of points at each moment in time
+
+
+    This class also defines the actions of a Player:
+        - enough_cards: if a player has enough cards to pay the cost of a card
+        - draw_card: what happens if a player draws a card --> which gets added
+        to their cards
+     ** - can_pay_card: if a player has enough_cards, they pay to place a card
+        in their Plateau, and they have less cards in their hand as a result.
+     ** - throw_card: if a player wishes to throw a card in la clairière, they
+        have one less card in their hand as a result.
+     ** - pickup_card_from_clairiere: if a player wants to pick up a card from
+        la clarière, this card then gets added to their hand, and removed
+        from la clairière
+
+
+    """
+
+
     def __init__(self, player_id, nb_cards=6):
         self.player_id = player_id
         self.nb_cards = nb_cards
         self.puncts = 0
-
         self.cards_player = []
 
-        self.num_tilleuls = 0
+        self.num_tilleuls = 0 # not sure -- more so in the Plateau?
 
     def can_pay_card(self):
         if self.enough_cards(self.cost_card):
             self.nb_cards -= self.cost_card
+            # Player pays to place a card in their Plateau,
+            # and they have less cards in their hand as a result.
         return self
 
     def draw_card(self, card):
@@ -32,40 +57,45 @@ class Player():
             self.nb_cards -= one_move
         return one_move
 
-    def throw_card(self, Card):
+    def throw_card_in_clairiere(self, Card):
         self.cards_player.remove(Card)
+        # if a player wishes to throw a card in la clairière,
         return self
-
 
     def pickup_card_from_clairiere(self, Card):
         pass
 
-    def place_card_in_clairiere(self, Card):
-        pass
+    # def play_card_down(self, player_id, Which_tree, Card):
+    #     """
+    #     """
+    #     Which_tree(player_id).down = Card
+    #     return True
 
-    def play_card_down(self, player_id, Which_tree, Card):
-        """
-        """
-        Which_tree(player_id).down = Card
-        return True
-
-    def play_card_up(self, player_id, Which_tree, Card):
-        """
-        """
-        Which_tree(player_id).up = Card
-        return True
+    # def play_card_up(self, player_id, Which_tree, Card):
+    #     """
+    #     """
+    #     Which_tree(player_id).up = Card
+    #     return True
 
 
-class Card():
-    def __init__(self, player_id):
-        # super().__init__(player_id)
+class Card:
+    """
+    Is it important to know who a card belongs to?
+    """
+
+    def __init__(self, left=None, right=None, up=None, down=None):
         self.cost_card = 0
         self.category = [None] # attention it has changed
         self.subcategory = None
-        self.effect = None
+        self.effect_attr = None
         self.bonuss = None
         self.couleur_feuille = None
-        self.player_id = player_id
+        # self.player_id = player_id
+
+        # self.left = left
+        # self.right = right
+        # self.up = up
+        # self.down = down
 
 
 class Clairiere:
@@ -106,26 +136,13 @@ class Plateau(Player):
             self.plateau_player.append(temp_dict)
         return self
 
-    def poser_une_carte(self, Card):
+    def poser_une_carte(self, Card, on_tree):
+
         pass
 
-        # Specific to certain cards
-    def nb_tilleuls(player_id, plateau_qqn_pt_arbre):
-        return how_many_arbre_subcategory(player_id, plateau_qqn_pt_arbre, subcategory="tilleuls")
-    def nb_hêtres(player_id, plateau_qqn_pt_arbre):
-        return how_many_arbre_subcategory(player_id, plateau_qqn_pt_arbre, subcategory="hêtres")
-    def nb_marronniers(player_id, plateau_qqn_pt_arbre):
-        return how_many_arbre_subcategory(player_id, plateau_qqn_pt_arbre, subcategory="marronnier commun")
-    def nb_érables(player_id, plateau_qqn_pt_arbre):
-        return how_many_arbre_subcategory(player_id, plateau_qqn_pt_arbre, subcategory="marronnier commun")
-    def nb_sapin_douglas(player_id, plateau_qqn_pt_arbre):
-        return how_many_arbre_subcategory(player_id, plateau_qqn_pt_arbre, subcategory="marronnier commun")
-    def nb_sapin_blanc(player_id, plateau_qqn_pt_arbre):
-        return how_many_arbre_subcategory(player_id, plateau_qqn_pt_arbre, subcategory="marronnier commun")
-    def nb_chênes(player_id, plateau_qqn_pt_arbre):
-        return how_many_arbre_subcategory(player_id, plateau_qqn_pt_arbre, subcategory="marronnier commun")
-    def nb_bouleau(player_id, plateau_qqn_pt_arbre):
-        return how_many_arbre_subcategory(player_id, plateau_qqn_pt_arbre, subcategory="marronnier commun")
+    def how_many_tree_subcat(self, tree):
+        # print(Player, end = "")
+        return how_many_arbre_subcategory(self.plateau_player, tree)
 
     def how_many_per_species(self, player_id, subcategory = "papillon"):
         """
@@ -135,6 +152,6 @@ class Plateau(Player):
         """
         return how_many_for_one_species(player_id, self.plateau_player, subcategory = subcategory)
 
-class Game():
+class Game:
     def __init__(self, nb_of_players):
         self.nb_of_players = nb_of_players

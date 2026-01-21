@@ -1,13 +1,13 @@
-from Player import Player, Card, Plateau, Game
+from src.Player import Player, Card, Plateau, Game
 
 class Oiseau(Card):
-    def __init__(self, subcategory, couleur_feuille, player_id):
-        super.__init__(subcategory, couleur_feuille, player_id)
-        self.category = "champignon"
+    def __init__(self, couleur_feuille):
+        self.category = "oiseau"
+        self.couleur_feuille = couleur_feuille
 
 class Bouvreuil_pivoire(Oiseau):
-    def __init__(self, category):
-        super().__init__(category)
+    def __init__(self, couleur_feuille):
+        super().__init__(couleur_feuille)
         self.subcategory = "bouvreuil pivoine"
         self.cost_card = 1
         """
@@ -30,8 +30,8 @@ class Bouvreuil_pivoire(Oiseau):
         return self
 
 class Pinson_des_arbres(Oiseau):
-    def __init__(self, category, subcategory, couleur_feuille, player_id):
-        super().__init__(category, subcategory, couleur_feuille, player_id)
+    def __init__(self, couleur_feuille):
+        super().__init__(couleur_feuille)
         self.subcategory = "pinson des arbres"
         self.cost_card = 1
         """
@@ -53,8 +53,8 @@ class Pinson_des_arbres(Oiseau):
         return self
 
 class Geai_des_chênes(Oiseau):
-    def __init__(self, category, subcategory, couleur_feuille, player_id):
-        super().__init__(category, subcategory, couleur_feuille, player_id)
+    def __init__(self, couleur_feuille):
+        super().__init__(couleur_feuille)
         self.subcategory = "geai des chênes"
         self.cost_card = 1
         """
@@ -74,8 +74,8 @@ class Geai_des_chênes(Oiseau):
         return self
 
 class Autour_des_palombes(Oiseau):
-    def __init__(self, category, subcategory, couleur_feuille, player_id):
-        super().__init__(category, subcategory, couleur_feuille, player_id)
+    def __init__(self, couleur_feuille):
+        super().__init__(couleur_feuille)
         self.subcategory = "autour des palombes"
         self.couleur_feuille = "bleu clair"
         """
@@ -97,8 +97,8 @@ class Autour_des_palombes(Oiseau):
         return self
 
 class Pic_épeiche(Oiseau):
-    def __init__(self, category, subcategory, couleur_feuille, player_id):
-        super().__init__(category, subcategory, couleur_feuille, player_id)
+    def __init__(self, couleur_feuille):
+        super().__init__(couleur_feuille)
         self.subcategory = "pic épeiche"
         self.cost_card = 2
         """
