@@ -120,7 +120,7 @@ class Marronier(Tree):
         #     Player(player_id).puncts += 49
         return self
 
-class Sapin_blanc(Tree):
+class SapinBlanc(Tree):
     def __init__(self, left=None, right=None, up=None, down=None):
         super().__init__(left, right, up, down)
         self.subcategory = "sapin Douglas"
@@ -149,7 +149,7 @@ class Sapin_blanc(Tree):
         return self
     pass
 
-class Sapin_Douglas(Tree):
+class SapinDouglas(Tree):
     def __init__(self, left=None, right=None, up=None, down=None):
         super().__init__(left, right, up, down)
         self.subcategory = "tilleul"

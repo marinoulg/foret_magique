@@ -5,7 +5,7 @@ class Oiseau(Card):
         self.category = "oiseau"
         self.couleur_feuille = couleur_feuille
 
-class Bouvreuil_pivoire(Oiseau):
+class BouvreuilPivoire(Oiseau):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.subcategory = "bouvreuil pivoine"
@@ -29,7 +29,7 @@ class Bouvreuil_pivoire(Oiseau):
         Player().puncts += total_points
         return self
 
-class Pinson_des_arbres(Oiseau):
+class PinsonDesArbres(Oiseau):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.subcategory = "pinson des arbres"
@@ -52,7 +52,7 @@ class Pinson_des_arbres(Oiseau):
         """
         return self
 
-class Geai_des_chênes(Oiseau):
+class GeaiDesChênes(Oiseau):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.subcategory = "geai des chênes"
@@ -73,13 +73,13 @@ class Geai_des_chênes(Oiseau):
         Player(player_id).puncts += 3
         return self
 
-class Autour_des_palombes(Oiseau):
+class AutourDesPalombes(Oiseau):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.subcategory = "autour des palombes"
         self.couleur_feuille = "bleu clair"
         """
-        couleur_feuille peut être : bleu clair, marron
+        couleur_feuille peut être : bleu clair, marron, bleu foncé
         """
         self.cost_card = 2
 
@@ -96,7 +96,7 @@ class Autour_des_palombes(Oiseau):
         Player(player_id).puncts += 3 * num_oiseaux
         return self
 
-class Pic_épeiche(Oiseau):
+class PicEpeiche(Oiseau):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.subcategory = "pic épeiche"
@@ -105,17 +105,42 @@ class Pic_épeiche(Oiseau):
         couleur_feuille peut être : jaune, bleu clair
         """
 
-    def effet(self, player_id):
+    def effet(self):
         print(f"{self.subcategory} allows you to draw a card.")
-        Player(player_id).draw_card()
+        # Player(player_id).draw_card()
         return self
 
     def bonus(self):
         print(f"{self.subcategory} has no bonus.")
         return self
 
-    def points(self, player_id):
-        num_arbres = Plateau(player_id).how_many_per_species(player_id, subcategory="arbre")
+    def points(self):
+        # num_arbres = Plateau(player_id).how_many_per_species(player_id, subcategory="arbre")
         # if num_arbres est le max // tous les autres joueurs
-        Player(player_id).puncts += 10
+        # Player(player_id).puncts += 10
+        return self
+
+class ChouetteHulotte(Oiseau):
+    def __init__(self, couleur_feuille):
+        super().__init__(couleur_feuille)
+        self.subcategory = "chouette hulotte"
+        self.cost_card = 2
+        """
+        couleur_feuille peut être : vert clair, rouge, vert foncé
+        """
+
+    def effet(self, player_id):
+        print(f"{self.subcategory} allows you to draw a card.")
+        Player(player_id).draw_card()
+        return self
+
+    def bonus(self):
+        print(f"{self.subcategory} allows you to draw 2 card if you pay with {self.cost_card} whose color are {self.couleur_feuille}.")
+        return self
+
+    def points(self):
+        print(f"5pts.")
+        # num_arbres = Plateau(player_id).how_many_per_species(player_id, subcategory="arbre")
+        # if num_arbres est le max // tous les autres joueurs
+        # Player(player_id).puncts += 10
         return self

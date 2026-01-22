@@ -6,9 +6,9 @@ from src.helper_functions.specific_functions import *
 
 from src.Champignon import *
 from src.Oiseau import *
-from src.Patte import *
+from Plantigrade import *
 from src.Papillon import *
-from src.Lézard import *
+from Amphibien import *
 
 
 # Possible cards
@@ -18,32 +18,32 @@ tilleul = Tilleul()
 bouleau = Bouleau()
 hêtre = Hêtre()
 marronnier = Marronier()
-sapin_blanc = Sapin_blanc()
-sapin_D = Sapin_Douglas()
+sapin_blanc = SapinBlanc()
+sapin_D = SapinDouglas()
 érable = Erable()
 
 amanite = Amanite("marron")
 coul = Coulemelle("orange")
 gir = Girolle("vert clair")
-cepe = Cèpe_de_Bordeaux("bleu")
+cepe = CèpeDeBordeaux("bleu")
 
-bouvreuil = Bouvreuil_pivoire("bleu")
-pinson = Pinson_des_arbres("rouge")
-geai = Geai_des_chênes("orange")
-palombe = Autour_des_palombes("marron")
-pic = Pic_épeiche("jaune")
+bouvreuil = BouvreuilPivoire("bleu")
+pinson = PinsonDesArbres("rouge")
+geai = GeaiDesChênes("orange")
+palombe = AutourDesPalombes("marron")
+pic = PicEpeiche("jaune")
 
 herisson = Hérisson("vert")
 
-mars = Grand_mars_changeant("jaune")
-paon = Paon_du_jour("jaune")
+mars = GrandMarsChangeant("jaune")
+paon = PaonDuJour("jaune")
 morio = Morio("rouge")
-grande_tort = Grande_tortue("vert")
-tabac_desp = Tabac_dEspagne("marron")
+grande_tort = GrandeTortue("vert")
+tabac_desp = TabacEspagne("marron")
 
-crapaud = Crapaud_commun("marrn")
-salamandre = Salamandre_tachetée("jaune")
-rainette = Rainette_verte("jaune")
+crapaud = CrapaudCommun("marrn")
+salamandre = SalamandreTachetée("jaune")
+rainette = RainetteVerte("jaune")
 cistude = Cistude("rouge")
 
 

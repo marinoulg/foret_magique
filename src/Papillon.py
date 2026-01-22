@@ -19,7 +19,7 @@ class Papillon(Card):
         #    Player(player_id).puncts += 20
         return self
 
-class Grand_mars_changeant(Papillon):
+class GrandMarsChangeant(Papillon):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.subcategory = "grand mars changeant"
@@ -36,7 +36,7 @@ class Grand_mars_changeant(Papillon):
         print(f"{self.subcategory} has no bonus.")
         return self
 
-class Paon_du_jour(Papillon):
+class PaonDuJour(Papillon):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.subcategory = "paon-du-jour"
@@ -68,12 +68,12 @@ class Morio(Papillon):
         print(f"{self.subcategory} has no bonus.")
         return self
 
-class Grande_tortue(Papillon):
+class GrandeTortue(Papillon):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.subcategory = "grande tortue"
         """
-        couleur_feuille peut être : vert foncé, bleu foncé
+        couleur_feuille peut être : vert foncé, bleu foncé, rouge
         """
         self.cost_card = 0
 
@@ -84,7 +84,7 @@ class Grande_tortue(Papillon):
         print(f"{self.subcategory} has no bonus.")
         return self
 
-class Tabac_dEspagne(Papillon):
+class TabacEspagne(Papillon):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.subcategory = "tabac d'Espagne"

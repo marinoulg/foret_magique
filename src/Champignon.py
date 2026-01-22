@@ -64,7 +64,7 @@ class Girolle(Champignon):
         print(f"{self.subcategory} has no bonus.")
         return self
 
-class Cèpe_de_Bordeaux(Champignon):
+class CèpeDeBordeaux(Champignon):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.subcategory = "girolle"

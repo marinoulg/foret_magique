@@ -77,13 +77,12 @@ class Player:
     #     Which_tree(player_id).up = Card
     #     return True
 
-
 class Card:
     """
     Is it important to know who a card belongs to?
     """
 
-    def __init__(self, left=None, right=None, up=None, down=None):
+    def __init__(self, position=None):
         self.cost_card = 0
         self.category = [None] # attention it has changed
         self.subcategory = None
@@ -92,18 +91,13 @@ class Card:
         self.couleur_feuille = None
         # self.player_id = player_id
 
-        # self.left = left
-        # self.right = right
-        # self.up = up
-        # self.down = down
-
+        self.position = position
 
 class Clairiere:
     def __init__(self):
         if Player.throw_card(Card):
             self.cards_clairiere = list()
             self.cards_clairiere.append(Card)
-
 
 class Plateau(Player):
     def __init__(self, player_id):
