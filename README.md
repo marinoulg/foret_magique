@@ -8,6 +8,7 @@ next steps:
 - deal with colors
 - deal with positions
 - run scenarios
+- add color hexadecimal for the correct color?
 
 Done :
 - ☑ create classes for all possible cards with their adequate information
