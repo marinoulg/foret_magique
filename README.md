@@ -1,4 +1,4 @@
-# forêt_magique
+# ForêtMagique
 
 next steps:
 - raise ValueError pour toutes les couleurs impossibles
