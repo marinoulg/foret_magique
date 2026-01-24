@@ -10,7 +10,8 @@ next steps:
 -
 
 Done :
-- ☑ created a module: you need to do ```pip install -e .``` to install it
+- ☑ create all cards in ```all_cards.py```
+- ☑ create a module: you need to do ```pip install -e .``` to install it
 - raise ValueError pour toutes les couleurs impossibles
 - ☑ add color for the correct couleur_feuille
 - ☑ create classes for all possible cards with their adequate information
