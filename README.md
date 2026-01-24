@@ -7,12 +7,11 @@ next steps:
 - deal with colors
 - deal with positions
 - run scenarios
--
 
 Done :
 - ☑ create all cards in ```all_cards.py```
 - ☑ create a module: you need to do ```pip install -e .``` to install it
-- raise ValueError pour toutes les couleurs impossibles
+- ☑ raise ValueError pour toutes les couleurs impossibles
 - ☑ add color for the correct couleur_feuille
 - ☑ create classes for all possible cards with their adequate information
 - ☑ coder les autres cartes restantes (cervidés etc.)
