@@ -1,7 +1,7 @@
-from src.Player import Player, Card, Plateau, Game
+from src.Player import Player, ElementsAnimal, Plateau, Game
 from src.Tree import *
 
-class ChauveSouris(Card):
+class ChauveSouris(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
         self.category = "chauve-souris"

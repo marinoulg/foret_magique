@@ -1,9 +1,9 @@
-from src.Player import Player, Card, Plateau, Game
+from src.Player import Player, ElementsAnimal, Plateau, Game
 from src.Tree import *
 
-class Champignon(Card):
+class Champignon(ElementsAnimal):
     def __init__(self, couleur_feuille, down="down"):
-        super().__init__(down)
+        # super().__init__(down)
         self.couleur_feuille = couleur_feuille
         self.position = down
         self.category = "champignon"

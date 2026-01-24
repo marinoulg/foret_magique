@@ -1,6 +1,6 @@
-from src.Player import Player, Card, Plateau, Game
+from src.Player import Player, ElementsAnimal, Plateau, Game
 
-class Amphibien(Card):
+class Amphibien(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
         self.category = "amphibien"
@@ -48,13 +48,13 @@ class SalamandreTachetée(Amphibien):
     def bonus(self, card_throwed_1):
         """
         to be reviewed
-        card_throwed_1 = Card()
-        card_throwed_2 = Card()
+        card_throwed_1 = ElementsAnimal()
+        card_throwed_2 = ElementsAnimal()
         """
         print(f"{self.subcategory} allows you to freely place one card whose subcategory is 'PATTES'.")
 
         # if Player(player_id).throw_card(card_throwed_1) and card_throwed_1.couleur_feuille == "jaune":
-        #     self.bonuss = Player().place_card_in_clairiere(Card()) if Card().subcategory == "patte" else None
+        #     self.bonuss = Player().place_card_in_clairiere(ElementsAnimal()) if ElementsAnimal().subcategory == "patte" else None
         return self
 
     def points(self):
@@ -85,13 +85,13 @@ class RainetteVerte(Amphibien):
     def bonus(self, card_throwed_1, couleur_feuille):
         """
         to be reviewed
-        card_throwed_1 = Card()
-        card_throwed_2 = Card()
+        card_throwed_1 = ElementsAnimal()
+        card_throwed_2 = ElementsAnimal()
         """
         print(f"{self.subcategory} allows you to freely place one card whose subcategory is 'PATTES'.")
 
         # if Player(player_id).throw_card(card_throwed_1) and card_throwed_1.couleur_feuille == couleur_feuille:
-        #     self.bonuss = Player().place_card_in_clairiere(Card()) if Card().subcategory == "patte" else None
+        #     self.bonuss = Player().place_card_in_clairiere(ElementsAnimal()) if ElementsAnimal().subcategory == "patte" else None
         return self
 
     def points(self):

@@ -1,7 +1,7 @@
-from src.Player import Player, Card, Plateau, Game
+from src.Player import Player, ElementsAnimal, Plateau, Game
 from src.Ongulé import Ongulé
 
-class Cervidé(Card):
+class Cervidé(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
 
@@ -25,8 +25,8 @@ class CerfElaphe(Cervidé, Ongulé):
             the cost of the card can be payed entierely in cards whose color is {self.couleur_feuille}.")
         """
         to be reviewed
-        card_throwed_1 = Card()
-        card_throwed_2 = Card()
+        card_throwed_1 = ElementsAnimal()
+        card_throwed_2 = ElementsAnimal()
         """
         return self
 
@@ -53,8 +53,8 @@ class Chevreuil(Cervidé, Ongulé):
             can be payed entierely in cards whose color is {self.couleur_feuille}.")
         """
         to be reviewed
-        card_throwed_1 = Card()
-        card_throwed_2 = Card()
+        card_throwed_1 = ElementsAnimal()
+        card_throwed_2 = ElementsAnimal()
         """
         return self
 
@@ -81,8 +81,8 @@ class Daim(Cervidé, Ongulé):
             can be payed entierely in cards whose color is {self.couleur_feuille}.")
         """
         to be reviewed
-        card_throwed_1 = Card()
-        card_throwed_2 = Card()
+        card_throwed_1 = ElementsAnimal()
+        card_throwed_2 = ElementsAnimal()
         """
         return self
 

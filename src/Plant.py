@@ -1,7 +1,7 @@
-from src.Player import Player, Card, Plateau, Game
+from src.Player import Player, ElementsAnimal, Plateau, Game
 from src.Tree import *
 
-class Plant(Card):
+class Plant(ElementsAnimal):
     def __init__(self, couleur_feuille, down="down"):
         super().__init__(down)
         self.couleur_feuille = couleur_feuille

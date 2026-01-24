@@ -1,6 +1,6 @@
-from src.Player import Player, Card, Plateau, Game
+from src.Player import Player, ElementsAnimal, Plateau, Game
 
-class Papillon(Card):
+class Papillon(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
         self.category = ["papillon", "insecte"]

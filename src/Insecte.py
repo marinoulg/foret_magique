@@ -1,7 +1,7 @@
-from src.Player import Player, Card, Plateau, Game
+from src.Player import Player, ElementsAnimal, Plateau, Game
 from src.Tree import *
 
-class Insecte(Card):
+class Insecte(ElementsAnimal):
     def __init__(self, couleur_feuille, position="left" or "right"):
         self.couleur_feuille = couleur_feuille
         self.position = position

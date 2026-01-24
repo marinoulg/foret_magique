@@ -1,7 +1,7 @@
-from src.Player import Player, Card, Plateau, Game
+from src.Player import Player, ElementsAnimal, Plateau, Game
 from src.Cervidé import Cervidé
 
-class Ongulé(Card):
+class Ongulé(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
         self.category = "cervidé" and "ongulé"

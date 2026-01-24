@@ -1,6 +1,6 @@
-from src.Player import Player, Card, Plateau, Game
+from src.Player import Player, ElementsAnimal, Plateau, Game
 
-class Plantigrade(Card):
+class Plantigrade(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
         self.category = "plantigrade"
@@ -35,8 +35,8 @@ class LièvreEurope(Plantigrade):
         super().__init__(couleur_feuille)
         self.subcategory = "lièvre d'Europe"
         self.cost_card = 0
-        if self.position not in ["left", "right"]:
-            raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
+        # if self.position not in ["left", "right"]:
+        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
         """
         Couleurs : vert clair, bleu foncé, vert foncé, marron, rouge, jaune
         Position : left or right
@@ -64,8 +64,8 @@ class Fouine(Plantigrade):
         super().__init__(couleur_feuille)
         self.subcategory = "fouine"
         self.cost_card = 1
-        if self.position not in ["left", "right"]:
-            raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
+        # if self.position not in ["left", "right"]:
+        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
         """
         Couleurs : orange, vert foncé, marron, rouge
         Position : left or right
@@ -94,9 +94,9 @@ class Loup(Plantigrade):
         super().__init__(couleur_feuille)
         self.subcategory = "loup"
         self.cost_card = 3
-        if self.position not in ["left", "right"]:
-            raise ValueError(f"Position of {self.subcategory} is not possible, please choose \
-                among 'left' or 'right'")
+        # if self.position not in ["left", "right"]:
+        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose \
+                # among 'left' or 'right'")
         """
         Couleurs : bleu foncé, rouge, bleu clair
         Position : left or right
@@ -126,8 +126,8 @@ class RenardRoux(Plantigrade):
         super().__init__(couleur_feuille)
         self.subcategory = "renard roux"
         self.cost_card = 2
-        if self.position not in ["left", "right"]:
-            raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
+        # if self.position not in ["left", "right"]:
+        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
         """
         Couleurs : jaune, marron, bleu clair, vert foncé
         Position : left or right
@@ -156,7 +156,7 @@ class Taupe(Plantigrade):
         super().__init__(couleur_feuille)
         self.subcategory = "taupe"
         self.cost_card = 2
-        self.position = "down"
+        # self.position = "down"
         """
         Couleurs : rouge, marron
         """
@@ -184,8 +184,8 @@ class LoirGris(Plantigrade):
         super().__init__(couleur_feuille)
         self.subcategory = "loir gris"
         self.cost_card = 1
-        if self.position not in ["left", "right"]:
-            raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
+        # if self.position not in ["left", "right"]:
+        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
         """
         Couleurs : bleu clair, marron, bleu foncé, vert foncé
         Position : left or right
@@ -213,7 +213,7 @@ class EcureuilRoux(Plantigrade):
         super().__init__(couleur_feuille)
         self.subcategory = "écureuil roux"
         self.cost_card = 0
-        self.position = "up"
+        # self.position = "up"
         """
         Couleurs : orange, bleu clair, marron, vert foncé
         """
@@ -240,8 +240,8 @@ class BlaireauEuropéen(Plantigrade):
         super().__init__(couleur_feuille)
         self.subcategory = "blaireau européen"
         self.cost_card = 1
-        if self.position not in ["left", "right"]:
-            raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
+        # if self.position not in ["left", "right"]:
+        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
         """
         Couleurs : bleu clair, orange
         Position : left or right
@@ -270,8 +270,8 @@ class Lynx(Plantigrade):
         super().__init__(couleur_feuille)
         self.subcategory = "renard roux"
         self.cost_card = 1
-        if self.position not in ["left", "right"]:
-            raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
+        # if self.position not in ["left", "right"]:
+        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
         """
         Couleurs : jaune, orange, bleu clair, bleu foncé, vert foncé
         Position : left or right
@@ -300,8 +300,8 @@ class RatonLaveur(Plantigrade):
         super().__init__(couleur_feuille)
         self.subcategory = "raton laveur"
         self.cost_card = 1
-        if self.position not in ["left", "right"]:
-            raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
+        # if self.position not in ["left", "right"]:
+        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
         """
         Couleurs : bleu clair, vert clair, bleu foncé
         Position : left or right
@@ -330,8 +330,8 @@ class OursBrun(Plantigrade):
         super().__init__(couleur_feuille)
         self.subcategory = "ours brun"
         self.cost_card = 3
-        if self.position not in ["left", "right"]:
-            raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
+        # if self.position not in ["left", "right"]:
+        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
         """
         Couleurs : orange, jaune, vert foncé
         Position : left or right

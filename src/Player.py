@@ -1,6 +1,8 @@
 from collections import defaultdict
 from src.helper_functions.specific_functions import *
 from src.Tree import *
+from src.colors import which_color
+
 
 class Player:
     """
@@ -78,6 +80,10 @@ class Player:
     #     return True
 
 class Card:
+    def __init__(self):
+        pass
+
+class ElementsAnimal:
     """
     Is it important to know who a card belongs to?
     """
@@ -92,6 +98,9 @@ class Card:
         # self.player_id = player_id
 
         self.position = position
+
+    def choose_color(self):
+        return which_color()
 
 class Clairiere:
     def __init__(self):
