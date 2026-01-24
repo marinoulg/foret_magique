@@ -496,3 +496,12 @@ card.right = BarbastelleEurope("marron")
 all_cards.append(card)
 
 print(all_cards)
+
+chêne = Chêne() # 7
+tilleul = Tilleul() # 9
+bouleau = Bouleau() # 10
+hêtre = Hêtre() # 10
+marronnier = Marronier() # 11
+sapin_blanc = SapinBlanc() # 6
+sapin_D = SapinDouglas() # 7
+érable = Erable() # 6
