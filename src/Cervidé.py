@@ -1,12 +1,12 @@
 from src.Player import Player, ElementsAnimal, Plateau, Game
-from src.Ongulé import *
+# from src.Ongulé import *
 
 class Cervidé(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
         self.category = "cervidé"
 
-class CerfElaphe(Cervidé, Ongulé):
+class CerfElaphe(Cervidé):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.category = "cervidé" and "ongulé"
@@ -34,7 +34,7 @@ class CerfElaphe(Cervidé, Ongulé):
         print(f"1pt par Plant, and 1pt par Tree.")
         return self
 
-class Chevreuil(Cervidé, Ongulé):
+class Chevreuil(Cervidé):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.category = "cervidé" and "ongulé"
@@ -62,7 +62,7 @@ class Chevreuil(Cervidé, Ongulé):
         print(f"3pts per {self.couleur_feuille}.")
         return self
 
-class Daim(Cervidé, Ongulé):
+class Daim(Cervidé):
     def __init__(self, couleur_feuille):
         super().__init__(couleur_feuille)
         self.category = "cervidé" and "ongulé"
