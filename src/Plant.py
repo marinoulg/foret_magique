@@ -2,10 +2,10 @@ from src.Player import Player, ElementsAnimal, Plateau, Game
 from src.Tree import *
 
 class Plant(ElementsAnimal):
-    def __init__(self, couleur_feuille, down="down"):
-        super().__init__(down)
+    def __init__(self, couleur_feuille):
+        # super().__init__(down)
         self.couleur_feuille = couleur_feuille
-        self.position = down
+        # self.position = down
         self.category = "plant"
 
 
