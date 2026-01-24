@@ -9,7 +9,8 @@ next steps:
 - run scenarios
 
 Done :
-- ☑ create all cards in ```all_cards.py```
+- ☑ have all possible existing cards in a list in ```all_cards.py```
+- ☑ create all cards and have them actionable and ready to use (e.g., we can put a left/right/up/down card on any Tree)
 - ☑ create a module: you need to do ```pip install -e .``` to install it
 - ☑ raise ValueError pour toutes les couleurs impossibles
 - ☑ add color for the correct couleur_feuille
