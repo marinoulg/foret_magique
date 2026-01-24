@@ -8,9 +8,10 @@ next steps:
 - deal with colors
 - deal with positions
 - run scenarios
-- add color hexadecimal for the correct color?
+-
 
 Done :
+- ☑ add color for the correct couleur_feuille
 - ☑ create classes for all possible cards with their adequate information
 - ☑ coder les autres cartes restantes (cervidés etc.)
 - ☑ check names of class MarineVictor not Marine_victor
