@@ -14,13 +14,21 @@ class bcolors:
     GREY = '\033[2m'
     ENDC = '\033[0m'
 
-def which_color(possible_colors):
+def which_color(animal):
+
+    possible_animals = list(PossibleColors().possible_colors.keys())
+    if animal not in possible_animals:
+        raise ValueError(f"{animal} is not an existing animal.\n Possible animals are {possible_animals}")
+
+    possible_colors = PossibleColors().possible_colors[animal]
     if len(possible_colors) == 1:
         color = possible_colors[0]
         return color
 
-    print("Choose colour_feuille. \nType 1 for red, 2 for yellow etc.")
+    print(f"Choose colour_feuille for {animal}. \nType 1 for red, 2 for yellow etc.")
     poss_numbers = []
+    print(possible_colors)
+
     for couleur in possible_colors:
         if couleur == "rouge":
             print(bcolors.BOLD + bcolors.RED + "1. red")
@@ -75,7 +83,7 @@ def which_color(possible_colors):
     if color not in possible_colors:
         print("You typed in an incorrect number.")
         print("Possible colors are", possible_colors, ".\n")
-        color = which_color(possible_colors)
+        color = which_color(animal)
 
     return color
 

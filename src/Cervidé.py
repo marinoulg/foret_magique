@@ -1,10 +1,10 @@
 from src.Player import Player, ElementsAnimal, Plateau, Game
-from src.Ongulé import Ongulé
+from src.Ongulé import *
 
 class Cervidé(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
-
+        self.category = "cervidé"
 
 class CerfElaphe(Cervidé, Ongulé):
     def __init__(self, couleur_feuille):

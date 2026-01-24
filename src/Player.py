@@ -80,24 +80,22 @@ class Player:
     #     return True
 
 class Card:
-    def __init__(self):
-        pass
+    def __init__(self, up_down=False, left_right=False):
+        self.up_down = up_down
+        self.left_right = left_right
 
 class ElementsAnimal:
     """
     Is it important to know who a card belongs to?
     """
 
-    def __init__(self, position=None):
+    def __init__(self):
         self.cost_card = 0
         self.category = [None] # attention it has changed
         self.subcategory = None
         self.effect_attr = None
         self.bonuss = None
         self.couleur_feuille = None
-        # self.player_id = player_id
-
-        self.position = position
 
     def choose_color(self):
         return which_color()

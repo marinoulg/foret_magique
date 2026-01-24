@@ -1,71 +1,53 @@
 class PossibleColors:
     def __init__(self):
-
-        # Amphibien
-        self.crapaud = ["vert foncé", "bleu foncé", "rouge", "marron", "orange", "bleu clair"]
-        self.salamandre = ["jaune", "bleu clair", "orange"]
-        self.rainette = ["jaune", "marron"]
-        self.cistude = ["rouge", "vert clair"]
-
-        # Cervidé et Ongulé
-        self.cerf = ["orange", "jaune", "marron"]
-        self.chevreuil = ["bleu foncé", "jaune", "vert foncé", "orange", "vert clair"]
-        self.daim = ["rouge", "jaune", "vert clair"]
-
-        # Champignon
-        self.amanite = ["marron", "bleu foncé"]
-        self.coulemelle = ["orange", "bleu foncé"]
-        self.girolle = ["bleu foncé", "vert clair"]
-        self.cèpe_bordeaux = ["bleu clair"]
-
-        # ChauveSouris
-        self.murin_de_bechstein = ["marron", "vert clair", "vert foncé"]
-        self.grand_rhinolophe = ["jaune"]
-        self.oreillard_roux = ["rouge", "vert foncé"]
-        self.barbastelle_europe = ["orange", "marron", "bleu foncé"]
-
-        # Insecte
-        self.fourmi = ["vert foncé", "vert clair"]
-        self.luciole = ["vert foncé", "bleu clair", "jaune"]
-        self.lucane = ["vert clair", "rouge"]
-        self.moustique = ["orange", "vert clair", "marron"]
-        self.xylocope = ["bleu clair", "bleu foncé"]
-
-        # Oiseau
-        self.bouvreuilpivoire = ["bleu foncé", "bleu clair"]
-        self.pinson = ["rouge", "vert foncé", "vert clair"]
-        self.geai = ["orange", "vert clair", "rouge"]
-        self.palombes = ["bleu clair"]
-        self.pic_epeiche = ["jaune", "bleu clair"]
-        self.chouette = ["vert clair", "rouge", "vert foncé"]
-
-        # Ongulé
-        self.sanglier = ["rouge", "vert clair", "marron", "bleu clair"]
-        self.marcassin = ["marron", "rouge", "orange"]
-
-        # Papillon
-        self.grand_mars = ["jaune", "orange", "vert clair"]
-        self.paon_du_jour = ["jaune", "marron", "orange"]
-        self.morio = ["orange", "rouge"]
-        self.grande_tortue = ["vert foncé", "bleu foncé", "rouge"]
-        self.tabac_espagne = ["marron", "vert foncé"]
-
-        # Plant
-        self.fougère = ["jaune", "bleu foncé", "orange"]
-        self.mousse = ["bleu clair", "jaune"]
-        self.mure = ["bleu foncé", "vert foncé", "vert clair"]
-        self.fraise_des_bois = ["vert clair", "rouge"]
-
-        # Plantigrade
-        self.herisson = ["vert foncé", "orange", "marron"]
-        self.lièvre = ["vert clair", "bleu foncé", "vert foncé", "marron", "rouge", "jaune"]
-        self.fouine = ["orange", "vert foncé", "marron", "rouge"]
-        self.loup = ["bleu foncé", "rouge", "bleu clair"]
-        self.renard = ["jaune", "marron", "bleu clair", "vert foncé"]
-        self.taupe = ["rouge", "marron"]
-        self.loir = ["bleu clair", "marron", "bleu foncé", "vert foncé"]
-        self.ecureuil = ["orange", "bleu clair", "marron", "vert foncé"]
-        self.blaireau = ["bleu clair", "orange"]
-        self.lynx = ["jaune", "orange", "bleu clair", "bleu foncé", "vert foncé"]
-        self.raton_laveur = ["bleu clair", "vert clair", "bleu foncé"]
-        self.ours_brun = ["orange", "jaune", "vert foncé"]
+        self.possible_colors = {
+            'crapaud': ['vert foncé', 'bleu foncé', 'rouge', 'marron', 'orange', 'bleu clair'],
+            'salamandre': ['jaune', 'bleu clair', 'orange'],
+            'rainette': ['jaune', 'marron'],
+            'cistude': ['rouge', 'vert clair'],
+            'cerf': ['orange', 'jaune', 'marron'],
+            'chevreuil': ['bleu foncé', 'jaune', 'vert foncé', 'orange', 'vert clair'],
+            'daim': ['rouge', 'jaune', 'vert clair'],
+            'amanite': ['marron', 'bleu foncé'],
+            'coulemelle': ['orange', 'bleu foncé'],
+            'girolle': ['bleu foncé', 'vert clair'],
+            'cèpe_bordeaux': ['bleu clair'],
+            'murin_de_bechstein': ['marron', 'vert clair', 'vert foncé'],
+            'grand_rhinolophe': ['jaune'],
+            'oreillard_roux': ['rouge', 'vert foncé'],
+            'barbastelle_europe': ['orange', 'marron', 'bleu foncé'],
+            'fourmi': ['vert foncé', 'vert clair'],
+            'luciole': ['vert foncé', 'bleu clair', 'jaune'],
+            'lucane': ['vert clair', 'rouge'],
+            'moustique': ['orange', 'vert clair', 'marron'],
+            'xylocope': ['bleu clair', 'bleu foncé'],
+            'bouvreuilpivoire': ['bleu foncé', 'bleu clair'],
+            'pinson': ['rouge', 'vert foncé', 'vert clair'],
+            'geai': ['orange', 'vert clair', 'rouge'],
+            'palombes': ['bleu clair'],
+            'pic_epeiche': ['jaune', 'bleu clair'],
+            'chouette': ['vert clair', 'rouge', 'vert foncé'],
+            'sanglier': ['rouge', 'vert clair', 'marron', 'bleu clair'],
+            'marcassin': ['marron', 'rouge', 'orange'],
+            'grand_mars': ['jaune', 'orange', 'vert clair'],
+            'paon_du_jour': ['jaune', 'marron', 'orange'],
+            'morio': ['orange', 'rouge'],
+            'grande_tortue': ['vert foncé', 'bleu foncé', 'rouge'],
+            'tabac_espagne': ['marron', 'vert foncé'],
+            'fougère': ['jaune', 'bleu foncé', 'orange'],
+            'mousse': ['bleu clair', 'jaune'],
+            'mure': ['bleu foncé', 'vert foncé', 'vert clair'],
+            'fraise_des_bois': ['vert clair', 'rouge'],
+            'herisson': ['vert foncé', 'orange', 'marron'],
+            'lièvre': ['vert clair', 'bleu foncé', 'vert foncé', 'marron', 'rouge', 'jaune'],
+            'fouine': ['orange', 'vert foncé', 'marron', 'rouge'],
+            'loup': ['bleu foncé', 'rouge', 'bleu clair'],
+            'renard': ['jaune', 'marron', 'bleu clair', 'vert foncé'],
+            'taupe': ['rouge', 'marron'],
+            'loir': ['bleu clair', 'marron', 'bleu foncé', 'vert foncé'],
+            'ecureuil': ['orange', 'bleu clair', 'marron', 'vert foncé'],
+            'blaireau': ['bleu clair', 'orange'],
+            'lynx': ['jaune', 'orange', 'bleu clair', 'bleu foncé', 'vert foncé'],
+            'raton_laveur': ['bleu clair', 'vert clair', 'bleu foncé'],
+            'ours_brun': ['orange', 'jaune', 'vert foncé']
+            }

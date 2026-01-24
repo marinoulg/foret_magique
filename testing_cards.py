@@ -34,69 +34,69 @@ sapin_D = SapinDouglas()
 érable = Erable()
 
 # Champignon
-amanite = Amanite(which_color(p.amanite))
-coul = Coulemelle(which_color(p.coulemelle))
-gir = Girolle(which_color(p.girolle))
-cepe = CèpeDeBordeaux(which_color(p.cèpe_bordeaux))
+amanite = Amanite(which_color("amanite"))
+coul = Coulemelle(which_color("coulemelle"))
+gir = Girolle(which_color("girolle"))
+cepe = CèpeDeBordeaux(which_color("cèpe_bordeaux"))
 
 # Oiseau
-bouvreuil = BouvreuilPivoire(which_color(p.bouvreuilpivoire))
-pinson = PinsonDesArbres(which_color(p.pinson))
-geai = GeaiDesChênes(which_color(p.geai))
-palombe = AutourDesPalombes(which_color(p.palombes))
-pic = PicEpeiche(which_color(p.pic_epeiche))
+bouvreuil = BouvreuilPivoire(which_color("bouvreuilpivoire"))
+pinson = PinsonDesArbres(which_color("pinson"))
+geai = GeaiDesChênes(which_color("geai"))
+palombe = AutourDesPalombes(which_color("palombes"))
+pic = PicEpeiche(which_color("pic_epeiche"))
 
 # Plantigrade
-herisson = Hérisson(which_color(p.herisson))
-lievre = LièvreEurope(which_color(p.lièvre))
-fouine = Fouine(which_color(p.fouine))
-loup = Loup(which_color(p.loup))
-renard = RenardRoux(which_color(p.renard))
-taupe = Taupe(which_color(p.taupe))
-loir = LoirGris(which_color(p.loir))
-ecureuil = EcureuilRoux(which_color(p.ecureuil))
-blaireau = BlaireauEuropéen(which_color(p.blaireau))
-lynx = Lynx(which_color(p.lynx))
-raton_laveur = RatonLaveur(which_color(p.raton_laveur))
-ours = OursBrun(which_color(p.ours_brun))
+herisson = Hérisson(which_color("herisson"))
+lievre = LièvreEurope(which_color("lièvre"))
+fouine = Fouine(which_color("fouine"))
+loup = Loup(which_color("loup"))
+renard = RenardRoux(which_color("renard"))
+taupe = Taupe(which_color("taupe"))
+loir = LoirGris(which_color("loir"))
+ecureuil = EcureuilRoux(which_color("ecureuil"))
+blaireau = BlaireauEuropéen(which_color("blaireau"))
+lynx = Lynx(which_color("lynx"))
+raton_laveur = RatonLaveur(which_color("raton_laveur"))
+ours = OursBrun(which_color("ours_brun"))
 
 # Papillon
-mars = GrandMarsChangeant(which_color(p.grand_mars))
-paon = PaonDuJour(which_color(p.paon_du_jour))
-morio = Morio(which_color(p.morio))
-grande_tort = GrandeTortue(which_color(p.grande_tortue))
-tabac_desp = TabacEspagne(which_color(p.tabac_espagne))
+mars = GrandMarsChangeant(which_color("grand_mars"))
+paon = PaonDuJour(which_color("paon_du_jour"))
+morio = Morio(which_color("morio"))
+grande_tort = GrandeTortue(which_color("grande_tortue"))
+tabac_desp = TabacEspagne(which_color("tabac_espagne"))
 
 # Amphibien
-crapaud = CrapaudCommun(which_color(p.crapaud))
-salamandre = SalamandreTachetée(which_color(p.salamandre))
-rainette = RainetteVerte(which_color(p.rainette))
-cistude = Cistude(which_color(p.cistude))
+crapaud = CrapaudCommun(which_color("crapaud"))
+salamandre = SalamandreTachetée(which_color("salamandre"))
+rainette = RainetteVerte(which_color("rainette"))
+cistude = Cistude(which_color("cistude"))
 
 # Insecte
-fourmi = FourmiRousse(which_color(p.fourmi))
-luciole = Luciole(which_color(p.luciole))
-lucane = Lucane(which_color(p.lucane))
-moustique = Moustique(which_color(p.moustique))
-xylocope = XylocopeViolet(which_color(p.xylocope))
+fourmi = FourmiRousse(which_color("fourmi"))
+luciole = Luciole(which_color("luciole"))
+lucane = Lucane(which_color("lucane"))
+moustique = Moustique(which_color("moustique"))
+xylocope = XylocopeViolet(which_color("xylocope"))
 
 # Cervidé
-cerf = CerfElaphe(which_color(p.cerf))
-chevreuil = Chevreuil(which_color(p.chevreuil))
-daim = Daim(which_color(p.daim))
+cerf = CerfElaphe(which_color("cerf"))
+chevreuil = Chevreuil(which_color("chevreuil"))
+daim = Daim(which_color("daim"))
 
 # Ongulé
-sanglier = Sanglier(which_color(p.sanglier))
-marcassin = Marcassin(which_color(p.marcassin))
+sanglier = Sanglier(which_color("sanglier"))
+marcassin = Marcassin(which_color("marcassin"))
 
 # Plant
-fougere = FougèreArborescente(which_color(p.fougère))
-mousse = Mousse(which_color(p.mousse))
-mure = Mûre(which_color(p.mure))
-fraise_des_bois = FraiseDesBois(which_color(p.fraise_des_bois))
+fougere = FougèreArborescente(which_color("fougère"))
+mousse = Mousse(which_color("mousse"))
+mure = Mûre(which_color("mure"))
+fraise_des_bois = FraiseDesBois(which_color("fraise_des_bois"))
 
 
-
+"""
 cards_start = 6
 marine = Player(player_id=1,nb_cards=cards_start)
 
@@ -137,3 +137,4 @@ for _ in range(cards_start):
 
 # for card in (marine.cards_player):
 #     print(card.subcategory + ", " + card.couleur_feuille)
+"""

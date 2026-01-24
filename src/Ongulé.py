@@ -1,10 +1,10 @@
 from src.Player import Player, ElementsAnimal, Plateau, Game
-from src.Cervidé import Cervidé
+from src.Cervidé import *
 
 class Ongulé(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
-        self.category = "cervidé" and "ongulé"
+        self.category = "ongulé"
 
 class Sanglier(Ongulé):
     def __init__(self, couleur_feuille):
