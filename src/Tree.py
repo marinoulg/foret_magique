@@ -1,6 +1,6 @@
 from src.Player import *
 
-class Tree(Card):
+class Tree:
     def __init__(self, left=None, right=None, up=None, down=None):
         # super().__init__()
         self.left = left

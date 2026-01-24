@@ -5,39 +5,48 @@ class PossibleColors:
             'salamandre': ['jaune', 'bleu clair', 'orange'],
             'rainette': ['jaune', 'marron'],
             'cistude': ['rouge', 'vert clair'],
+
             'cerf': ['orange', 'jaune', 'marron'],
             'chevreuil': ['bleu foncé', 'jaune', 'vert foncé', 'orange', 'vert clair'],
             'daim': ['rouge', 'jaune', 'vert clair'],
+
             'amanite': ['marron', 'bleu foncé'],
             'coulemelle': ['orange', 'bleu foncé'],
             'girolle': ['bleu foncé', 'vert clair'],
             'cèpe_bordeaux': ['bleu clair'],
+
             'murin_de_bechstein': ['marron', 'vert clair', 'vert foncé'],
             'grand_rhinolophe': ['jaune'],
             'oreillard_roux': ['rouge', 'vert foncé'],
             'barbastelle_europe': ['orange', 'marron', 'bleu foncé'],
+
             'fourmi': ['vert foncé', 'vert clair'],
             'luciole': ['vert foncé', 'bleu clair', 'jaune'],
             'lucane': ['vert clair', 'rouge'],
             'moustique': ['orange', 'vert clair', 'marron'],
             'xylocope': ['bleu clair', 'bleu foncé'],
+
             'bouvreuilpivoire': ['bleu foncé', 'bleu clair'],
             'pinson': ['rouge', 'vert foncé', 'vert clair'],
             'geai': ['orange', 'vert clair', 'rouge'],
             'palombes': ['bleu clair'],
             'pic_epeiche': ['jaune', 'bleu clair'],
             'chouette': ['vert clair', 'rouge', 'vert foncé'],
+
             'sanglier': ['rouge', 'vert clair', 'marron', 'bleu clair'],
             'marcassin': ['marron', 'rouge', 'orange'],
+
             'grand_mars': ['jaune', 'orange', 'vert clair'],
             'paon_du_jour': ['jaune', 'marron', 'orange'],
             'morio': ['orange', 'rouge'],
             'grande_tortue': ['vert foncé', 'bleu foncé', 'rouge'],
             'tabac_espagne': ['marron', 'vert foncé'],
+
             'fougère': ['jaune', 'bleu foncé', 'orange'],
             'mousse': ['bleu clair', 'jaune'],
             'mure': ['bleu foncé', 'vert foncé', 'vert clair'],
             'fraise_des_bois': ['vert clair', 'rouge'],
+
             'herisson': ['vert foncé', 'orange', 'marron'],
             'lièvre': ['vert clair', 'bleu foncé', 'vert foncé', 'marron', 'rouge', 'jaune'],
             'fouine': ['orange', 'vert foncé', 'marron', 'rouge'],

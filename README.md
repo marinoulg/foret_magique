@@ -11,6 +11,7 @@ next steps:
 -
 
 Done :
+- ☑ created a module: you need to do ```pip install -e .``` to install it
 - ☑ add color for the correct couleur_feuille
 - ☑ create classes for all possible cards with their adequate information
 - ☑ coder les autres cartes restantes (cervidés etc.)

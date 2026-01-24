@@ -6,8 +6,8 @@ class ChauveSouris(ElementsAnimal):
         self.couleur_feuille = couleur_feuille
         self.category = "chauve-souris"
         self.cost_card = 1
-        if self.position not in ["left", "right"]:
-            raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
+        # if self.position not in ["left", "right"]:
+        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
 
     def effet(self, new_card):
         print(f"{self.subcategory} has no effect.")

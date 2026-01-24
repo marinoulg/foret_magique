@@ -3,7 +3,6 @@ from src.helper_functions.specific_functions import *
 from src.Tree import *
 from src.colors import which_color
 
-
 class Player:
     """
     This class defines the characteristics of a Player.
@@ -79,11 +78,6 @@ class Player:
     #     Which_tree(player_id).up = Card
     #     return True
 
-class Card:
-    def __init__(self, up_down=False, left_right=False):
-        self.up_down = up_down
-        self.left_right = left_right
-
 class ElementsAnimal:
     """
     Is it important to know who a card belongs to?
@@ -96,9 +90,21 @@ class ElementsAnimal:
         self.effect_attr = None
         self.bonuss = None
         self.couleur_feuille = None
+        self.position = None
 
     def choose_color(self):
         return which_color()
+
+class Card:
+    def __init__(self, up_down=False, left_right=False):
+        self.up_down = up_down
+        self.left_right = left_right
+        if up_down == True:
+            self.up = ElementsAnimal()
+            self.down = ElementsAnimal()
+        else:
+            self.left = ElementsAnimal()
+            self.right = ElementsAnimal()
 
 class Clairiere:
     def __init__(self):

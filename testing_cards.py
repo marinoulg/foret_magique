@@ -3,7 +3,7 @@ from random import choice
 from src.Tree import *
 from src.Player import *
 from src.helper_functions.specific_functions import *
-from src.colors import which_color
+from src.PossibleColors import PossibleColors
 
 from src.Champignon import *
 from src.Oiseau import *
@@ -14,15 +14,23 @@ from src.Insecte import *
 from src.Cervidé import *
 from src.Ongulé import *
 from src.Plant import *
-from src.PossibleColors import PossibleColors
-
-
-p = PossibleColors()
-# print(list(p.__dict__.keys()))
-# print(p.__dict__) # use this once over
+from src.ChauveSouris import *
 
 # Possible cards
 
+# card = Card(up_down=True)
+# card.up = GrandMarsChangeant("jaune")
+# card.down = Taupe("marron")
+
+# print(card.__dict__["up"].category)
+
+# card2 = Card(left_right=True)
+# card2.left = LièvreEurope("marron")
+# card2.right = OreillardRoux("bleu foncé")
+
+# print(card2.__dict__)
+
+"""
 # Tree
 chêne = Chêne()
 tilleul = Tilleul()
@@ -94,47 +102,23 @@ fougere = FougèreArborescente(which_color("fougère"))
 mousse = Mousse(which_color("mousse"))
 mure = Mûre(which_color("mure"))
 fraise_des_bois = FraiseDesBois(which_color("fraise_des_bois"))
-
-
 """
+
+
 cards_start = 6
 marine = Player(player_id=1,nb_cards=cards_start)
 
 for _ in range(cards_start):
-    rand_choice = choice([chêne,
-                            tilleul,
-                            bouleau,
-                            hêtre,
-                            marronnier,
-                            sapin_blanc,
-                            sapin_D,
-                            érable,
+    all_animals = list(PossibleColors().possible_colors.keys())
+    rand_choice1 = choice(all_animals)
+    rand_choice2 = choice(all_animals)
+    card = Card(up_down=True)
+    card.up = rand_choice1
+    card.down = rand_choice2
+    marine.draw_card(card)
 
-                            amanite,
-                            coul,
-                            gir,
-                            cepe,
+for card in (marine.cards_player):
+    print(card.__dict__["up"])
+    print(card.__dict__["down"])
 
-                            bouvreuil,
-                            pinson,
-                            geai,
-                            palombe,
-                            pic,
-
-                            herisson,
-
-                            mars,
-                            paon,
-                            morio,
-                            grande_tort,
-                            tabac_desp,
-
-                            crapaud,
-                            salamandre,
-                            rainette,
-                            cistude,])
-    marine.draw_card(rand_choice)
-
-# for card in (marine.cards_player):
-#     print(card.subcategory + ", " + card.couleur_feuille)
-"""
+print(card.__dict__)

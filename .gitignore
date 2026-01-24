@@ -1,1 +1,7 @@
 __pycache__/
+*/__pycache__
+PKG*
+depend*
+sources.txt
+top_level*
+not*

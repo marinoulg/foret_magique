@@ -3,7 +3,7 @@ from src.Player import Player, ElementsAnimal, Plateau, Game
 class Papillon(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
-        self.category = ["papillon", "insecte"]
+        self.category = "papillon"
 
     def points(self):
         # how_many = Plateau().how_many_per_species(self, subcategory = self.subcategory[0])
