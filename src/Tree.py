@@ -1,12 +1,8 @@
-from src.Player import *
+from src.Player import Card
 
-class Tree:
+class Tree(Card):
     def __init__(self, left=None, right=None, up=None, down=None):
-        # super().__init__()
-        self.left = left
-        self.right = right
-        self.up = up
-        self.down = down
+        super().__init__(left, right, up, down)
         self.category = "arbre"
 
 class Chêne(Tree):

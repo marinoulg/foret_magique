@@ -495,13 +495,37 @@ card.left = LoirGris("vert foncé")
 card.right = BarbastelleEurope("marron")
 all_cards.append(card)
 
-print(all_cards)
+for _ in range(7):
+    chêne = Chêne() # 7
+    all_cards.append(chêne)
 
-chêne = Chêne() # 7
-tilleul = Tilleul() # 9
-bouleau = Bouleau() # 10
-hêtre = Hêtre() # 10
-marronnier = Marronier() # 11
-sapin_blanc = SapinBlanc() # 6
-sapin_D = SapinDouglas() # 7
-érable = Erable() # 6
+for _ in range(9):
+    tilleul = Tilleul() # 9
+    all_cards.append(tilleul)
+
+for _ in range(10):
+    bouleau = Bouleau() # 10
+    all_cards.append(bouleau)
+
+for _ in range(10):
+    hêtre = Hêtre() # 10
+    all_cards.append(hêtre)
+
+for _ in range(11):
+    marronnier = Marronier() # 11
+    all_cards.append(marronnier)
+
+for _ in range(6):
+    sapin_blanc = SapinBlanc() # 6
+    all_cards.append(sapin_blanc)
+
+for _ in range(7):
+    sapin_D = SapinDouglas() # 7
+    all_cards.append(sapin_D)
+
+for _ in range(6):
+    érable = Erable() # 6
+    all_cards.append(érable)
+
+print(all_cards)
+print(len(all_cards))

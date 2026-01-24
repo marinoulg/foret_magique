@@ -96,15 +96,22 @@ class ElementsAnimal:
         return which_color()
 
 class Card:
-    def __init__(self, up_down=False, left_right=False):
-        self.up_down = up_down
-        self.left_right = left_right
+    def __init__(self, up_down=False, left_right=False,
+                 tree=False, left=None, right=None, up=None, down=None):
         if up_down == True:
+            self.up_down = up_down
             self.up = ElementsAnimal()
             self.down = ElementsAnimal()
-        else:
+        elif left_right == True:
+            self.left_right = left_right
             self.left = ElementsAnimal()
             self.right = ElementsAnimal()
+        elif tree == True:
+            self.left = ElementsAnimal()
+            self.right = ElementsAnimal()
+            self.up = ElementsAnimal()
+            self.down = ElementsAnimal()
+
 
 class Clairiere:
     def __init__(self):
