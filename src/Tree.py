@@ -12,7 +12,7 @@ class Chêne(Tree):
         self.cost_card = 2
         self.effect_attr = None
         self.bonuss = None
-        self.couleur = "marron"
+        self.couleur_feuille = "marron"
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")
@@ -46,7 +46,7 @@ class Bouleau(Tree):
         self.cost_card = 0
         # self.effect = Player().draw_cards(Card())
         self.bonuss = None
-        self.couleur = "vert clair"
+        self.couleur_feuille = "vert clair"
 
     def effet(self):
         print(f"{self.subcategory} allows you to draw a card.")
@@ -67,7 +67,7 @@ class Hêtre(Tree):
         self.cost_card = 1
         # self.effect = Player().draw_cards(Card())
         self.bonuss = None
-        self.couleur = "vert foncé"
+        self.couleur_feuille = "vert foncé"
 
     def effet(self):
         print(f"{self.subcategory} allows you to draw a card.")
@@ -89,7 +89,7 @@ class Marronier(Tree):
         self.cost_card = 1
         self.effect_attr = None
         self.bonuss = None
-        self.couleur = "orange"
+        self.couleur_feuille = "orange"
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")
@@ -123,7 +123,7 @@ class SapinBlanc(Tree):
         self.cost_card = 2
         self.effect_attr = None
         self.bonuss = None
-        self.couleur = "bleu clair"
+        self.couleur_feuille = "bleu clair"
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")
@@ -148,11 +148,11 @@ class SapinBlanc(Tree):
 class SapinDouglas(Tree):
     def __init__(self, left=None, right=None, up=None, down=None):
         super().__init__(left, right, up, down)
-        self.subcategory = "tilleul"
+        self.subcategory = "sapin Douglas"
         self.cost_card = 2
         self.effect_attr = None
         self.bonuss = None
-        self.couleur = "bleu foncé"
+        self.couleur_feuille = "bleu foncé"
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")
@@ -182,7 +182,7 @@ class Tilleul(Tree):
         self.cost_card = 1
         self.effect_attr = None
         self.bonuss = None
-        self.couleur = "jaune"
+        self.couleur_feuille = "jaune"
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")
@@ -209,7 +209,7 @@ class Erable(Tree):
         self.cost_card = 2
         self.effect_attr = None
         self.bonuss = None
-        self.couleur = "rouge"
+        self.couleur_feuille = "rouge"
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")

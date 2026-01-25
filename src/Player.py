@@ -27,12 +27,12 @@ class Player:
 
     """
 
-
     def __init__(self, player_id, nb_cards=6):
         self.player_id = player_id
         self.nb_cards = nb_cards
         self.puncts = 0
         self.cards_player = []
+        self.who_start = 0
 
         self.num_tilleuls = 0 # not sure -- more so in the Plateau?
 
@@ -66,6 +66,65 @@ class Player:
     def pickup_card_from_clairiere(self, Card):
         pass
 
+    def print_cards(self, cat=False,
+                    subcat=True,
+                    color_leaf=True,
+                    cost_card=False,
+                    effect_attr = False):
+        for c in (self.cards_player):
+            try:
+                c_up = c.__dict__["up"]
+                c_down = c.__dict__["down"]
+                if cat==True:
+                    print(c_up.category, end=" / ")
+                    print(c_down.category, end = " - ")
+                if subcat==True:
+                    print(c_up.subcategory, end=" / ")
+                    print(c_down.subcategory, end = " - ")
+                if color_leaf==True:
+                    print(c_up.couleur_feuille, end = " / ")
+                    print(c_down.couleur_feuille, end = " - ")
+                if cost_card==True:
+                    print(c_up.cost_card, end = " / ")
+                    print(c_down.cost_card, end = " - ")
+                # if effect_attr==True:
+                #     print(c_up.effect_attr, end = " / ")
+                #     print(c_down.effect_attr, end = " - ")
+
+                else: next
+            except KeyError:
+                try:
+                    if cat==True:
+                        print(c.category, end=" - ")
+                    if subcat==True:
+                        print(c.subcategory, end=" - ")
+                    if color_leaf==True:
+                        print(c.couleur_feuille, end = " - ")
+                    if cost_card==True:
+                        print(c.cost_card, end = " - ")
+                    else: next
+                except AttributeError:
+                    try:
+                        c_left = c.__dict__["left"]
+                        c_right = c.__dict__["right"]
+                        if cat==True:
+                            print(c_left.category, end=" / ")
+                            print(c_right.category, end = " - ")
+                        if subcat==True:
+                            print(c_left.subcategory, end=" / ")
+                            print(c_right.subcategory, end = " - ")
+                        if color_leaf==True:
+                            print(c_left.couleur_feuille, end = " / ")
+                            print(c_right.couleur_feuille, end = " - ")
+                        if cost_card==True:
+                            print(c_left.cost_card, end = " / ")
+                            print(c_right.cost_card, end = " - ")
+                        else: next
+                    except AttributeError:
+                        next
+
+            print()
+
     # def play_card_down(self, player_id, Which_tree, Card):
     #     """
     #     """
@@ -95,9 +154,10 @@ class ElementsAnimal:
     def choose_color(self):
         return which_color()
 
-class Card:
+class Card(ElementsAnimal):
     def __init__(self, up_down=False, left_right=False,
-                 tree=False, left=None, right=None, up=None, down=None):
+                 tree=False, left=None, right=None, up=None, down=None,
+                 winter=False, grotte=False):
         if up_down == True:
             self.up_down = up_down
             self.up = ElementsAnimal()
@@ -111,6 +171,12 @@ class Card:
             self.right = ElementsAnimal()
             self.up = ElementsAnimal()
             self.down = ElementsAnimal()
+        elif winter == True:
+            self.winter_is_coming = 0
+            # card_winter = Card(winter=True)
+            # card_winter.winter_is_coming += 1
+        elif grotte == True:
+            self.grotte = []
 
 
 class Clairiere:

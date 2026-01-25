@@ -1,15 +1,15 @@
-from Player import Card
+from src.Player import Card
 
-from Champignon import *
-from Oiseau import *
-from Plantigrade import *
-from Papillon import *
-from Amphibien import *
-from Insecte import *
-from Cervidé import *
-from Ongulé import *
-from Plant import *
-from ChauveSouris import *
+from src.Champignon import *
+from src.Oiseau import *
+from src.Plantigrade import *
+from src.Papillon import *
+from src.Amphibien import *
+from src.Insecte import *
+from src.Cervidé import *
+from src.Ongulé import *
+from src.Plant import *
+from src.ChauveSouris import *
 
 all_cards = [] # except Trees
 
@@ -527,5 +527,81 @@ for _ in range(6):
     érable = Erable() # 6
     all_cards.append(érable)
 
-print(all_cards)
-print(len(all_cards))
+# print(all_cards)
+# print(len(all_cards))
+
+"""
+all instantiated cards if we wanted to ask user what was the color of their leaf
+
+# Tree
+chêne = Chêne()
+tilleul = Tilleul()
+bouleau = Bouleau()
+hêtre = Hêtre()
+marronnier = Marronier()
+sapin_blanc = SapinBlanc()
+sapin_D = SapinDouglas()
+érable = Erable()
+
+# Champignon
+amanite = Amanite(which_color("amanite"))
+coul = Coulemelle(which_color("coulemelle"))
+gir = Girolle(which_color("girolle"))
+cepe = CèpeDeBordeaux(which_color("cèpe_bordeaux"))
+
+# Oiseau
+bouvreuil = BouvreuilPivoire(which_color("bouvreuilpivoire"))
+pinson = PinsonDesArbres(which_color("pinson"))
+geai = GeaiDesChênes(which_color("geai"))
+palombe = AutourDesPalombes(which_color("palombes"))
+pic = PicEpeiche(which_color("pic_epeiche"))
+
+# Plantigrade
+herisson = Hérisson(which_color("herisson"))
+lievre = LièvreEurope(which_color("lièvre"))
+fouine = Fouine(which_color("fouine"))
+loup = Loup(which_color("loup"))
+renard = RenardRoux(which_color("renard"))
+taupe = Taupe(which_color("taupe"))
+loir = LoirGris(which_color("loir"))
+ecureuil = EcureuilRoux(which_color("ecureuil"))
+blaireau = BlaireauEuropéen(which_color("blaireau"))
+lynx = Lynx(which_color("lynx"))
+raton_laveur = RatonLaveur(which_color("raton_laveur"))
+ours = OursBrun(which_color("ours_brun"))
+
+# Papillon
+mars = GrandMarsChangeant(which_color("grand_mars"))
+paon = PaonDuJour(which_color("paon_du_jour"))
+morio = Morio(which_color("morio"))
+grande_tort = GrandeTortue(which_color("grande_tortue"))
+tabac_desp = TabacEspagne(which_color("tabac_espagne"))
+
+# Amphibien
+crapaud = CrapaudCommun(which_color("crapaud"))
+salamandre = SalamandreTachetée(which_color("salamandre"))
+rainette = RainetteVerte(which_color("rainette"))
+cistude = Cistude(which_color("cistude"))
+
+# Insecte
+fourmi = FourmiRousse(which_color("fourmi"))
+luciole = Luciole(which_color("luciole"))
+lucane = Lucane(which_color("lucane"))
+moustique = Moustique(which_color("moustique"))
+xylocope = XylocopeViolet(which_color("xylocope"))
+
+# Cervidé
+cerf = CerfElaphe(which_color("cerf"))
+chevreuil = Chevreuil(which_color("chevreuil"))
+daim = Daim(which_color("daim"))
+
+# Ongulé
+sanglier = Sanglier(which_color("sanglier"))
+marcassin = Marcassin(which_color("marcassin"))
+
+# Plant
+fougere = FougèreArborescente(which_color("fougère"))
+mousse = Mousse(which_color("mousse"))
+mure = Mûre(which_color("mure"))
+fraise_des_bois = FraiseDesBois(which_color("fraise_des_bois"))
+"""
