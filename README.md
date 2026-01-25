@@ -23,4 +23,5 @@ Done :
 - ☑ coder les autres cartes restantes (cervidés etc.)
 - ☑ check names of class MarineVictor not Marine_victor
 
-question ouverte : que faire pour le déroulement d'une partie ? instancier une carte dès qu'on en tire une nouvelle, ou bien avoir une gross liste qui contienne toutes les cartes, et on randomchoice dedans (sachant que dans tous les cas on va randomchoice/randint etc.) ?
+question ouverte : *que faire pour le déroulement d'une partie ? instancier une carte dès qu'on en tire une nouvelle, ou bien avoir une grosse liste qui contienne toutes les cartes, et on randomchoice dedans (sachant que dans tous les cas on va randomchoice/randint etc.)* ?
+--> avoir une grosse liste qui contienne toutes les cartes, et on randomchoice dedans (sachant que dans tous les cas on va randomchoice/randint etc.)
