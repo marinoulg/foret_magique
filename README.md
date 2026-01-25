@@ -5,8 +5,13 @@ next steps:
 - tester toutes les méthodes de classes créées
 - implémenter le comptage des points (comment ? avoir une méthode .points() -- not sure)
 - run scenarios
+- build a game for 2 players
 
 Done :
+- ☑ add winter_card possibilities
+- ☑ add grotte possibilities
+- ☑ build the start of a game for 2 players
+- ☑ print out player's cards
 - ☑ have all possible existing cards in a list in ```all_cards.py```
 - ☑ create all cards and have them actionable and ready to use (e.g., we can put a left/right/up/down card on any Tree)
 - ☑ deal with positions
