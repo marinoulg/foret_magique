@@ -59,7 +59,7 @@ class Player:
         return one_move
 
     def throw_card_in_clairiere(self, Card):
-        self.cards_player.remove(Card)
+        self.cards_player.pop(Card)
         # if a player wishes to throw a card in la clairière,
         return self
 
@@ -71,7 +71,9 @@ class Player:
                     color_leaf=True,
                     cost_card=False,
                     effect_attr = False):
+        idx = 1
         for c in (self.cards_player):
+            print(f"carte {idx}")
             try:
                 c_up = c.__dict__["up"]
                 c_down = c.__dict__["down"]
@@ -85,6 +87,7 @@ class Player:
                     print(c_up.couleur_feuille, end = " / ")
                     print(c_down.couleur_feuille, end = " - ")
                 if cost_card==True:
+                    print("cost_card: ", end="")
                     print(c_up.cost_card, end = " / ")
                     print(c_down.cost_card, end = " - ")
                 # if effect_attr==True:
@@ -122,7 +125,7 @@ class Player:
                         else: next
                     except AttributeError:
                         next
-
+            idx += 1
             print()
 
     # def play_card_down(self, player_id, Which_tree, Card):
@@ -157,7 +160,10 @@ class ElementsAnimal:
 class Card(ElementsAnimal):
     def __init__(self, up_down=False, left_right=False,
                  tree=False, left=None, right=None, up=None, down=None,
-                 winter=False, grotte=False):
+                 winter=False, grotte=False,
+                #  cost_card=None
+                 ):
+        # super().__init__(cost_card)
         if up_down == True:
             self.up_down = up_down
             self.up = ElementsAnimal()
@@ -200,18 +206,18 @@ class Plateau(Player):
         temp_dict = {}
         if Card.category == "arbre":
             temp_dict[Card.subcategory] = {
-                "up":Card.up,
-                "down":Card.down,
-                "left":Card.left,
-                "right":Card.right
+                "up":None,
+                "down":None,
+                "left":None,
+                "right":None
             }
             self.plateau_player.append(temp_dict)
         else:
             temp_dict["Pousse d'arbre"] = {
-                "up":Card.up,
-                "down":Card.down,
-                "left":Card.left,
-                "right":Card.right
+                "up":None,
+                "down":None,
+                "left":None,
+                "right":None
             }
             self.plateau_player.append(temp_dict)
         return self

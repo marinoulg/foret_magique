@@ -32,8 +32,12 @@ print(f"There are {len(all_cards)} cards left.")
 
 print("Let us now randomly distribute 6 cards from the deck to Player marine...")
 cards_start = 6
+
 marine = Player(player_id=1,nb_cards=cards_start)
+marine_plateau = Plateau(marine.player_id)
+
 victor = Player(player_id=2,nb_cards=cards_start)
+victor_plateau = Plateau(victor.player_id)
 
 for _ in range(cards_start):
     idx_to_remove = randint(0,nb_of_cards-1)
@@ -114,10 +118,10 @@ def who_starts(player1, player2, biggest_in=6):
     pl2_score = player2.who_start
 
     if pl1_score > pl2_score :
-        print(f"Marine's {pl1_score} is bigger than Victor's {pl2_score}, so she starts.")
+        print(f"Player {player1.player_id}'s {pl1_score} is bigger than Player {player2.player_id}'s {pl2_score}, so Player {player1.player_id} starts.")
         return player1
     elif pl1_score < pl2_score :
-        print(f"Marine's {pl1_score} is smaller than Victor's {pl2_score}, so he starts.")
+        print(f"Player {player1.player_id}'s {pl1_score} is smaller than Player {player2.player_id}'s {pl2_score}, so Player {player2.player_id} starts.")
         return player2
     else:
         who_starts(player1, player2)
@@ -130,14 +134,30 @@ if starting_player == marine:
     marine.cards_player.append(card)
     card = deck.pop(0)
     marine.cards_player.append(card)
-    marine.print_cards()
+    marine.print_cards(cost_card=True)
 
     # count number of trees
     # if starting_player has 1 tree: --> place Tree in Plateau
     # elif starting_player has more thah 1 tree: player decides --> which one to place Tree in Plateau
     # else
 
+    card = int(input("which card to put in Plateau? "))
+    card_played = marine.cards_player[card-1]
+    marine_plateau.poser_un_arbre(card_played) # We do (card-1) bc we start at idx0 but here we start at card 1 (not card 0)
+    marine.cards_player.pop(card-1)
+    nb_cards_owed = card_played.cost_card
+    print(f"Player {marine.player_id} owes {card_played.cost_card} cards.")
+    print(card_played)
 
+    if card_played.cost_card > 0:
+        idx = 0
+        while idx != nb_cards_owed:
+            card = int(input("which card to put in Clairiere? "))
+            marine.throw_card_in_clairiere(card-1)
+            idx += 1
+
+    print(marine_plateau.__dict__)
+    marine.print_cards()
 
 else:
     print(f"Player {victor.player_id} draws 2 cards from the deck.")
@@ -147,7 +167,28 @@ else:
     victor.cards_player.append(card)
     victor.print_cards()
 
+    card = int(input("which card to put in Plateau? "))
+    card_played = marine.cards_player[card-1]
+    victor_plateau.poser_un_arbre(victor.cards_player[card-1])
+    victor.cards_player.pop(card-1)
+    nb_cards_owed = victor.cards_player[card-1].cost_card
+
+    print(f"Player {victor.player_id} owes {nb_of_cards} cards.")
+    print(victor.cards_player[card-1])
+
+    if nb_cards_owed > 0:
+        idx = 0
+        while idx != nb_cards_owed:
+            card = int(input("which card to put in Clairiere? "))
+            victor.throw_card_in_clairiere(card-1)
+            idx += 1
+
+    print(victor_plateau.__dict__)
+    victor.print_cards()
+
+
 print(f"There are now {len(deck)} cards left in the deck.")
+
 
 
 # We put some cards in the Clairière
