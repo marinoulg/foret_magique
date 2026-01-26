@@ -8,6 +8,7 @@ next steps:
 - build a game for 2 players
 
 Done :
+- ☑ subcategory names are aligned in all files, and if no color is given at initialising an animal, it is asked automatically
 - ☑ add winter_card possibilities
 - ☑ add grotte possibilities
 - ☑ build the start of a game for 2 players
