@@ -23,9 +23,9 @@ class Papillon(ElementsAnimal):
 class GrandMarsChangeant(Papillon):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "grand_mars_changeant"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "grand_mars_changeant"
         self.cost_card = 0
 
     def effet(self):
@@ -39,9 +39,9 @@ class GrandMarsChangeant(Papillon):
 class PaonDuJour(Papillon):
     def __init__(self,  couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "paon_du_jour"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "paon_du_jour"
         self.cost_card = 0
 
     def effet(self):
@@ -54,9 +54,9 @@ class PaonDuJour(Papillon):
 class Morio(Papillon):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "morio"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "morio"
         self.cost_card = 0
 
     def effet(self):
@@ -69,9 +69,9 @@ class Morio(Papillon):
 class GrandeTortue(Papillon):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "grande_tortue"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "grande_tortue"
         self.cost_card = 0
 
     def effet(self):
@@ -84,9 +84,9 @@ class GrandeTortue(Papillon):
 class TabacEspagne(Papillon):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "tabac_Espagne"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "tabac_Espagne"
         self.cost_card = 0
 
     def effet(self):

@@ -10,13 +10,10 @@ class Plant(ElementsAnimal):
 class FougèreArborescente(Plant):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "fougère_arborescente"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
-        self.subcategory = "fougère_arborescente"
-        """
-        couleur_feuille peut être : jaune, bleu foncé, orange
-        """
 
     def effet(self, new_card):
         print(f"{self.subcategory} allows you to draw a card.")
@@ -35,13 +32,10 @@ class FougèreArborescente(Plant):
 class Mousse(Plant):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "mousse"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "mousse"
         self.cost_card = 0
-        """
-        couleur_feuille peut être : bleu clair, jaune
-        """
 
     def effet(self, new_card):
         print(f"{self.subcategory} has no effect.")
@@ -60,13 +54,10 @@ class Mousse(Plant):
 class Mûre(Plant):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "mûre"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "mûre"
         self.cost_card = 0
-        """
-        couleur_feuille peut être : bleu foncé, vert foncé, vert clair
-        """
 
     def effet(self, new_card):
         print(f"{self.subcategory} has no effect.")
@@ -85,13 +76,10 @@ class Mûre(Plant):
 class FraiseDesBois(Plant):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "fraise_des_bois"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "fraise_des_bois"
         self.cost_card = 0
-        """
-        couleur_feuille peut être : vert clair, rouge
-        """
 
     def effet(self, new_card):
         print(f"{self.subcategory} has no effect.")

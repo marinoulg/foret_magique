@@ -9,13 +9,10 @@ class Amphibien(ElementsAnimal):
 class CrapaudCommun(Amphibien):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "crapaud_commun"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "crapaud_commun"
         self.cost_card = 0
-        possible_colors = ["vert foncé", "bleu foncé", "rouge", "marron", "orange", "bleu clair"]
-        if self.couleur_feuille not in possible_colors:
-            raise ValueError(f"Couleur of {self.subcategory} is not possible, please choose among {possible_colors}")
 
     def effet(self):
         print(f"Cet emplacement peut recevoir jusqu'à 2 {self.subcategory}s.")
@@ -35,9 +32,9 @@ class CrapaudCommun(Amphibien):
 class SalamandreTachetée(Amphibien):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "salamandre_tachetée"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "salamandre_tachetée"
         self.cost_card = 1
 
     def effet(self):
@@ -71,9 +68,9 @@ class SalamandreTachetée(Amphibien):
 class RainetteVerte(Amphibien):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "rainette_verte"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "rainette_verte"
         self.cost_card = 0
 
     def effet(self):
@@ -102,9 +99,9 @@ class RainetteVerte(Amphibien):
 class Cistude(Amphibien):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "cistude"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "cistude"
         self.cost_card = 2
 
     def effet(self, player_id):

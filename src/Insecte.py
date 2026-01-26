@@ -11,9 +11,9 @@ class Insecte(ElementsAnimal):
 class FourmiRousse(Insecte):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "fourmi_rousse"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "fourmi_rousse"
         self.cost_card = 1
 
     def effet(self, new_card):
@@ -31,9 +31,9 @@ class FourmiRousse(Insecte):
 class Luciole(Insecte):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "luciole"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "luciole"
         self.cost_card = 0
 
     def effet(self, new_card):
@@ -52,9 +52,9 @@ class Luciole(Insecte):
 class Lucane(Insecte):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "lucane"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "lucane"
         self.cost_card = 2
 
     def effet(self, new_card):
@@ -73,9 +73,9 @@ class Lucane(Insecte):
 class Moustique(Insecte):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "moustique"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "moustique"
         self.cost_card = 0
 
     def effet(self, new_card):
@@ -94,10 +94,10 @@ class Moustique(Insecte):
 class XylocopeViolet(Insecte):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "xylocope_violet"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
-        self.subcategory = "xylocope_violet"
 
     def effet(self, new_card):
         print(f"Ne vaut aucun point, mais augment de 1 le nombre d'Arbres de \

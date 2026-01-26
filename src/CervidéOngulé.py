@@ -6,10 +6,10 @@ from src.helper_functions.colors import which_color
 class CerfElaphe(Cervidé, Ongulé):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "cerf_élaphe"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
         self.category = "cervidé" and "ongulé"
-        self.subcategory = "cerf_élaphe"
         self.cost_card = 2
 
     def effet(self):
@@ -33,11 +33,11 @@ class CerfElaphe(Cervidé, Ongulé):
 class Chevreuil(Cervidé, Ongulé):
     subcategory = "chevreuil"
     def __init__(self, couleur_feuille=None):
+        self.subcategory = "chevreuil"
         super().__init__(couleur_feuille)
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
         self.category = "cervidé" and "ongulé"
-        self.subcategory = "chevreuil"
         self.cost_card = 2
 
     def effet(self):
@@ -61,10 +61,10 @@ class Chevreuil(Cervidé, Ongulé):
 class Daim(Cervidé):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "daim"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
         self.category = "cervidé" and "ongulé"
-        self.subcategory = "daim"
         self.cost_card = 2
 
     def effet(self):

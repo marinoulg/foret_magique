@@ -9,9 +9,9 @@ class Plantigrade(ElementsAnimal):
 class Hérisson(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "hérisson"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "hérisson"
         self.cost_card = 1
 
     def effet(self):
@@ -33,9 +33,9 @@ class Hérisson(Plantigrade):
 class LièvreEurope(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "lièvre_Europe"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "lièvre_Europe"
         self.cost_card = 0
 
     def effet(self):
@@ -58,9 +58,9 @@ class LièvreEurope(Plantigrade):
 class Fouine(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "fouine"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "fouine"
         self.cost_card = 1
 
     def effet(self):
@@ -84,9 +84,9 @@ class Fouine(Plantigrade):
 class Loup(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "loup"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "loup"
         self.cost_card = 3
 
     def effet(self):
@@ -111,9 +111,9 @@ class Loup(Plantigrade):
 class RenardRoux(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "renard_roux"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "renard_roux"
         self.cost_card = 2
 
     def effet(self):
@@ -137,9 +137,9 @@ class RenardRoux(Plantigrade):
 class Taupe(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "taupe"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "taupe"
         self.cost_card = 2
 
     def effet(self):
@@ -163,9 +163,9 @@ class Taupe(Plantigrade):
 class LoirGris(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "loir_gris"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "loir_gris"
         self.cost_card = 1
 
     def effet(self):
@@ -188,9 +188,9 @@ class LoirGris(Plantigrade):
 class EcureuilRoux(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "écureuil_roux"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "écureuil_roux"
         self.cost_card = 0
 
     def effet(self):
@@ -213,9 +213,9 @@ class EcureuilRoux(Plantigrade):
 class BlaireauEuropéen(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "blaireau_européen"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "blaireau_européen"
         self.cost_card = 1
 
     def effet(self):
@@ -239,9 +239,9 @@ class BlaireauEuropéen(Plantigrade):
 class Lynx(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "lynx"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "lynx"
         self.cost_card = 1
 
     def effet(self):
@@ -265,9 +265,9 @@ class Lynx(Plantigrade):
 class RatonLaveur(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "raton_laveur"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "raton_laveur"
         self.cost_card = 1
 
     def effet(self):
@@ -291,9 +291,9 @@ class RatonLaveur(Plantigrade):
 class OursBrun(Plantigrade):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "ours_brun"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "ours_brun"
         self.cost_card = 3
 
     def effet(self):

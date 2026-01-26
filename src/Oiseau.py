@@ -9,6 +9,7 @@ class Oiseau(ElementsAnimal):
 class BouvreuilPivoire(Oiseau):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "bouvreuil_pivoire"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
@@ -31,9 +32,9 @@ class BouvreuilPivoire(Oiseau):
 class PinsonDesArbres(Oiseau):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "pinson_des_arbres"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "pinson des arbres"
         self.cost_card = 1
 
     def effet(self):
@@ -53,9 +54,9 @@ class PinsonDesArbres(Oiseau):
 class GeaiDesChênes(Oiseau):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "geai_des_chênes"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "geai_des_chênes"
         self.cost_card = 1
 
     def effet(self):
@@ -73,9 +74,9 @@ class GeaiDesChênes(Oiseau):
 class AutourDesPalombes(Oiseau):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "autour_des_palombes"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "autour_des_palombes"
         self.couleur_feuille = "bleu clair"
         self.cost_card = 2
 
@@ -95,13 +96,10 @@ class AutourDesPalombes(Oiseau):
 class PicEpeiche(Oiseau):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "pic_epeiche"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "pic_epeiche"
         self.cost_card = 2
-        """
-        couleur_feuille peut être : jaune, bleu clair
-        """
 
     def effet(self):
         print(f"{self.subcategory} allows you to draw a card.")
@@ -121,13 +119,10 @@ class PicEpeiche(Oiseau):
 class ChouetteHulotte(Oiseau):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "chouette_hulotte"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "chouette_hulotte"
         self.cost_card = 2
-        """
-        couleur_feuille peut être : vert clair, rouge, vert foncé
-        """
 
     def effet(self, player_id):
         print(f"{self.subcategory} allows you to draw a card.")

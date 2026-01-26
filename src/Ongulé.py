@@ -11,9 +11,9 @@ class Sanglier(Ongulé):
     subcategory = "sanglier"
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "sanglier"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
-        self.subcategory = "sanglier"
         self.cost_card = 2
 
     def effet(self):
@@ -36,14 +36,11 @@ class Sanglier(Ongulé):
 class Marcassin(Ongulé):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        self.subcategory = "marcassin"
         if couleur_feuille == None:
             couleur_feuille = which_color(self.subcategory)
         self.category = "ongulé"
-        self.subcategory = "marcassin"
         self.cost_card = 0
-        """
-        Couleurs : marron, rouge, orange
-        """
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")

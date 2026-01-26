@@ -16,7 +16,7 @@ class PossibleColors:
             'amanite_tue_mouches': ['marron', 'bleu foncé'],
             'coulemelle': ['orange', 'bleu foncé'],
             'girolle': ['bleu foncé', 'vert clair'],
-            'cèpe_bordeaux': ['bleu clair'],
+            'cèpe_Bordeaux': ['bleu clair'],
 
             # ChauveSouris
             'murin_de_Bechstein': ['marron', 'vert clair', 'vert foncé'],
@@ -33,7 +33,7 @@ class PossibleColors:
 
             # Oiseaux
             'bouvreuil_pivoire': ['bleu foncé', 'bleu clair'],
-            'pinson des arbres': ['rouge', 'vert foncé', 'vert clair'],
+            'pinson_des_arbres': ['rouge', 'vert foncé', 'vert clair'],
             'geai_des_chênes': ['orange', 'vert clair', 'rouge'],
             'autour_des_palombes': ['bleu clair'],
             'pic_epeiche': ['jaune', 'bleu clair'],
