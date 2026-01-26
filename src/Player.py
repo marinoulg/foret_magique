@@ -3,7 +3,54 @@ from src.helper_functions.specific_functions import *
 from src.Tree import *
 from src.colors import which_color
 
-class Player:
+class Plateau:
+    def __init__(self, player_id):
+        self.player_id = player_id
+        self.plateau_player = list()
+
+    def place_tree(self):
+        """
+        answer is True or False
+        """
+        return True
+
+    def poser_un_arbre(self, Card):
+        temp_dict = {}
+        if Card.category == "arbre":
+            temp_dict[Card.subcategory] = {
+                "up":None,
+                "down":None,
+                "left":None,
+                "right":None
+            }
+            self.plateau_player.append(temp_dict)
+        else:
+            temp_dict["Pousse d'arbre"] = {
+                "up":None,
+                "down":None,
+                "left":None,
+                "right":None
+            }
+            self.plateau_player.append(temp_dict)
+        return self
+
+    def poser_une_carte(self, Card, on_tree):
+
+        pass
+
+    def how_many_tree_subcat(self, tree):
+        # print(Player, end = "")
+        return how_many_arbre_subcategory(self.plateau_player, tree)
+
+    def how_many_per_species(self, player_id, subcategory = "papillon"):
+        """
+        possible subcategories:
+            - papillon
+            - oiseau
+        """
+        return how_many_for_one_species(player_id, self.plateau_player, subcategory = subcategory)
+
+class Player(Plateau):
     """
     This class defines the characteristics of a Player.
     Each player has:
@@ -28,7 +75,7 @@ class Player:
     """
 
     def __init__(self, player_id, nb_cards=6):
-        self.player_id = player_id
+        super().__init__(player_id)
         self.nb_cards = nb_cards
         self.puncts = 0
         self.cards_player = []
@@ -58,10 +105,10 @@ class Player:
             self.nb_cards -= one_move
         return one_move
 
-    def throw_card_in_clairiere(self, Card):
-        self.cards_player.pop(Card)
+    def throw_card(self, card_idx):
+        card = self.cards_player.pop(card_idx)
         # if a player wishes to throw a card in la clairière,
-        return self
+        return card
 
     def pickup_card_from_clairiere(self, Card):
         pass
@@ -73,7 +120,7 @@ class Player:
                     effect_attr = False):
         idx = 1
         for c in (self.cards_player):
-            print(f"carte {idx}")
+            print(f"carte {idx}: ", end="")
             try:
                 c_up = c.__dict__["up"]
                 c_down = c.__dict__["down"]
@@ -153,6 +200,7 @@ class ElementsAnimal:
         self.bonuss = None
         self.couleur_feuille = None
         self.position = None
+        self.cost_card = None
 
     def choose_color(self):
         return which_color()
@@ -187,56 +235,75 @@ class Card(ElementsAnimal):
 
 class Clairiere:
     def __init__(self):
-        if Player.throw_card(Card):
-            self.cards_clairiere = list()
-            self.cards_clairiere.append(Card)
+        self.cards_clairiere = list()
 
-class Plateau(Player):
-    def __init__(self, player_id):
-        super().__init__(player_id)
-        self.plateau_player = list()
-
-    def place_tree(self):
-        """
-        answer is True or False
-        """
-        return True
-
-    def poser_un_arbre(self, Card):
-        temp_dict = {}
-        if Card.category == "arbre":
-            temp_dict[Card.subcategory] = {
-                "up":None,
-                "down":None,
-                "left":None,
-                "right":None
-            }
-            self.plateau_player.append(temp_dict)
-        else:
-            temp_dict["Pousse d'arbre"] = {
-                "up":None,
-                "down":None,
-                "left":None,
-                "right":None
-            }
-            self.plateau_player.append(temp_dict)
+    def throw_card_in_clairiere(self, Player, card_idx_in_list):
+        Card = Player.throw_card(card_idx_in_list)
+        self.cards_clairiere.append(Card)
         return self
 
-    def poser_une_carte(self, Card, on_tree):
+    def print_cards(self, cat=False,
+                    subcat=True,
+                    color_leaf=True,
+                    cost_card=False,
+                    effect_attr = False):
+        idx = 1
+        for c in (self.cards_clairiere):
+            print(f"carte {idx}: ", end="")
+            try:
+                c_up = c.__dict__["up"]
+                c_down = c.__dict__["down"]
+                if cat==True:
+                    print(c_up.category, end=" / ")
+                    print(c_down.category, end = " - ")
+                if subcat==True:
+                    print(c_up.subcategory, end=" / ")
+                    print(c_down.subcategory, end = " - ")
+                if color_leaf==True:
+                    print(c_up.couleur_feuille, end = " / ")
+                    print(c_down.couleur_feuille, end = " - ")
+                if cost_card==True:
+                    print("cost_card: ", end="")
+                    print(c_up.cost_card, end = " / ")
+                    print(c_down.cost_card, end = " - ")
+                # if effect_attr==True:
+                #     print(c_up.effect_attr, end = " / ")
+                #     print(c_down.effect_attr, end = " - ")
 
-        pass
+                else: next
+            except KeyError:
+                try:
+                    if cat==True:
+                        print(c.category, end=" - ")
+                    if subcat==True:
+                        print(c.subcategory, end=" - ")
+                    if color_leaf==True:
+                        print(c.couleur_feuille, end = " - ")
+                    if cost_card==True:
+                        print(c.cost_card, end = " - ")
+                    else: next
+                except AttributeError:
+                    try:
+                        c_left = c.__dict__["left"]
+                        c_right = c.__dict__["right"]
+                        if cat==True:
+                            print(c_left.category, end=" / ")
+                            print(c_right.category, end = " - ")
+                        if subcat==True:
+                            print(c_left.subcategory, end=" / ")
+                            print(c_right.subcategory, end = " - ")
+                        if color_leaf==True:
+                            print(c_left.couleur_feuille, end = " / ")
+                            print(c_right.couleur_feuille, end = " - ")
+                        if cost_card==True:
+                            print(c_left.cost_card, end = " / ")
+                            print(c_right.cost_card, end = " - ")
+                        else: next
+                    except AttributeError:
+                        next
+            idx += 1
+            print()
 
-    def how_many_tree_subcat(self, tree):
-        # print(Player, end = "")
-        return how_many_arbre_subcategory(self.plateau_player, tree)
-
-    def how_many_per_species(self, player_id, subcategory = "papillon"):
-        """
-        possible subcategories:
-            - papillon
-            - oiseau
-        """
-        return how_many_for_one_species(player_id, self.plateau_player, subcategory = subcategory)
 
 class Game:
     def __init__(self, nb_of_players):
