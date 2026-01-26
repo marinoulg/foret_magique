@@ -1,4 +1,5 @@
 from collections import defaultdict
+import sys
 from pprint import pprint
 from src.helper_functions.specific_functions import *
 from src.helper_functions.colors import which_color
@@ -55,7 +56,7 @@ class Plateau:
 
         return self
 
-    def how_many_tree_subcat(self, tree, print_=False):
+    def how_many_tree_subcat(self, tree="tilleul", print_=False):
         if print_: print("Player", self.player_id, end = "")
         return how_many_arbre_subcategory(self.plateau_player, tree, print_=print_)
 
@@ -203,7 +204,7 @@ class Plateau:
                             right=False):
         count = 0
         for elem in self.plateau_player:
-            print(elem)
+            # print(elem)
             try:
                 if Card.up_down == True:
                     if up == True:
@@ -246,39 +247,196 @@ class Plateau:
                     except AttributeError:
                         next
 
-            print()
+            # print()
         return count
 
-    def count_points_animal(self,
-                     autour_des_palombes=False,
-                     mousse=False,
-                     points=0):
+    def at_least_1_tree_per_subcategory(self):
+        boul = self.how_many_tree_subcat("bouleau")
+        ch = self.how_many_tree_subcat("chêne")
+        ht = self.how_many_tree_subcat("hêtre")
+        marr = self.how_many_tree_subcat("marronnier_commun")
+        sbl = self.how_many_tree_subcat("sapin_blanc")
+        spD = self.how_many_tree_subcat("sapin_Douglas")
+        tll = self.how_many_tree_subcat("tilleul")
+        er = self.how_many_tree_subcat("érable")
+
+        if boul > 0 and ch > 0 and ht > 0 and marr > 0 and sbl > 0 and spD > 0 and tll > 0 and er > 0:
+            return True
+        else: return False
+
+    def count_papillons(self):
+        papillons_dict = {
+            "grand_mars_changeant":0,
+            "paon_du_jour":0,
+            "morio":0,
+            "grande_tortue":0,
+            "tabac_Espagne":0
+            }
 
         for elem in self.plateau_player:
-            for animal in list(elem.values()):
-                if autour_des_palombes == True:
-                    palom = Card(up_down=True)
-                    palom.up = AutourDesPalombes()
-                    try:
-                        if animal.subcategory == "autour_des_palombes":
-                            c = self.how_many_per_category(palom,
-                                                    palom.up.category,
-                                                    up=True)
-                            # print(c)
-                            points += (3*c)
+            if elem["up"] != None:
+                if elem["up"].category == "papillon":
+                    papillons_dict[(elem["up"].subcategory)] += 1
+        return papillons_dict
 
+    def points_papillon(self, points):
+        pap_dict = (self.count_papillons())
+        how_many_difft = 0
+        for k in pap_dict.keys():
+            if pap_dict[k] > 0:
+                how_many_difft += 1
+
+        if how_many_difft == 1:
+            points += 0
+        elif how_many_difft == 2:
+            points += 3
+        elif how_many_difft == 3:
+            points += 6
+        elif how_many_difft == 4:
+            points += 12
+        elif how_many_difft == 5:
+            points += 20
+
+        return points
+
+    def count_points_animal(self,
+                    # Amphibien
+                    crapaud_commun=False,
+                    salamandre_tachetée=False,
+                    rainette_verte=False,
+                    cistude=False,
+
+                    # CervidéOngulé
+                    cerf_élaphe=False,
+                    chevreuil=False,
+                    daim=False,
+
+                    # Champignon
+                    amanite_tue_mouches=False,
+                    coulemelle=False,
+                    girolle=False,
+                    cèpe_Bordeaux=False,
+
+                    # ChauveSouris
+                    murin_de_Bechstein=False,
+                    grand_rhinolophe=False,
+                    oreillard_roux=False,
+                    barbastelle_Europe=False,
+
+                    # Insecte
+                    fourmi_rousse=False,
+                    luciole=False,
+                    lucane=False,
+                    moustique=False,
+                    xylocope_violet=False,
+
+                    #  Oiseau
+                    bouvreuil_pivoire=False,
+                    pinson_des_arbres=False,
+                    geai_des_chênes=False,
+                    autour_des_palombes=False,
+                    pic_epeiche=False,
+                    chouette_hulotte=False,
+
+                    # Ongulé
+                    sanglier=False,
+                    marcassin=False,
+
+                    # Papillon
+                    grand_mars_changeant=False,
+                    paon_du_jour=False,
+                    morio=False,
+                    grande_tortue=False,
+                    tabac_Espagne=False,
+
+                    # Plant
+                    fougère_arborescente=False,
+                    mousse=False,
+                    mûre=False,
+                    fraise_des_bois=False,
+
+                    # Plantigrade
+                    hérisson=False,
+                    lièvre_Europe=False,
+                    fouine=False,
+                    loup=False,
+                    renard_roux=False,
+                    taupe=False,
+                    loir_gris=False,
+                    écureuil_roux=False,
+                    blaireau_européen=False,
+                    lynx=False,
+                    raton_laveur=False,
+                    ours_brun=False,
+
+                     points=0):
+
+        for dict_ in self.plateau_player:
+            for elem in list(dict_.values()):
+                if elem != None:
+
+
+
+
+                    # Oiseau
+                    if autour_des_palombes:
+                        palom = Card(up_down=True)
+                        palom.up = AutourDesPalombes()
+                        try:
+                            if elem.subcategory == "autour_des_palombes":
+                                c = self.how_many_per_category(palom,
+                                                        palom.up.category,
+                                                        up=True)
+                                points += (3*c)
+                        except AttributeError:
+                            next
+
+                    elif chouette_hulotte:
+                        if elem.subcategory == "chouette_hulotte":
+                            points += 5
+
+
+
+                    # Papillon
+                    elif grand_mars_changeant or paon_du_jour or morio or grande_tortue or tabac_Espagne:
+                        counting_papillons = 0
+                        if elem.subcategory == "grand_mars_changeant" and counting_papillons==0 and grand_mars_changeant:
+                            points += self.points_papillon(points)
+                            print(points, counting_papillons)
                             break
-                    except AttributeError:
-                        next
+                        elif elem.subcategory =="paon_du_jour" and counting_papillons==0 and paon_du_jour:
+                            points += self.points_papillon(points)
+                            counting_papillons += 1
+                            break
+                        elif elem.subcategory =="morio" and counting_papillons==0 and morio:
+                            print(points, counting_papillons)
+                            points += self.points_papillon(points)
+                            counting_papillons += 1
+                            break
+                        elif elem.subcategory =="grande_tortue" and counting_papillons==0 and grande_tortue:
+                            print(points, counting_papillons)
+                            points += self.points_papillon(points)
+                            counting_papillons += 1
+                            break
+                        elif elem.subcategory =="tabac_Espagne" and counting_papillons==0 and tabac_Espagne:
+                            print(points, counting_papillons)
+                            points += self.points_papillon(points)
+                            counting_papillons += 1
+                            break
 
-                elif mousse == True:
-                    chene = Chêne()
-                    total = self.how_many_per_category(chene, chene.category)
+                    # Plant
+                    elif mousse:
+                        if elem.subcategory == "mousse":
+                            chene = Chêne()
+                            total = self.how_many_per_category(chene, chene.category)
 
-                    if total > 9:
-                        points += 10
-                        break
+                            if total > 9:
+                                points += 10
 
-        # points += (3*c) # pour autour_des_palombes == True
+                    elif fraise_des_bois:
+                        if elem.subcategory == "fraise_des_bois":
+                            if self.at_least_1_tree_per_subcategory():
+                                points += 10
+
 
         return points

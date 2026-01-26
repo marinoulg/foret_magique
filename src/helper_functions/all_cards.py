@@ -513,7 +513,7 @@ def get_the_deck():
         all_cards.append(hêtre)
 
     for _ in range(11):
-        marronnier = Marronier() # 11
+        marronnier = Marronnier() # 11
         all_cards.append(marronnier)
 
     for _ in range(6):
@@ -539,7 +539,7 @@ def get_the_deck():
     tilleul = Tilleul()
     bouleau = Bouleau()
     hêtre = Hêtre()
-    marronnier = Marronier()
+    marronnier = Marronnier()
     sapin_blanc = SapinBlanc()
     sapin_D = SapinDouglas()
     érable = Erable()

@@ -32,7 +32,7 @@ class Chêne(Tree):
 
     def points(self, player_id):
         # if Bouleau().subcategory and Hêtre().subcategory and \
-        #     Marronier().subcategory and Sapin_blanc().subcategory and \
+        #     Marronnier().subcategory and Sapin_blanc().subcategory and \
         #     Sapin_Douglas().subcategory and Tilleul().subcategory and \
         #     Erable().subcategory and Chêne().subcategory \
         #             in Player(player_id).cards_player:
@@ -82,10 +82,10 @@ class Hêtre(Tree):
         #     Player(player_id).puncts += 5
         return self
 
-class Marronier(Tree):
+class Marronnier(Tree):
     def __init__(self, left=None, right=None, up=None, down=None):
         super().__init__(left, right, up, down)
-        self.subcategory = "marronnier commun"
+        self.subcategory = "marronnier_commun"
         self.cost_card = 1
         self.effect_attr = None
         self.bonuss = None
@@ -119,7 +119,7 @@ class Marronier(Tree):
 class SapinBlanc(Tree):
     def __init__(self, left=None, right=None, up=None, down=None):
         super().__init__(left, right, up, down)
-        self.subcategory = "sapin Douglas"
+        self.subcategory = "sapin_blanc"
         self.cost_card = 2
         self.effect_attr = None
         self.bonuss = None
@@ -148,7 +148,7 @@ class SapinBlanc(Tree):
 class SapinDouglas(Tree):
     def __init__(self, left=None, right=None, up=None, down=None):
         super().__init__(left, right, up, down)
-        self.subcategory = "sapin Douglas"
+        self.subcategory = "sapin_Douglas"
         self.cost_card = 2
         self.effect_attr = None
         self.bonuss = None

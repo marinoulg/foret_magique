@@ -40,6 +40,19 @@ marine.cards_player.append(chene)
 bouleau = Bouleau()
 marine.cards_player.append(bouleau)
 
+marronnier = Marronnier()
+hetre = Hêtre()
+sap_bl = SapinBlanc()
+sap_D = SapinDouglas()
+tilleul = Tilleul()
+erable = Erable()
+marine.cards_player.append(marronnier)
+marine.cards_player.append(hetre)
+marine.cards_player.append(sap_bl)
+marine.cards_player.append(sap_D)
+marine.cards_player.append(tilleul)
+marine.cards_player.append(erable)
+
 xylo_lynx = Card(left_right=True)
 xylo_lynx.right = Lynx("vert foncé")
 xylo_lynx.left = XylocopeViolet("bleu clair")
@@ -60,44 +73,66 @@ palom_mousse.up = AutourDesPalombes()
 palom_mousse.down = Mousse("jaune")
 marine.cards_player.append(palom_mousse)
 
+fr_chouette = Card(up_down=True)
+fr_chouette.up = ChouetteHulotte("vert foncé")
+fr_chouette.down = FraiseDesBois("rouge")
+
+mars_rainette = Card(up_down=True)
+mars_rainette.up = GrandMarsChangeant("vert clair")
+mars_rainette.down = RainetteVerte("marron")
+
+morioluciole = Card(up_down=True)
+morioluciole.up = Morio("rouge")
+morioluciole.down = Luciole("jaune")
 # marine.print_cards()
 
 """
 User places cards in Plateau
 """
-marine_plateau.place_tree(bouleau)
-marine_plateau.place_tree(bouleau)
-marine_plateau.place_tree(chene)
-marine_plateau.place_tree(chene)
-marine_plateau.place_tree(bouleau)
-marine_plateau.place_tree(bouleau)
-marine_plateau.place_tree(chene)
-marine_plateau.place_tree(chene)
-marine_plateau.place_tree(bouleau)
-marine_plateau.place_tree(bouleau)
-marine_plateau.place_tree(chene)
-marine_plateau.place_tree(chene)
+marine_plateau.place_tree(bouleau) # 0
+marine_plateau.place_tree(hetre) # 1
+marine_plateau.place_tree(chene) # 2
+marine_plateau.place_tree(chene) # 3
+marine_plateau.place_tree(marronnier) # 4
+marine_plateau.place_tree(sap_bl) # 5
+marine_plateau.place_tree(chene) # 6
+marine_plateau.place_tree(sap_D) # 7
+marine_plateau.place_tree(tilleul) # 8
+marine_plateau.place_tree(erable) # 9
+marine_plateau.place_tree(chene) # 10
+marine_plateau.place_tree(chene) # 11
 
 # # I want to place down in Plateau above chene the autour_des_palombes bird
 # attention, l'ordre/index de mes arbres EST IMPORTANT
-marine_plateau.place_non_tree_card(palom_mousse, on_tree = "chêne", down=True, which_tree_idx=3)
-marine_plateau.place_non_tree_card(palom_mousse, on_tree = "chêne", down=True, which_tree_idx=2)
+marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", down=True, which_tree_idx=2)
+marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", up=True, which_tree_idx=3)
 marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", left=True, which_tree_idx=6)
+
+marine_plateau.place_non_tree_card(mars_rainette, on_tree = "érable", up=True, which_tree_idx=6)
+marine_plateau.place_non_tree_card(morioluciole, on_tree = "hêtre", up=True, which_tree_idx=6)
+
 
 # print()
 # marine_plateau.pprint()
-print(marine_plateau.how_many_per_category(chene, chene.category))
+# print(marine_plateau.how_many_per_category(chene, chene.category))
 
 # c = marine_plateau.how_many_per_subcategory(palom_mousse, palom_mousse.down.subcategory, down=True)
 # print(c)
 
+# print(how_many_arbre_subcategory(marine_plateau.plateau_player))
+# print(marine_plateau.how_many_tree_subcat("chêne"))
+# print(marine_plate(bouleau))
+print(marine_plateau.count_points_animal(morio=True))
+# print(marine_plateau.how_many_tree_subcat(bouleau))
 
 
-print(marine_plateau.count_points_animal(mousse=True))
-# print(marine_plateau.how_many_tree_subcat(chene))
+# pap_dict = (marine_plateau.count_papillons())
+# how_many_difft = 0
+# for k,v in pap_dict.items():
+#     if pap_dict[k] > 0:
+#         how_many_difft += 1
 
-
-
+# print(how_many_difft)
 
 
 

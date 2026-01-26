@@ -31,7 +31,7 @@ class PossibleColors:
             'moustique': ['orange', 'vert clair', 'marron'],
             'xylocope_violet': ['bleu clair', 'bleu foncé'],
 
-            # Oiseaux
+            # Oiseau
             'bouvreuil_pivoire': ['bleu foncé', 'bleu clair'],
             'pinson_des_arbres': ['rouge', 'vert foncé', 'vert clair'],
             'geai_des_chênes': ['orange', 'vert clair', 'rouge'],
