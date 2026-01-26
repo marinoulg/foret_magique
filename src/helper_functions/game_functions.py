@@ -1,5 +1,5 @@
 from random import choice, randint
-from src.all_cards import all_cards
+from src.helper_functions.all_cards import all_cards
 from src.Player import Clairiere, Card
 
 # Initialising variables

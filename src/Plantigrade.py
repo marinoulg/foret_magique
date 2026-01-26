@@ -1,4 +1,5 @@
 from src.Player import Player, ElementsAnimal, Plateau, Game
+from src.helper_functions.colors import which_color
 
 class Plantigrade(ElementsAnimal):
     def __init__(self, couleur_feuille):
@@ -6,13 +7,12 @@ class Plantigrade(ElementsAnimal):
         self.category = "plantigrade"
 
 class Hérisson(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "hérisson"
         self.cost_card = 1
-        """
-        Couleurs : vert foncé, orange, marron
-        """
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")
@@ -31,16 +31,12 @@ class Hérisson(Plantigrade):
         return self
 
 class LièvreEurope(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "lièvre d'Europe"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "lièvre_Europe"
         self.cost_card = 0
-        # if self.position not in ["left", "right"]:
-        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
-        """
-        Couleurs : vert clair, bleu foncé, vert foncé, marron, rouge, jaune
-        Position : left or right
-        """
 
     def effet(self):
         print(f"cet emplacement peut recevoir un nombre illimité de {self.subcategory.capitalize()}s.")
@@ -60,16 +56,12 @@ class LièvreEurope(Plantigrade):
         return self
 
 class Fouine(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "fouine"
         self.cost_card = 1
-        # if self.position not in ["left", "right"]:
-        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
-        """
-        Couleurs : orange, vert foncé, marron, rouge
-        Position : left or right
-        """
 
     def effet(self):
         print(f"{self.subcategory} allows you to draw one card.")
@@ -90,17 +82,12 @@ class Fouine(Plantigrade):
         return self
 
 class Loup(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "loup"
         self.cost_card = 3
-        # if self.position not in ["left", "right"]:
-        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose \
-                # among 'left' or 'right'")
-        """
-        Couleurs : bleu foncé, rouge, bleu clair
-        Position : left or right
-        """
 
     def effet(self):
         print(f"{self.subcategory} allows you to draw one card per Cervidé.")
@@ -122,16 +109,12 @@ class Loup(Plantigrade):
         return self
 
 class RenardRoux(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "renard roux"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "renard_roux"
         self.cost_card = 2
-        # if self.position not in ["left", "right"]:
-        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
-        """
-        Couleurs : jaune, marron, bleu clair, vert foncé
-        Position : left or right
-        """
 
     def effet(self):
         print(f"{self.subcategory} allows you to draw one card per Lièvre d'Europe.")
@@ -152,14 +135,12 @@ class RenardRoux(Plantigrade):
         return self
 
 class Taupe(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "taupe"
         self.cost_card = 2
-        # self.position = "down"
-        """
-        Couleurs : rouge, marron
-        """
 
     def effet(self):
         print(f"Jouez immédiatement autant de cartes que souhaité en payant leurs coûts.")
@@ -180,16 +161,12 @@ class Taupe(Plantigrade):
         return self
 
 class LoirGris(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "loir gris"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "loir_gris"
         self.cost_card = 1
-        # if self.position not in ["left", "right"]:
-        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
-        """
-        Couleurs : bleu clair, marron, bleu foncé, vert foncé
-        Position : left or right
-        """
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")
@@ -209,14 +186,12 @@ class LoirGris(Plantigrade):
         return self
 
 class EcureuilRoux(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "écureuil roux"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "écureuil_roux"
         self.cost_card = 0
-        # self.position = "up"
-        """
-        Couleurs : orange, bleu clair, marron, vert foncé
-        """
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")
@@ -236,16 +211,12 @@ class EcureuilRoux(Plantigrade):
         return self
 
 class BlaireauEuropéen(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "blaireau européen"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "blaireau_européen"
         self.cost_card = 1
-        # if self.position not in ["left", "right"]:
-        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
-        """
-        Couleurs : bleu clair, orange
-        Position : left or right
-        """
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")
@@ -266,16 +237,12 @@ class BlaireauEuropéen(Plantigrade):
         return self
 
 class Lynx(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "renard roux"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "lynx"
         self.cost_card = 1
-        # if self.position not in ["left", "right"]:
-        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
-        """
-        Couleurs : jaune, orange, bleu clair, bleu foncé, vert foncé
-        Position : left or right
-        """
 
     def effet(self):
         print(f"{self.subcategory} has no effect.")
@@ -296,16 +263,12 @@ class Lynx(Plantigrade):
         return self
 
 class RatonLaveur(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "raton laveur"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "raton_laveur"
         self.cost_card = 1
-        # if self.position not in ["left", "right"]:
-        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
-        """
-        Couleurs : bleu clair, vert clair, bleu foncé
-        Position : left or right
-        """
 
     def effet(self):
         print(f"Placez autant de cartes de votre main que vous souhaitez dans votre Grotte, \
@@ -326,16 +289,12 @@ class RatonLaveur(Plantigrade):
         return self
 
 class OursBrun(Plantigrade):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "ours brun"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "ours_brun"
         self.cost_card = 3
-        # if self.position not in ["left", "right"]:
-        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
-        """
-        Couleurs : orange, jaune, vert foncé
-        Position : left or right
-        """
 
     def effet(self):
         print(f"Placez toutes les cartes de la Clairière dans votre Grotte.")

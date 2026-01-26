@@ -1,5 +1,6 @@
 from src.Player import Player, ElementsAnimal, Plateau, Game
 from src.Tree import *
+from src.helper_functions.colors import which_color
 
 class Insecte(ElementsAnimal):
     def __init__(self, couleur_feuille, position="left" or "right"):
@@ -8,13 +9,12 @@ class Insecte(ElementsAnimal):
         self.category = "insecte"
 
 class FourmiRousse(Insecte):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "fourmi rousse"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "fourmi_rousse"
         self.cost_card = 1
-        """
-        couleur_feuille peut être : vert foncé, vert clair
-        """
 
     def effet(self, new_card):
         print(f"{self.subcategory} has no effect.")
@@ -29,13 +29,12 @@ class FourmiRousse(Insecte):
         return self
 
 class Luciole(Insecte):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "luciole"
         self.cost_card = 0
-        """
-        couleur_feuille peut être : vert foncé, bleu clair, jaune
-        """
 
     def effet(self, new_card):
         print(f"{self.subcategory} has no effect.")
@@ -51,13 +50,12 @@ class Luciole(Insecte):
         return self
 
 class Lucane(Insecte):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "lucane"
         self.cost_card = 2
-        """
-        couleur_feuille peut être : vert clair, rouge
-        """
 
     def effet(self, new_card):
         print(f"{self.subcategory} has no effect.")
@@ -73,13 +71,12 @@ class Lucane(Insecte):
         return self
 
 class Moustique(Insecte):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "moustique"
         self.cost_card = 0
-        """
-        couleur_feuille peut être : orange, vert clair, marron
-        """
 
     def effet(self, new_card):
         print(f"Vous pouvez jouer autant de Chauves-souris de votre main sans en payer le coût.")
@@ -95,13 +92,12 @@ class Moustique(Insecte):
         return self
 
 class XylocopeViolet(Insecte):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "xylocope violet"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
-        """
-        couleur_feuille peut être : bleu clair, bleu foncé
-        """
+        self.subcategory = "xylocope_violet"
 
     def effet(self, new_card):
         print(f"Ne vaut aucun point, mais augment de 1 le nombre d'Arbres de \

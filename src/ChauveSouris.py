@@ -1,13 +1,12 @@
 from src.Player import Player, ElementsAnimal, Plateau, Game
 from src.Tree import *
+from src.helper_functions.colors import which_color
 
 class ChauveSouris(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
-        self.category = "chauve-souris"
+        self.category = "chauve_souris"
         self.cost_card = 1
-        # if self.position not in ["left", "right"]:
-        #     raise ValueError(f"Position of {self.subcategory} is not possible, please choose among 'left' or 'right'")
 
     def effet(self, new_card):
         print(f"{self.subcategory} has no effect.")
@@ -24,37 +23,29 @@ class ChauveSouris(ElementsAnimal):
         return self
 
 class MurinDeBechstein(ChauveSouris):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "murin de Bechstein"
-        """
-        couleur_feuille peut être : marron, vert clair, vert foncé
-        Position : left or right
-        """
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "murin_de_Bechstein"
 
 class GrandRhinolophe(ChauveSouris):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "grand rhinolophe"
-        """
-        couleur_feuille peut être : jaune
-        Position : left or right
-        """
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "grand_rhinolophe"
 
 class OreillardRoux(ChauveSouris):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "oreillard roux"
-        """
-        couleur_feuille peut être : rouge, vert foncé
-        Position : left or right
-        """
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "oreillard_roux"
 
 class BarbastelleEurope(ChauveSouris):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "barbastelle d'Europe"
-        """
-        couleur_feuille peut être : orange, marron, bleu foncé
-        Position : left or right
-        """
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "barbastelle_Europe"

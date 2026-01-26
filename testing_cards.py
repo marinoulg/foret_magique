@@ -3,8 +3,8 @@ from src.Tree import *
 from src.Player import *
 from src.helper_functions.specific_functions import *
 from src.PossibleColors import PossibleColors
-from src.all_cards import all_cards
-from playing_a_game import *
+from src.helper_functions.all_cards import get_the_deck
+from src.helper_functions.game_functions import *
 
 from src.Champignon import *
 from src.Oiseau import *

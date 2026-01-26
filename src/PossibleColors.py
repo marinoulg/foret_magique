@@ -1,61 +1,71 @@
 class PossibleColors:
     def __init__(self):
         self.possible_colors = {
-            'crapaud': ['vert foncé', 'bleu foncé', 'rouge', 'marron', 'orange', 'bleu clair'],
-            'salamandre': ['jaune', 'bleu clair', 'orange'],
-            'rainette': ['jaune', 'marron'],
+            # Amphibien
+            'crapaud_commun': ['vert foncé', 'bleu foncé', 'rouge', 'marron', 'orange', 'bleu clair'],
+            'salamandre_tachetée': ['jaune', 'bleu clair', 'orange'],
+            'rainette_verte': ['jaune', 'marron'],
             'cistude': ['rouge', 'vert clair'],
 
-            'cerf': ['orange', 'jaune', 'marron'],
+            # CervidéOngulé
+            'cerf_élaphe': ['orange', 'jaune', 'marron'],
             'chevreuil': ['bleu foncé', 'jaune', 'vert foncé', 'orange', 'vert clair'],
             'daim': ['rouge', 'jaune', 'vert clair'],
 
-            'amanite': ['marron', 'bleu foncé'],
+            # Champignon
+            'amanite_tue_mouches': ['marron', 'bleu foncé'],
             'coulemelle': ['orange', 'bleu foncé'],
             'girolle': ['bleu foncé', 'vert clair'],
             'cèpe_bordeaux': ['bleu clair'],
 
-            'murin_de_bechstein': ['marron', 'vert clair', 'vert foncé'],
+            # ChauveSouris
+            'murin_de_Bechstein': ['marron', 'vert clair', 'vert foncé'],
             'grand_rhinolophe': ['jaune'],
             'oreillard_roux': ['rouge', 'vert foncé'],
-            'barbastelle_europe': ['orange', 'marron', 'bleu foncé'],
+            'barbastelle_Europe': ['orange', 'marron', 'bleu foncé'],
 
-            'fourmi': ['vert foncé', 'vert clair'],
+            # Insecte
+            'fourmi_rousse': ['vert foncé', 'vert clair'],
             'luciole': ['vert foncé', 'bleu clair', 'jaune'],
             'lucane': ['vert clair', 'rouge'],
             'moustique': ['orange', 'vert clair', 'marron'],
-            'xylocope': ['bleu clair', 'bleu foncé'],
+            'xylocope_violet': ['bleu clair', 'bleu foncé'],
 
-            'bouvreuilpivoire': ['bleu foncé', 'bleu clair'],
-            'pinson': ['rouge', 'vert foncé', 'vert clair'],
-            'geai': ['orange', 'vert clair', 'rouge'],
-            'palombes': ['bleu clair'],
+            # Oiseaux
+            'bouvreuil_pivoire': ['bleu foncé', 'bleu clair'],
+            'pinson des arbres': ['rouge', 'vert foncé', 'vert clair'],
+            'geai_des_chênes': ['orange', 'vert clair', 'rouge'],
+            'autour_des_palombes': ['bleu clair'],
             'pic_epeiche': ['jaune', 'bleu clair'],
-            'chouette': ['vert clair', 'rouge', 'vert foncé'],
+            'chouette_hulotte': ['vert clair', 'rouge', 'vert foncé'],
 
+            # Ongulé
             'sanglier': ['rouge', 'vert clair', 'marron', 'bleu clair'],
             'marcassin': ['marron', 'rouge', 'orange'],
 
-            'grand_mars': ['jaune', 'orange', 'vert clair'],
+            # Papillon
+            'grand_mars_changeant': ['jaune', 'orange', 'vert clair'],
             'paon_du_jour': ['jaune', 'marron', 'orange'],
             'morio': ['orange', 'rouge'],
             'grande_tortue': ['vert foncé', 'bleu foncé', 'rouge'],
-            'tabac_espagne': ['marron', 'vert foncé'],
+            'tabac_Espagne': ['marron', 'vert foncé'],
 
-            'fougère': ['jaune', 'bleu foncé', 'orange'],
+            # Plant
+            'fougère_arborescente': ['jaune', 'bleu foncé', 'orange'],
             'mousse': ['bleu clair', 'jaune'],
-            'mure': ['bleu foncé', 'vert foncé', 'vert clair'],
+            'mûre': ['bleu foncé', 'vert foncé', 'vert clair'],
             'fraise_des_bois': ['vert clair', 'rouge'],
 
-            'herisson': ['vert foncé', 'orange', 'marron'],
-            'lièvre': ['vert clair', 'bleu foncé', 'vert foncé', 'marron', 'rouge', 'jaune'],
+            # Plantigrade
+            'hérisson': ['vert foncé', 'orange', 'marron'],
+            'lièvre_Europe': ['vert clair', 'bleu foncé', 'vert foncé', 'marron', 'rouge', 'jaune'],
             'fouine': ['orange', 'vert foncé', 'marron', 'rouge'],
             'loup': ['bleu foncé', 'rouge', 'bleu clair'],
-            'renard': ['jaune', 'marron', 'bleu clair', 'vert foncé'],
+            'renard_roux': ['jaune', 'marron', 'bleu clair', 'vert foncé'],
             'taupe': ['rouge', 'marron'],
-            'loir': ['bleu clair', 'marron', 'bleu foncé', 'vert foncé'],
-            'ecureuil': ['orange', 'bleu clair', 'marron', 'vert foncé'],
-            'blaireau': ['bleu clair', 'orange'],
+            'loir_gris': ['bleu clair', 'marron', 'bleu foncé', 'vert foncé'],
+            'écureuil_roux': ['orange', 'bleu clair', 'marron', 'vert foncé'],
+            'blaireau_européen': ['bleu clair', 'orange'],
             'lynx': ['jaune', 'orange', 'bleu clair', 'bleu foncé', 'vert foncé'],
             'raton_laveur': ['bleu clair', 'vert clair', 'bleu foncé'],
             'ours_brun': ['orange', 'jaune', 'vert foncé']

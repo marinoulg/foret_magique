@@ -1,7 +1,7 @@
 from collections import defaultdict
 from src.helper_functions.specific_functions import *
 from src.Tree import *
-from src.colors import which_color
+from src.helper_functions.colors import which_color
 
 class Plateau:
     def __init__(self, player_id):

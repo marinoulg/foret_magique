@@ -1,4 +1,5 @@
 from src.Player import Player, ElementsAnimal, Plateau, Game
+from src.helper_functions.colors import which_color
 
 class Amphibien(ElementsAnimal):
     def __init__(self, couleur_feuille):
@@ -6,16 +7,14 @@ class Amphibien(ElementsAnimal):
         self.category = "amphibien"
 
 class CrapaudCommun(Amphibien):
-    def __init__(self, couleur_feuille):
+    subcategory = "crapaud_commun"
+    def __init__(self, couleur_feuille=which_color(subcategory)):
         super().__init__(couleur_feuille)
-        self.subcategory = "crapaud commun"
+        self.subcategory = "crapaud_commun"
         self.cost_card = 0
         possible_colors = ["vert foncé", "bleu foncé", "rouge", "marron", "orange", "bleu clair"]
         if self.couleur_feuille not in possible_colors:
             raise ValueError(f"Couleur of {self.subcategory} is not possible, please choose among {possible_colors}")
-        """
-        Couleurs : vert foncé, bleu foncé, rouge, marron, orange, bleu clair
-        """
 
     def effet(self):
         print(f"Cet emplacement peut recevoir jusqu'à 2 {self.subcategory}s.")
@@ -33,13 +32,11 @@ class CrapaudCommun(Amphibien):
         return self
 
 class SalamandreTachetée(Amphibien):
-    def __init__(self, couleur_feuille):
+    subcategory = "salamandre_tachetée"
+    def __init__(self, couleur_feuille=which_color(subcategory)):
         super().__init__(couleur_feuille)
-        self.subcategory = "salamandre tachetée"
+        self.subcategory = "salamandre_tachetée"
         self.cost_card = 1
-        """
-        couleur_feuille peut être : jaune, bleu clair, orange
-        """
 
     def effet(self):
         print(f"Cet emplacement peut recevoir jusqu'à 2 {self.subcategory[0]}s.")
@@ -70,13 +67,11 @@ class SalamandreTachetée(Amphibien):
         return self
 
 class RainetteVerte(Amphibien):
-    def __init__(self, couleur_feuille):
+    subcategory = "rainette_verte"
+    def __init__(self, couleur_feuille=which_color(subcategory)):
         super().__init__(couleur_feuille)
-        self.subcategory = "rainette verte"
+        self.subcategory = "rainette_verte"
         self.cost_card = 0
-        """
-        couleur_feuille peut être : jaune, marron
-        """
 
     def effet(self):
         print(f"Cet emplacement peut recevoir jusqu'à 2 {self.subcategory[0]}s.")
@@ -102,13 +97,11 @@ class RainetteVerte(Amphibien):
         return self
 
 class Cistude(Amphibien):
-    def __init__(self, couleur_feuille):
+    subcategory = "cistude"
+    def __init__(self, couleur_feuille=which_color(subcategory)):
         super().__init__(couleur_feuille)
         self.subcategory = "cistude"
         self.cost_card = 2
-        """
-        couleur_feuille peut être : rouge, vert clair
-        """
 
     def effet(self, player_id):
         print(f"{self.subcategory} allows you to draw one card form the deck.")

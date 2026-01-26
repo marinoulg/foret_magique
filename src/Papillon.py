@@ -1,4 +1,5 @@
 from src.Player import Player, ElementsAnimal, Plateau, Game
+from src.helper_functions.colors import which_color
 
 class Papillon(ElementsAnimal):
     def __init__(self, couleur_feuille):
@@ -20,13 +21,12 @@ class Papillon(ElementsAnimal):
         return self
 
 class GrandMarsChangeant(Papillon):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "grand mars changeant"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "grand_mars_changeant"
         self.cost_card = 0
-        """
-        couleur_feuille peut être : jaune, orange, vert clair
-        """
 
     def effet(self):
         print(f"{self.subcategory} allows you to draw a card.")
@@ -37,13 +37,12 @@ class GrandMarsChangeant(Papillon):
         return self
 
 class PaonDuJour(Papillon):
-    def __init__(self, couleur_feuille):
+    def __init__(self,  couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "paon-du-jour"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "paon_du_jour"
         self.cost_card = 0
-        """
-        couleur_feuille peut être : jaune, marron, orange
-        """
 
     def effet(self):
         return self
@@ -53,13 +52,12 @@ class PaonDuJour(Papillon):
         return self
 
 class Morio(Papillon):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "morio"
         self.cost_card = 0
-        """
-        couleur_feuille peut être : orange, rouge
-        """
 
     def effet(self):
         return self
@@ -69,12 +67,11 @@ class Morio(Papillon):
         return self
 
 class GrandeTortue(Papillon):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "grande tortue"
-        """
-        couleur_feuille peut être : vert foncé, bleu foncé, rouge
-        """
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "grande_tortue"
         self.cost_card = 0
 
     def effet(self):
@@ -85,13 +82,12 @@ class GrandeTortue(Papillon):
         return self
 
 class TabacEspagne(Papillon):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "tabac d'Espagne"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "tabac_Espagne"
         self.cost_card = 0
-        """
-        couleur_feuille peut être : marron, vert foncé
-        """
 
     def effet(self):
         return self

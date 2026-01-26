@@ -1,19 +1,19 @@
 from src.Player import Player, ElementsAnimal, Plateau, Game
 from src.Tree import *
+from src.helper_functions.colors import which_color
 
 class Plant(ElementsAnimal):
     def __init__(self, couleur_feuille):
-        # super().__init__(down)
         self.couleur_feuille = couleur_feuille
-        # self.position = down
         self.category = "plant"
 
-
 class FougèreArborescente(Plant):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
-        self.subcategory = "fougère arborescente"
+        self.subcategory = "fougère_arborescente"
         """
         couleur_feuille peut être : jaune, bleu foncé, orange
         """
@@ -33,8 +33,10 @@ class FougèreArborescente(Plant):
         return self
 
 class Mousse(Plant):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "mousse"
         self.cost_card = 0
         """
@@ -56,8 +58,10 @@ class Mousse(Plant):
         return self
 
 class Mûre(Plant):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "mûre"
         self.cost_card = 0
         """
@@ -79,9 +83,11 @@ class Mûre(Plant):
         return self
 
 class FraiseDesBois(Plant):
-    def __init__(self, couleur_feuille):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
-        self.subcategory = "fraise des bois"
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
+        self.subcategory = "fraise_des_bois"
         self.cost_card = 0
         """
         couleur_feuille peut être : vert clair, rouge

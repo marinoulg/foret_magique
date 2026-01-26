@@ -15,6 +15,59 @@ class bcolors:
     ENDC = '\033[0m'
 
 def which_color(animal):
+    """
+    Possible animals are:
+    - crapaud
+    - salamandre
+    - rainette
+    - cistude
+    - cerf
+    - chevreuil
+    - daim
+    - amanite
+    - coulemelle
+    - girolle
+    - cèpe_bordeaux
+    - murin_de_bechstein
+    - grand_rhinolophe
+    - oreillard_roux
+    - barbastelle_europe
+    - fourmi
+    - luciole
+    - lucane
+    - moustique
+    - xylocope
+    - bouvreuilpivoire
+    - pinson
+    - geai
+    - palombes
+    - pic_epeiche
+    - chouette
+    - sanglier
+    - marcassin
+    - grand_mars
+    - paon_du_jour
+    - morio
+    - grande_tortue
+    - tabac_espagne
+    - fougère
+    - mousse
+    - mure
+    - fraise_des_bois
+    - herisson
+    - lièvre
+    - fouine
+    - loup
+    - renard
+    - taupe
+    - loir
+    - ecureuil
+    - blaireau
+    - lynx
+    - raton_laveur
+    - ours_brun
+    """
+
 
     possible_animals = list(PossibleColors().possible_colors.keys())
     if animal not in possible_animals:
@@ -87,29 +140,13 @@ def which_color(animal):
 
     return color
 
-# print(bcolors.BOLD + bcolors.RED + "1. red/érable")
-# print(bcolors.BOLD + bcolors.YELLOW + "2. yellow/tilleul")
-# print(bcolors.BOLD + bcolors.ORANGE + "3. orange/marronnier commun")
-# print(bcolors.BOLD + bcolors.DARKGREEN + "4. vert foncé/hêtre")
-# print(bcolors.BOLD + bcolors.LIGHTGREEN + "5. vert clair/bouleau")
-# print(bcolors.BOLD + bcolors.BROWN + "6. marron/chêne")
-# print(bcolors.BOLD + bcolors.LIGHTBLUE + "7. bleu clair/sapin douglas")
-# print(bcolors.BOLD + bcolors.DARKBLUE + "8. bleu foncé/sapin blanc")
 
-# for couleur in possible_colors:
-#         if couleur == "1":
-#             color = "rouge"
-#         elif couleur == "2":
-#             color = "jaune"
-#         elif couleur == "3":
-#             color = "orange"
-#         elif couleur == "4":
-#             color = "vert foncé"
-#         elif couleur == "5":
-#             color = "vert clair"
-#         elif couleur == "6":
-#             color = "marron"
-#         elif couleur == "7":
-#             color = "bleu clair"
-#         elif couleur == "8":
-            # color = "bleu foncé"
+# colors are:
+    # - rouge
+    # - jaune
+    # - orange
+    # - vert foncé
+    # - vert clair
+    # - marron
+    # - bleu clair
+    # - bleu foncé
