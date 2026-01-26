@@ -52,7 +52,7 @@
     sanglier=False,
     marcassin=False,
 
-    # Papillon
+  # Papillon
   ☑ grand_mars_changeant=True,
   ☑ paon_du_jour=True,
   ☑ morio=True,
