@@ -86,6 +86,11 @@ morioluciole.up = Morio("rouge")
 morioluciole.down = Luciole("jaune")
 # marine.print_cards()
 
+card = Card(up_down=True)
+card.up = BouvreuilPivoire('bleu clair')
+card.down = Moustique("orange")
+
+
 """
 User places cards in Plateau
 """
@@ -96,24 +101,26 @@ marine_plateau.place_tree(chene) # 3
 marine_plateau.place_tree(marronnier) # 4
 marine_plateau.place_tree(sap_bl) # 5
 marine_plateau.place_tree(chene) # 6
-marine_plateau.place_tree(sap_D) # 7
-marine_plateau.place_tree(tilleul) # 8
-marine_plateau.place_tree(erable) # 9
-marine_plateau.place_tree(chene) # 10
-marine_plateau.place_tree(chene) # 11
+# marine_plateau.place_tree(sap_D) # 7
+# marine_plateau.place_tree(tilleul) # 8
+# marine_plateau.place_tree(erable) # 9
+# marine_plateau.place_tree(chene) # 10
+# marine_plateau.place_tree(chene) # 11
 
 # # I want to place down in Plateau above chene the autour_des_palombes bird
 # attention, l'ordre/index de mes arbres EST IMPORTANT
-marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", down=True, which_tree_idx=2)
+marine_plateau.place_non_tree_card(morioluciole, on_tree = "chêne", down=True, which_tree_idx=2)
 marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", up=True, which_tree_idx=3)
 marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", left=True, which_tree_idx=6)
 
-marine_plateau.place_non_tree_card(mars_rainette, on_tree = "érable", up=True, which_tree_idx=6)
-marine_plateau.place_non_tree_card(morioluciole, on_tree = "hêtre", up=True, which_tree_idx=6)
+marine_plateau.place_non_tree_card(mars_rainette, on_tree = "érable", up=True)
+marine_plateau.place_non_tree_card(morioluciole, on_tree = "hêtre", down=True, which_tree_idx=6)
+# marine_plateau.place_non_tree_card(card, on_tree = "chêne", down=True, which_tree_idx=2)
 
 
 # print()
 # marine_plateau.pprint()
+print(marine_plateau.count_luciole())
 # print(marine_plateau.how_many_per_category(chene, chene.category))
 
 # c = marine_plateau.how_many_per_subcategory(palom_mousse, palom_mousse.down.subcategory, down=True)
@@ -122,7 +129,7 @@ marine_plateau.place_non_tree_card(morioluciole, on_tree = "hêtre", up=True, wh
 # print(how_many_arbre_subcategory(marine_plateau.plateau_player))
 # print(marine_plateau.how_many_tree_subcat("chêne"))
 # print(marine_plate(bouleau))
-print(marine_plateau.count_points_animal(morio=True))
+print(marine_plateau.count_points_animal(luciole=True))
 # print(marine_plateau.how_many_tree_subcat(bouleau))
 
 
@@ -132,7 +139,7 @@ print(marine_plateau.count_points_animal(morio=True))
 #     if pap_dict[k] > 0:
 #         how_many_difft += 1
 
-# print(how_many_difft)
+# pprint(pap_dict)
 
 
 

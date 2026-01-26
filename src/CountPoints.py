@@ -83,7 +83,7 @@ class Plateau:
                         if up == True:
                             elem["up"] = Card.up
                         elif down == True:
-                            elem["up"] = Card.up
+                            elem["down"] = Card.down
                         elif left == True:
                             elem["left"] = Card.left
                         elif right == True:
@@ -299,6 +299,23 @@ class Plateau:
 
         return points
 
+    def count_mosquitos(self):
+        c = 0
+        for elem in self.plateau_player:
+            if elem["up"] != None:
+                if elem["up"].subcategory == "moustique":
+                    c += 1
+        return c
+
+    def count_luciole(self):
+        c = 0
+        for elem in self.plateau_player:
+            if elem["down"] != None:
+                print(elem["down"])
+                if elem["down"].subcategory == "luciole":
+                    c += 1
+        return c
+
     def count_points_animal(self,
                     # Amphibien
                     crapaud_commun=False,
@@ -374,12 +391,41 @@ class Plateau:
         for dict_ in self.plateau_player:
             for elem in list(dict_.values()):
                 if elem != None:
+                    # Amphibien
+                    if crapaud_commun:
+                        pass
+
+                    elif rainette_verte:
+                        if elem.subcategory == "rainette_verte":
+                            c = self.count_mosquitos()
+                            points += c*5
 
 
 
+                    # Insecte
+                    elif luciole:
+                        luciole_counted = 0
+                        if elem.subcategory == "luciole":
+                            c = self.count_luciole()
+                            if c == 1 and luciole_counted == 0:
+                                points += 0
+                                luciole_counted += 1
+                                return points
+                            elif c == 2 and luciole_counted == 0:
+                                points += 10
+                                luciole_counted += 1
+                                return points
+                            elif c == 3 and luciole_counted == 0:
+                                points += 15
+                                luciole_counted += 1
+                                return points
+                            elif c == 5 and luciole_counted == 0:
+                                points += 20
+                                luciole_counted += 1
+                                return points
 
                     # Oiseau
-                    if autour_des_palombes:
+                    elif autour_des_palombes:
                         palom = Card(up_down=True)
                         palom.up = AutourDesPalombes()
                         try:

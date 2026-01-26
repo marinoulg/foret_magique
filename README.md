@@ -9,10 +9,12 @@
 - problem recognising an animal of instance CervidéOngulé when instanciating it from start (but not all CervidéOngulé animals, ex it works for CerfElaphe, and Chevreuil?, but not for Daim)
 
 # Ongoing (count_point_animal):
+2 cards cannot be on the same place (for now, to be corrected for Lievre et Crapaud etc.). If so, the lattest one takes the place of the former one, which it erases.
+
     # Amphibien
     crapaud_commun=False,
     salamandre_tachetée=False,
-    rainette_verte=False,
+  ☑ rainette_verte=False,
     cistude=False,
 
     # CervidéOngulé
@@ -34,7 +36,7 @@
 
     # Insecte
     fourmi_rousse=False,
-    luciole=False,
+  ☑ luciole=False,
     lucane=False,
     moustique=False,
     xylocope_violet=False,
