@@ -1,4 +1,4 @@
-from Player import Card
+from src.Player import Card
 
 class Tree(Card):
     def __init__(self, left=None, right=None, up=None, down=None):

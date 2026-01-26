@@ -7,9 +7,10 @@ class Amphibien(ElementsAnimal):
         self.category = "amphibien"
 
 class CrapaudCommun(Amphibien):
-    subcategory = "crapaud_commun"
-    def __init__(self, couleur_feuille=which_color(subcategory)):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "crapaud_commun"
         self.cost_card = 0
         possible_colors = ["vert foncé", "bleu foncé", "rouge", "marron", "orange", "bleu clair"]
@@ -32,9 +33,10 @@ class CrapaudCommun(Amphibien):
         return self
 
 class SalamandreTachetée(Amphibien):
-    subcategory = "salamandre_tachetée"
-    def __init__(self, couleur_feuille=which_color(subcategory)):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "salamandre_tachetée"
         self.cost_card = 1
 
@@ -67,9 +69,10 @@ class SalamandreTachetée(Amphibien):
         return self
 
 class RainetteVerte(Amphibien):
-    subcategory = "rainette_verte"
-    def __init__(self, couleur_feuille=which_color(subcategory)):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "rainette_verte"
         self.cost_card = 0
 
@@ -97,9 +100,10 @@ class RainetteVerte(Amphibien):
         return self
 
 class Cistude(Amphibien):
-    subcategory = "cistude"
-    def __init__(self, couleur_feuille=which_color(subcategory)):
+    def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
+        if couleur_feuille == None:
+            couleur_feuille = which_color(self.subcategory)
         self.subcategory = "cistude"
         self.cost_card = 2
 
