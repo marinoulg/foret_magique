@@ -2,7 +2,7 @@
 from src.Tree import *
 from src.Player import *
 from src.helper_functions.specific_functions import *
-from src.PossibleColors import PossibleColors
+from PossibleColors import PossibleColors
 from src.helper_functions.all_cards import get_the_deck
 from src.helper_functions.game_functions import *
 
@@ -16,6 +16,7 @@ from src.Cervidé import *
 from src.Ongulé import *
 from src.Plant import *
 from src.ChauveSouris import *
+from src.CervidéOngulé import *
 
 
 # This is the start of a game (distributing cards) for 2 Players

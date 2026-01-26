@@ -33,7 +33,7 @@ class PossibleColors:
 
             # Oiseaux
             'bouvreuil_pivoire': ['bleu foncé', 'bleu clair'],
-            'pinson_des_arbres': ['rouge', 'vert foncé', 'vert clair', 'jaune'],
+            'pinson_des_arbres': ['rouge', 'vert foncé', 'vert clair'],
             'geai_des_chênes': ['orange', 'vert clair', 'rouge'],
             'autour_des_palombes': ['bleu clair'],
             'pic_epeiche': ['jaune', 'bleu clair'],

@@ -6,6 +6,7 @@ next steps:
 - implémenter le comptage des points (comment ? avoir une méthode .points() -- not sure)
 - run scenarios
 - build a game for 2 players
+- problem recognising an animal of instance CervidéOngulé when instanciating it from start (but not all CervidéOngulé animals, ex it works for CerfElaphe, and Chevreuil?, but not for Daim)
 
 Done :
 - ☑ subcategory names are aligned in all files, and if no color is given at initialising an animal, it is asked automatically

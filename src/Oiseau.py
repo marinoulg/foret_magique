@@ -77,7 +77,6 @@ class AutourDesPalombes(Oiseau):
         self.subcategory = "autour_des_palombes"
         if couleur_feuille == None:
             self.couleur_feuille = which_color(self.subcategory)
-        self.couleur_feuille = "bleu clair"
         self.cost_card = 2
 
     def effet(self):

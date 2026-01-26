@@ -40,23 +40,61 @@ bouleau = Bouleau()
 marine.cards_player.append(bouleau)
 
 xylo_lynx = Card(left_right=True)
-xylo_lynx.right = Lynx()
-xylo_lynx.left = XylocopeViolet()
+xylo_lynx.right = Lynx("vert foncé")
+xylo_lynx.left = XylocopeViolet("bleu clair")
 marine.cards_player.append(xylo_lynx)
 
 pic_fourmi = Card(up_down=True)
-pic_fourmi.up = PinsonDesArbres()
-pic_fourmi.down = FourmiRousse()
+pic_fourmi.up = PicEpeiche("jaune")
+pic_fourmi.down = FourmiRousse("vert clair")
 marine.cards_player.append(pic_fourmi)
 
 marca_cerf = Card(left_right=True)
-marca_cerf.left = Marcassin()
-marca_cerf.rigth = CerfElaphe()
+marca_cerf.left = Marcassin("orange")
+marca_cerf.rigth = CerfElaphe("marron")
 marine.cards_player.append(marca_cerf)
 
-daim_chevr = Card(left_right=True)
-daim_chevr.left = Daim()
-daim_chevr.right = Chevreuil()
-marine.cards_player.append(daim_chevr)
+palom_crapaud = Card(up_down=True)
+palom_crapaud.up = AutourDesPalombes()
+palom_crapaud.down = CrapaudCommun()
+marine.cards_player.append(palom_crapaud)
 
 marine.print_cards()
+
+"""
+User gets places cards in Plateau
+"""
+marine_plateau.poser_un_arbre(chene)
+marine_plateau.poser_un_arbre(bouleau)
+marine_plateau.poser_un_arbre(chene)
+
+print(marine_plateau.plateau_player)
+
+# I want to place down in Plateau above chene the autour_des_palombes bird
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# daim_chevr = Card(left_right=True)
+# daim_chevr.left = Daim()
+# daim_chevr.right = Chevreuil() # problem recognising CervidéOngulé
+# marine.cards_player.append(daim_chevr)

@@ -68,7 +68,6 @@ def which_color(animal):
     - ours_brun
     """
 
-
     possible_animals = list(PossibleColors().possible_colors.keys())
     if animal not in possible_animals:
         raise ValueError(f"{animal} is not an existing animal.\n Possible animals are {possible_animals}")
