@@ -4,162 +4,7 @@ from src.helper_functions.specific_functions import *
 from src.Tree import *
 from src.helper_functions.colors import which_color
 
-class Plateau:
-    def __init__(self, player_id):
-        self.player_id = player_id
-        self.plateau_player = list()
-
-    def pprint(self, index=True):
-        if index == True:
-            for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
-                pprint({i:elem})
-        else:
-            for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
-                pprint(elem)
-
-    def place_tree(self, Card):
-        temp_dict = {}
-        try:
-            if Card.category == "arbre":
-                temp_dict = {
-                        "arbre":Card.subcategory,
-                        "up":None,
-                        "down":None,
-                        "left":None,
-                        "right":None
-                    }
-        except AttributeError:
-            temp_dict = {
-                "arbre":"Pousse d'arbre",
-                "up":None,
-                "down":None,
-                "left":None,
-                "right":None
-            }
-        self.plateau_player.append(temp_dict)
-
-        return self
-
-    def how_many_tree_subcat(self, tree, print_=False):
-        print(self, end = "")
-        return how_many_arbre_subcategory(self.plateau_player, tree, print_=print)
-
-    def place_non_tree_card(self, Card, on_tree,
-                            which_tree_idx = None,
-                            up=False,
-                            down=False,
-                            left=False,
-                            right=False,
-                            print_=False):
-        count = 0
-        for elem in [up, down, left, right]:
-            if elem == True:
-                count += 1
-
-        if count == 0:
-            raise ValueError("You need to say where you want to place the card.")
-        elif count > 1:
-            raise ValueError(f"You can only place the card at 1 specific place, not {count}.")
-        else:
-            if self.how_many_tree_subcat(on_tree, print_) == 1:
-                for elem in self.plateau_player:
-                    if elem["arbre"] == on_tree:
-                        if up == True:
-                            elem["up"] = Card.up
-                        elif down == True:
-                            elem["up"] = Card.up
-                        elif left == True:
-                            elem["left"] = Card.left
-                        elif right == True:
-                            elem["right"] = Card.right
-            else:
-                count = 0
-                for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
-                    if elem["arbre"] == on_tree:
-                        if up == True and elem["up"] == None:
-                            count += 1
-                            print(f"{i}. {elem}")
-                        if down == True and elem["down"] == None:
-                            count += 1
-                            print(f"{i}. {elem}")
-                        if left == True and elem["left"] == None:
-                            count += 1
-                            print(f"{i}. {elem}")
-                        if right == True and elem["right"] == None:
-                            count += 1
-                            print(f"{i}. {elem}")
-                print()
-                if count > 1 and which_tree_idx == None:
-                    num = int(input("Choose the index of the tree on which you want to put your card, eg type in 1, 2 etc.: \n"))
-                    for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
-                        print(i, type(i))
-                        if elem["arbre"] == on_tree and i == num:
-                            if up == True:
-                                elem["up"] = Card.up
-                            elif down == True:
-                                elem["up"] = Card.up
-                            elif left == True:
-                                elem["left"] = Card.left
-                            elif right == True:
-                                elem["right"] = Card.right
-                elif count > 1 and which_tree_idx:
-                    for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
-                        if elem["arbre"] == on_tree and i == which_tree_idx:
-                            if up == True:
-                                elem["up"] = Card.up
-                            elif down == True:
-                                elem["up"] = Card.up
-                            elif left == True:
-                                elem["left"] = Card.left
-                            elif right == True:
-                                elem["right"] = Card.right
-                else:
-                    for elem in self.plateau_player:
-                        if elem["arbre"] == on_tree:
-                            if up == True:
-                                elem["up"] = Card.up
-                            elif down == True:
-                                elem["up"] = Card.up
-                            elif left == True:
-                                elem["left"] = Card.left
-                            elif right == True:
-                                elem["right"] = Card.right
-
-        return self
-
-    def how_many_per_species(self, Card, subcategory,
-                            up=False,
-                            down=False,
-                            left=False,
-                            right=False):
-
-        count = 0
-        for elem in self.plateau_player:
-            print(elem)
-            if Card.up_down == True:
-                C = elem["up"]
-                try:
-                    if C.subcategory == subcategory:
-                        count += 1
-                    elif C.subcategory == subcategory:
-                        count += 1
-                except AttributeError:
-                    next
-            elif Card.left_right == True:
-                try:
-                    if C.subcategory == subcategory:
-                        count += 1
-                    elif C.subcategory == subcategory:
-                        count += 1
-                except AttributeError:
-                    next
-
-        """
-        possible subcategories: toutes mes sous-catégories d'animaux.
-        """
-        return count
-
-class Player(Plateau):
+class Player:
     """
     This class defines the characteristics of a Player.
     Each player has:
@@ -180,11 +25,10 @@ class Player(Plateau):
         la clarière, this card then gets added to their hand, and removed
         from la clairière
 
-
     """
 
     def __init__(self, player_id, nb_cards=6):
-        super().__init__(player_id)
+        self.player_id = player_id
         self.nb_cards = nb_cards
         self.puncts = 0
         self.cards_player = []

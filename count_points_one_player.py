@@ -4,6 +4,7 @@ from src.helper_functions.specific_functions import *
 from src.PossibleColors import PossibleColors
 from src.helper_functions.all_cards import get_the_deck
 from src.helper_functions.game_functions import *
+from src.CountPoints import *
 
 from src.Champignon import *
 from src.Oiseau import *
@@ -54,36 +55,46 @@ marca_cerf.left = Marcassin("orange")
 marca_cerf.rigth = CerfElaphe("marron")
 marine.cards_player.append(marca_cerf)
 
-palom_crapaud = Card(up_down=True)
-palom_crapaud.up = AutourDesPalombes()
-palom_crapaud.down = CrapaudCommun("rouge")
-marine.cards_player.append(palom_crapaud)
+palom_mousse = Card(up_down=True)
+palom_mousse.up = AutourDesPalombes()
+palom_mousse.down = Mousse("jaune")
+marine.cards_player.append(palom_mousse)
 
-marine.print_cards()
+# marine.print_cards()
 
 """
 User places cards in Plateau
 """
 marine_plateau.place_tree(bouleau)
+marine_plateau.place_tree(bouleau)
+marine_plateau.place_tree(chene)
+marine_plateau.place_tree(chene)
+marine_plateau.place_tree(bouleau)
+marine_plateau.place_tree(bouleau)
+marine_plateau.place_tree(chene)
+marine_plateau.place_tree(chene)
+marine_plateau.place_tree(bouleau)
+marine_plateau.place_tree(bouleau)
 marine_plateau.place_tree(chene)
 marine_plateau.place_tree(chene)
 
 # # I want to place down in Plateau above chene the autour_des_palombes bird
-marine_plateau.place_non_tree_card(palom_crapaud, on_tree = "chêne", up=True, which_tree_idx=1)
-marine_plateau.place_non_tree_card(palom_crapaud, on_tree = "chêne", up=True, print_=True)
+# attention, l'ordre/index de mes arbres EST IMPORTANT
+marine_plateau.place_non_tree_card(palom_mousse, on_tree = "chêne", down=True, which_tree_idx=3)
+marine_plateau.place_non_tree_card(palom_mousse, on_tree = "chêne", down=True, which_tree_idx=2)
+marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", left=True, which_tree_idx=6)
 
-print()
-marine_plateau.pprint()
+# print()
+# marine_plateau.pprint()
+print(marine_plateau.how_many_per_category(chene, chene.category))
 
-c = marine_plateau.how_many_per_species(palom_crapaud, "autour_des_palombes")
-print(c)
-
-
-
-
-
+# c = marine_plateau.how_many_per_subcategory(palom_mousse, palom_mousse.down.subcategory, down=True)
+# print(c)
 
 
+
+print(marine_plateau.count_points_animal(mousse=True))
+# print(marine_plateau.how_many_tree_subcat(chene))
 
 
 

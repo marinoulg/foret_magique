@@ -1,4 +1,4 @@
-from src.Player import Player, ElementsAnimal, Plateau, Game
+from src.Player import Player, ElementsAnimal, Game
 from src.helper_functions.colors import which_color
 
 class Papillon(ElementsAnimal):
