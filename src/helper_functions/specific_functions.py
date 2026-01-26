@@ -1,6 +1,8 @@
 from collections import defaultdict
 
-def how_many_arbre_subcategory(plateau_qqn_pt_plateau_player,subcategory = "tilleul"):
+def how_many_arbre_subcategory(plateau_qqn_pt_plateau_player,
+                               subcategory = "tilleul",
+                               print_=False):
 
     """
     dict_ = plateau_qqn.plateau_player
@@ -10,7 +12,8 @@ def how_many_arbre_subcategory(plateau_qqn_pt_plateau_player,subcategory = "till
     for elem in plateau_qqn_pt_plateau_player:
         if elem["arbre"] == subcategory:
                 num_tilleuls += 1
-    print(f" has {num_tilleuls} number of {subcategory}.")
+    if print_==True:
+        print(f" has {num_tilleuls} number of {subcategory}.")
     return num_tilleuls
 
 def who_most_tilleuls(*num_tilleuls):
