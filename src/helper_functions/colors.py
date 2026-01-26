@@ -78,7 +78,7 @@ def which_color(animal):
         color = possible_colors[0]
         return color
 
-    print(f"Choose colour_feuille for {animal}. \nType 1 for red, 2 for yellow etc.")
+    print(f"Choose colour_feuille for {bcolors.BOLD + bcolors.GREY + animal + bcolors.ENDC}. \nType 1 for red, 2 for yellow etc.")
     poss_numbers = []
     print(possible_colors)
 

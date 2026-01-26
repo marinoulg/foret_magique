@@ -29,15 +29,10 @@ marine_plateau = Plateau(marine.player_id)
 
 # distribute_and_verify_player_has_tree_in_distribution(marine, deck, cards_start)
 
-print(marine)
-marine.print_cards()
-
 """
 User gets handed 6 cards in real life, so they get instantiated in the
 virtual version of the game.
 """
-
-
 chene = Chêne()
 marine.cards_player.append(chene)
 

@@ -14,7 +14,7 @@ class Amanite(Champignon):
         super().__init__(couleur_feuille)
         self.subcategory = "amanite_tue_mouches"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
 
     def effet(self, new_card):
         print(f"{self.subcategory} allows you to draw a card chaque fois que vous jouez une carte 'PATTE'.")
@@ -49,7 +49,7 @@ class Girolle(Champignon):
         super().__init__(couleur_feuille)
         self.subcategory = "girolle"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
 
     def effet(self):
         print(f"Chaque fois que vous jouez une carte présentant un Arbre, piochez une carte.")
@@ -66,7 +66,7 @@ class CèpeDeBordeaux(Champignon):
         super().__init__(couleur_feuille)
         self.subcategory = "cèpe_Bordeaux"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
 
     def effet(self):
         print(f"Chaque fois que vous jouez une carte au dessus d'un Arbre, piochez une carte.")

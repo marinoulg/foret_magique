@@ -11,7 +11,7 @@ class CrapaudCommun(Amphibien):
         super().__init__(couleur_feuille)
         self.subcategory = "crapaud_commun"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self):
@@ -34,7 +34,7 @@ class SalamandreTachetée(Amphibien):
         super().__init__(couleur_feuille)
         self.subcategory = "salamandre_tachetée"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
 
     def effet(self):
@@ -70,7 +70,7 @@ class RainetteVerte(Amphibien):
         super().__init__(couleur_feuille)
         self.subcategory = "rainette_verte"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self):
@@ -101,7 +101,7 @@ class Cistude(Amphibien):
         super().__init__(couleur_feuille)
         self.subcategory = "cistude"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 2
 
     def effet(self, player_id):

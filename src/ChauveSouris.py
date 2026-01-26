@@ -27,25 +27,25 @@ class MurinDeBechstein(ChauveSouris):
         super().__init__(couleur_feuille)
         self.subcategory = "murin_de_Bechstein"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
 
 class GrandRhinolophe(ChauveSouris):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
         self.subcategory = "grand_rhinolophe"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
 
 class OreillardRoux(ChauveSouris):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
         self.subcategory = "oreillard_roux"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
 
 class BarbastelleEurope(ChauveSouris):
     def __init__(self, couleur_feuille=None):
         super().__init__(couleur_feuille)
         self.subcategory = "barbastelle_Europe"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)

@@ -13,7 +13,7 @@ class FourmiRousse(Insecte):
         super().__init__(couleur_feuille)
         self.subcategory = "fourmi_rousse"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
 
     def effet(self, new_card):
@@ -33,7 +33,7 @@ class Luciole(Insecte):
         super().__init__(couleur_feuille)
         self.subcategory = "luciole"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self, new_card):
@@ -54,7 +54,7 @@ class Lucane(Insecte):
         super().__init__(couleur_feuille)
         self.subcategory = "lucane"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 2
 
     def effet(self, new_card):
@@ -75,7 +75,7 @@ class Moustique(Insecte):
         super().__init__(couleur_feuille)
         self.subcategory = "moustique"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self, new_card):
@@ -96,7 +96,7 @@ class XylocopeViolet(Insecte):
         super().__init__(couleur_feuille)
         self.subcategory = "xylocope_violet"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
 
     def effet(self, new_card):

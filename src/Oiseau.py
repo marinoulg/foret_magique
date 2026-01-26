@@ -11,7 +11,7 @@ class BouvreuilPivoire(Oiseau):
         super().__init__(couleur_feuille)
         self.subcategory = "bouvreuil_pivoire"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
 
     def effet(self):
@@ -34,7 +34,7 @@ class PinsonDesArbres(Oiseau):
         super().__init__(couleur_feuille)
         self.subcategory = "pinson_des_arbres"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
 
     def effet(self):
@@ -56,7 +56,7 @@ class GeaiDesChênes(Oiseau):
         super().__init__(couleur_feuille)
         self.subcategory = "geai_des_chênes"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
 
     def effet(self):
@@ -76,7 +76,7 @@ class AutourDesPalombes(Oiseau):
         super().__init__(couleur_feuille)
         self.subcategory = "autour_des_palombes"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.couleur_feuille = "bleu clair"
         self.cost_card = 2
 
@@ -98,7 +98,7 @@ class PicEpeiche(Oiseau):
         super().__init__(couleur_feuille)
         self.subcategory = "pic_epeiche"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 2
 
     def effet(self):
@@ -121,7 +121,7 @@ class ChouetteHulotte(Oiseau):
         super().__init__(couleur_feuille)
         self.subcategory = "chouette_hulotte"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 2
 
     def effet(self, player_id):

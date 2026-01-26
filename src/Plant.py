@@ -12,7 +12,7 @@ class FougèreArborescente(Plant):
         super().__init__(couleur_feuille)
         self.subcategory = "fougère_arborescente"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 1
 
     def effet(self, new_card):
@@ -34,7 +34,7 @@ class Mousse(Plant):
         super().__init__(couleur_feuille)
         self.subcategory = "mousse"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self, new_card):
@@ -56,7 +56,7 @@ class Mûre(Plant):
         super().__init__(couleur_feuille)
         self.subcategory = "mûre"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self, new_card):
@@ -78,7 +78,7 @@ class FraiseDesBois(Plant):
         super().__init__(couleur_feuille)
         self.subcategory = "fraise_des_bois"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self, new_card):

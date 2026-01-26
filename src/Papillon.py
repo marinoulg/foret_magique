@@ -25,7 +25,7 @@ class GrandMarsChangeant(Papillon):
         super().__init__(couleur_feuille)
         self.subcategory = "grand_mars_changeant"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self):
@@ -41,7 +41,7 @@ class PaonDuJour(Papillon):
         super().__init__(couleur_feuille)
         self.subcategory = "paon_du_jour"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self):
@@ -56,7 +56,7 @@ class Morio(Papillon):
         super().__init__(couleur_feuille)
         self.subcategory = "morio"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self):
@@ -71,7 +71,7 @@ class GrandeTortue(Papillon):
         super().__init__(couleur_feuille)
         self.subcategory = "grande_tortue"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self):
@@ -86,7 +86,7 @@ class TabacEspagne(Papillon):
         super().__init__(couleur_feuille)
         self.subcategory = "tabac_Espagne"
         if couleur_feuille == None:
-            couleur_feuille = which_color(self.subcategory)
+            self.couleur_feuille = which_color(self.subcategory)
         self.cost_card = 0
 
     def effet(self):
