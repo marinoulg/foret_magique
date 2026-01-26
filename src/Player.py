@@ -8,39 +8,77 @@ class Plateau:
         self.player_id = player_id
         self.plateau_player = list()
 
-    def place_tree(self):
-        """
-        answer is True or False
-        """
-        return True
-
-    def poser_un_arbre(self, Card):
+    def place_tree(self, Card):
         temp_dict = {}
-        if Card.category == "arbre":
-            temp_dict[Card.subcategory] = {
+        try:
+            if Card.category == "arbre":
+                temp_dict = {
+                        "arbre":Card.subcategory,
+                        "up":None,
+                        "down":None,
+                        "left":None,
+                        "right":None
+                    }
+        except AttributeError:
+            temp_dict = {
+                "arbre":"Pousse d'arbre",
                 "up":None,
                 "down":None,
                 "left":None,
                 "right":None
             }
-            self.plateau_player.append(temp_dict)
-        else:
-            temp_dict["Pousse d'arbre"] = {
-                "up":None,
-                "down":None,
-                "left":None,
-                "right":None
-            }
-            self.plateau_player.append(temp_dict)
+        self.plateau_player.append(temp_dict)
+
         return self
 
-    def poser_une_carte(self, Card, on_tree):
-
-        pass
-
     def how_many_tree_subcat(self, tree):
-        # print(Player, end = "")
+        print(self, end = "")
         return how_many_arbre_subcategory(self.plateau_player, tree)
+
+    def place_non_tree_card(self, Card, on_tree,
+                            up=False,
+                            down=False,
+                            left=False,
+                            right=False):
+        count = 0
+        for elem in [up, down, left, right]:
+            if elem == True:
+                count += 1
+
+        if count == 0:
+            raise ValueError("You need to say where you want to place the card.")
+        elif count > 1:
+            raise ValueError(f"You can only place the card at 1 specific place, not {count}.")
+        else:
+            if self.how_many_tree_subcat(on_tree) == 1:
+                for elem in self.plateau_player:
+                    if elem["arbre"] == on_tree:
+                        if up == True:
+                            elem["up"] = Card.up
+                        elif down == True:
+                            elem["up"] = Card.up
+                        elif left == True:
+                            elem["left"] = Card.left
+                        elif right == True:
+                            elem["right"] = Card.right
+            else:
+                for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
+                    if elem["arbre"] == on_tree:
+                        print(f"{i}. {elem}")
+                num = int(input("Choose the index of the tree on which you want to put your card, eg type in 1, 2 etc.: \n"))
+                for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
+                    if elem["arbre"] == on_tree and i == num:
+                        if up == True:
+                            elem["up"] = Card.up
+                        elif down == True:
+                            elem["up"] = Card.up
+                        elif left == True:
+                            elem["left"] = Card.left
+                        elif right == True:
+                            elem["right"] = Card.right
+
+        return self
+
 
     def how_many_per_species(self, player_id, subcategory = "papillon"):
         """

@@ -8,8 +8,7 @@ def how_many_arbre_subcategory(plateau_qqn_pt_plateau_player,subcategory = "till
 
     num_tilleuls = 0
     for elem in plateau_qqn_pt_plateau_player:
-        for key in elem:
-            if key == subcategory:
+        if elem["arbre"] == subcategory:
                 num_tilleuls += 1
     print(f" has {num_tilleuls} number of {subcategory}.")
     return num_tilleuls

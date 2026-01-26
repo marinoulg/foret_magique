@@ -1,3 +1,4 @@
+from pprint import pprint
 from src.Tree import *
 from src.Player import *
 from src.helper_functions.specific_functions import *
@@ -56,7 +57,7 @@ marine.cards_player.append(marca_cerf)
 
 palom_crapaud = Card(up_down=True)
 palom_crapaud.up = AutourDesPalombes()
-palom_crapaud.down = CrapaudCommun()
+palom_crapaud.down = CrapaudCommun("rouge")
 marine.cards_player.append(palom_crapaud)
 
 marine.print_cards()
@@ -64,17 +65,16 @@ marine.print_cards()
 """
 User gets places cards in Plateau
 """
-marine_plateau.poser_un_arbre(chene)
-marine_plateau.poser_un_arbre(bouleau)
-marine_plateau.poser_un_arbre(chene)
+print()
 
-print(marine_plateau.plateau_player)
+marine_plateau.place_tree(bouleau)
+marine_plateau.place_tree(chene)
+marine_plateau.place_tree(chene)
 
-# I want to place down in Plateau above chene the autour_des_palombes bird
+# # I want to place down in Plateau above chene the autour_des_palombes bird
+marine_plateau.place_non_tree_card(palom_crapaud, on_tree = "chêne", up=True)
 
-
-
-
+pprint(marine_plateau.plateau_player)
 
 
 
