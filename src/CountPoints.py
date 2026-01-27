@@ -17,7 +17,76 @@ from src.CervidéOngulé import *
 from src.Plant import *
 from src.ChauveSouris import *
 
+animals = [
+                                # Amphibien
+                "crapaud_commun",
+                "salamandre_tachetée",
+                "rainette_verte",
+                "cistude",
 
+                    # CervidéOngulé
+                "cerf_élaphe",
+                "chevreuil",
+                "daim",
+
+                    # Champignon
+                "amanite_tue_mouches",
+                "coulemelle",
+                "girolle",
+                "cèpe_Bordeaux",
+
+                    # ChauveSouris
+                "murin_de_Bechstein",
+                "grand_rhinolophe",
+                "oreillard_roux",
+                "barbastelle_Europe",
+
+                    # Insecte
+                "fourmi_rousse",
+                "luciole",
+                "lucane",
+                "moustique",
+                "xylocope_violet",
+
+                    #  Oiseau
+                "bouvreuil_pivoire",
+                "pinson_des_arbres",
+                "geai_des_chênes",
+                "autour_des_palombes",
+                "pic_epeiche",
+                "chouette_hulotte",
+
+                    # Ongulé
+                "sanglier",
+                "marcassin",
+
+                    # Papillon
+                "grand_mars_changeant",
+                "paon_du_jour",
+                "morio",
+                "grande_tortue",
+                "tabac_Espagne",
+
+                    # Plant
+                "fougère_arborescente",
+                "mousse",
+                "mûre",
+                "fraise_des_bois",
+
+                    # Plantigrade
+                "hérisson",
+                "lièvre_Europe",
+                "fouine",
+                "loup",
+                "renard_roux",
+                "taupe",
+                "loir_gris",
+                "écureuil_roux",
+                "blaireau_européen",
+                "lynx",
+                "raton_laveur",
+                "ours_brun",
+            ]
 
 
 class Plateau:
@@ -171,7 +240,7 @@ class Plateau:
                         try:
 
                             if C.subcategory == subcategory:
-                                print(i, elem)
+                                # print(i, elem)
                                 count += 1
                         except AttributeError:
                             next
@@ -311,7 +380,6 @@ class Plateau:
         c = 0
         for elem in self.plateau_player:
             if elem["down"] != None:
-                print(elem["down"])
                 if elem["down"].subcategory == "luciole":
                     c += 1
         return c
@@ -408,19 +476,23 @@ class Plateau:
                         if elem.subcategory == "luciole":
                             c = self.count_luciole()
                             if c == 1 and luciole_counted == 0:
+                                print(f"luciole += {points} points.")
                                 points += 0
                                 luciole_counted += 1
                                 return points
                             elif c == 2 and luciole_counted == 0:
                                 points += 10
                                 luciole_counted += 1
+                                print(f"luciole += {points} points.")
                                 return points
                             elif c == 3 and luciole_counted == 0:
                                 points += 15
+                                print(f"luciole += {points} points.")
                                 luciole_counted += 1
                                 return points
                             elif c == 5 and luciole_counted == 0:
                                 points += 20
+                                print(f"luciole += {points} points.")
                                 luciole_counted += 1
                                 return points
 
@@ -448,24 +520,20 @@ class Plateau:
                         counting_papillons = 0
                         if elem.subcategory == "grand_mars_changeant" and counting_papillons==0 and grand_mars_changeant:
                             points += self.points_papillon(points)
-                            print(points, counting_papillons)
                             break
                         elif elem.subcategory =="paon_du_jour" and counting_papillons==0 and paon_du_jour:
                             points += self.points_papillon(points)
                             counting_papillons += 1
                             break
                         elif elem.subcategory =="morio" and counting_papillons==0 and morio:
-                            print(points, counting_papillons)
                             points += self.points_papillon(points)
                             counting_papillons += 1
                             break
                         elif elem.subcategory =="grande_tortue" and counting_papillons==0 and grande_tortue:
-                            print(points, counting_papillons)
                             points += self.points_papillon(points)
                             counting_papillons += 1
                             break
                         elif elem.subcategory =="tabac_Espagne" and counting_papillons==0 and tabac_Espagne:
-                            print(points, counting_papillons)
                             points += self.points_papillon(points)
                             counting_papillons += 1
                             break

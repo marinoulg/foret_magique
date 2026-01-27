@@ -119,8 +119,7 @@ marine_plateau.place_non_tree_card(morioluciole, on_tree = "hêtre", down=True, 
 
 
 # print()
-# marine_plateau.pprint()
-print(marine_plateau.count_luciole())
+marine_plateau.pprint()
 # print(marine_plateau.how_many_per_category(chene, chene.category))
 
 # c = marine_plateau.how_many_per_subcategory(palom_mousse, palom_mousse.down.subcategory, down=True)
