@@ -17,76 +17,76 @@ from src.CervidéOngulé import *
 from src.Plant import *
 from src.ChauveSouris import *
 
-animals = [
-                                # Amphibien
-                "crapaud_commun",
-                "salamandre_tachetée",
-                "rainette_verte",
-                "cistude",
+animals = {
+                # Amphibien
+                "crapaud_commun":CrapaudCommun("rouge"),
+                "salamandre_tachetée":SalamandreTachetée("jaune"),
+                "rainette_verte":RainetteVerte("jaune"),
+                "cistude":Cistude("rouge"),
 
                     # CervidéOngulé
-                "cerf_élaphe",
-                "chevreuil",
-                "daim",
+                "cerf_élaphe":CerfElaphe("orange"),
+                "chevreuil":Chevreuil("jaune"),
+                "daim":Daim("jaune"),
 
                     # Champignon
-                "amanite_tue_mouches",
-                "coulemelle",
-                "girolle",
-                "cèpe_Bordeaux",
+                "amanite_tue_mouches":Amanite("marron"),
+                "coulemelle":Coulemelle("orange"),
+                "girolle":Girolle("bleu foncé"),
+                "cèpe_Bordeaux":CèpeDeBordeaux("bleu clair"),
 
                     # ChauveSouris
-                "murin_de_Bechstein",
-                "grand_rhinolophe",
-                "oreillard_roux",
-                "barbastelle_Europe",
+                "murin_de_Bechstein":MurinDeBechstein("marron"),
+                "grand_rhinolophe":GrandRhinolophe("jaune"),
+                "oreillard_roux":OreillardRoux("rouge"),
+                "barbastelle_Europe":BarbastelleEurope("orange"),
 
                     # Insecte
-                "fourmi_rousse",
-                "luciole",
-                "lucane",
-                "moustique",
-                "xylocope_violet",
+                "fourmi_rousse":FourmiRousse("vert foncé"),
+                "luciole":Luciole("jaune"),
+                "lucane":Lucane("rouge"),
+                "moustique":Moustique("orange"),
+                "xylocope_violet":XylocopeViolet("bleu clair"),
 
                     #  Oiseau
-                "bouvreuil_pivoire",
-                "pinson_des_arbres",
-                "geai_des_chênes",
-                "autour_des_palombes",
-                "pic_epeiche",
-                "chouette_hulotte",
+                "bouvreuil_pivoire":BouvreuilPivoire("bleu foncé"),
+                "pinson_des_arbres":PinsonDesArbres("rouge"),
+                "geai_des_chênes":GeaiDesChênes("rouge"),
+                "autour_des_palombes":AutourDesPalombes("bleu clair"),
+                "pic_epeiche":PicEpeiche("jaune"),
+                "chouette_hulotte":ChouetteHulotte("rouge"),
 
                     # Ongulé
-                "sanglier",
-                "marcassin",
+                "sanglier":Sanglier("rouge"),
+                "marcassin":Marcassin("rouge"),
 
                     # Papillon
-                "grand_mars_changeant",
-                "paon_du_jour",
-                "morio",
-                "grande_tortue",
-                "tabac_Espagne",
+                "grand_mars_changeant":GrandMarsChangeant("jaune"),
+                "paon_du_jour":PaonDuJour("jaune"),
+                "morio":Morio("rouge"),
+                "grande_tortue":GrandeTortue("rouge"),
+                "tabac_Espagne":TabacEspagne("marron"),
 
                     # Plant
-                "fougère_arborescente",
-                "mousse",
-                "mûre",
-                "fraise_des_bois",
+                "fougère_arborescente":FougèreArborescente("jaune"),
+                "mousse":Mousse("jaune"),
+                "mûre":Mûre("bleu foncé"),
+                "fraise_des_bois":FraiseDesBois("rouge"),
 
                     # Plantigrade
-                "hérisson",
-                "lièvre_Europe",
-                "fouine",
-                "loup",
-                "renard_roux",
-                "taupe",
-                "loir_gris",
-                "écureuil_roux",
-                "blaireau_européen",
-                "lynx",
-                "raton_laveur",
-                "ours_brun",
-            ]
+                "hérisson":Hérisson("orange"),
+                "lièvre_Europe":LièvreEurope("marron"),
+                "fouine":Fouine("rouge"),
+                "loup":Loup("rouge"),
+                "renard_roux":RenardRoux("jaune"),
+                "taupe":Taupe("rouge"),
+                "loir_gris":LoirGris("marron"),
+                "écureuil_roux":EcureuilRoux("orange"),
+                "blaireau_européen":BlaireauEuropéen("orange"),
+                "lynx":Lynx("jaune"),
+                "raton_laveur":RatonLaveur("vert clair"),
+                "ours_brun":OursBrun("jaune")
+            }
 
 
 class Plateau:
@@ -385,119 +385,80 @@ class Plateau:
         return c
 
     def count_points_animal(self,
-                    # Amphibien
-                    crapaud_commun=False,
-                    salamandre_tachetée=False,
-                    rainette_verte=False,
-                    cistude=False,
+                            animal_string=None,
+                            ):
 
-                    # CervidéOngulé
-                    cerf_élaphe=False,
-                    chevreuil=False,
-                    daim=False,
+        points=0
+        if animal_string != None:
+            animal = animals[animal_string]
 
-                    # Champignon
-                    amanite_tue_mouches=False,
-                    coulemelle=False,
-                    girolle=False,
-                    cèpe_Bordeaux=False,
+        else:
+            points_dict = {}
+            can_only_be_counted_once_subcat = ["luciole",
+                                               "grand_mars_changeant", "paon_du_jour", "morio", "grande_tortue", "tabac_Espagne"]
+            for animal_string in animals:
+                animal = animals[animal_string]
+                p = (self.count_points_animal(animal_string))
+                if p != None and p!=0:
+                    if animal_string not in can_only_be_counted_once_subcat:
+                        points_dict[animal_string] = (p)
+                    else:
+                        if animal.category == "papillon":
+                            points_dict["papillon"] = p
+                        elif animal.subcategory == "luciole":
+                            points_dict["luciole"] = p
 
-                    # ChauveSouris
-                    murin_de_Bechstein=False,
-                    grand_rhinolophe=False,
-                    oreillard_roux=False,
-                    barbastelle_Europe=False,
-
-                    # Insecte
-                    fourmi_rousse=False,
-                    luciole=False,
-                    lucane=False,
-                    moustique=False,
-                    xylocope_violet=False,
-
-                    #  Oiseau
-                    bouvreuil_pivoire=False,
-                    pinson_des_arbres=False,
-                    geai_des_chênes=False,
-                    autour_des_palombes=False,
-                    pic_epeiche=False,
-                    chouette_hulotte=False,
-
-                    # Ongulé
-                    sanglier=False,
-                    marcassin=False,
-
-                    # Papillon
-                    grand_mars_changeant=False,
-                    paon_du_jour=False,
-                    morio=False,
-                    grande_tortue=False,
-                    tabac_Espagne=False,
-
-                    # Plant
-                    fougère_arborescente=False,
-                    mousse=False,
-                    mûre=False,
-                    fraise_des_bois=False,
-
-                    # Plantigrade
-                    hérisson=False,
-                    lièvre_Europe=False,
-                    fouine=False,
-                    loup=False,
-                    renard_roux=False,
-                    taupe=False,
-                    loir_gris=False,
-                    écureuil_roux=False,
-                    blaireau_européen=False,
-                    lynx=False,
-                    raton_laveur=False,
-                    ours_brun=False,
-
-                     points=0):
+                    # print(p)
+            return sum(list(points_dict.values()))
 
         for dict_ in self.plateau_player:
             for elem in list(dict_.values()):
                 if elem != None:
                     # Amphibien
-                    if crapaud_commun:
+                    if animal.subcategory == "crapaud_commun":
+                        return points
                         pass
 
-                    elif rainette_verte:
+                    elif animal.subcategory == "rainette_verte":
                         if elem.subcategory == "rainette_verte":
                             c = self.count_mosquitos()
                             points += c*5
+                            print(f"{animal.subcategory} += {points} points.")
+                            return points
 
-
+                    elif animal.category == "champignon":
+                        points += 0
+                        print(f"{animal.category} += {points} points.")
+                        return points
 
                     # Insecte
-                    elif luciole:
+                    elif animal.subcategory == "luciole":
                         luciole_counted = 0
                         if elem.subcategory == "luciole":
                             c = self.count_luciole()
                             if c == 1 and luciole_counted == 0:
-                                print(f"luciole += {points} points.")
+                                print(f"{animal.subcategory} += {points} points.")
                                 points += 0
                                 luciole_counted += 1
                                 return points
                             elif c == 2 and luciole_counted == 0:
                                 points += 10
                                 luciole_counted += 1
-                                print(f"luciole += {points} points.")
+                                print(f"{animal.subcategory} += {points} points.")
                                 return points
                             elif c == 3 and luciole_counted == 0:
                                 points += 15
-                                print(f"luciole += {points} points.")
+                                print(f"{animal.subcategory} += {points} points.")
                                 luciole_counted += 1
                                 return points
                             elif c == 5 and luciole_counted == 0:
                                 points += 20
-                                print(f"luciole += {points} points.")
+                                print(f"{animal.subcategory} += {points} points.")
                                 luciole_counted += 1
                                 return points
 
                     # Oiseau
-                    elif autour_des_palombes:
+                    elif animal.subcategory == "autour_des_palombes":
                         palom = Card(up_down=True)
                         palom.up = AutourDesPalombes()
                         try:
@@ -506,51 +467,69 @@ class Plateau:
                                                         palom.up.category,
                                                         up=True)
                                 points += (3*c)
+                                print(f"{animal.subcategory} += {points} points.")
+                                return points
                         except AttributeError:
                             next
 
-                    elif chouette_hulotte:
+                    elif animal.subcategory == "chouette_hulotte":
                         if elem.subcategory == "chouette_hulotte":
                             points += 5
+                            print(f"{animal.subcategory} += {points} points.")
+                            return points
 
 
 
                     # Papillon
-                    elif grand_mars_changeant or paon_du_jour or morio or grande_tortue or tabac_Espagne:
+                    elif animal.category == "papillon" :
                         counting_papillons = 0
-                        if elem.subcategory == "grand_mars_changeant" and counting_papillons==0 and grand_mars_changeant:
+                        if elem.subcategory == "grand_mars_changeant" and counting_papillons==0 and animal.subcategory == "grand_mars_changeant":
                             points += self.points_papillon(points)
-                            break
-                        elif elem.subcategory =="paon_du_jour" and counting_papillons==0 and paon_du_jour:
+                            print(f"{animal.subcategory} += {points} points.")
+                            return points
+                        elif elem.subcategory =="paon_du_jour" and counting_papillons==0 and animal.subcategory == "paon_du_jour":
                             points += self.points_papillon(points)
+                            print(f"{animal.subcategory} += {points} points.")
                             counting_papillons += 1
-                            break
-                        elif elem.subcategory =="morio" and counting_papillons==0 and morio:
+                            return points
+                        elif elem.subcategory =="morio" and counting_papillons==0 and animal.subcategory == "morio":
                             points += self.points_papillon(points)
+                            print(f"{animal.subcategory} += {points} points.")
                             counting_papillons += 1
-                            break
-                        elif elem.subcategory =="grande_tortue" and counting_papillons==0 and grande_tortue:
+                            return points
+                        elif elem.subcategory =="grande_tortue" and counting_papillons==0 and animal.subcategory == "grande_tortue":
                             points += self.points_papillon(points)
+                            print(f"{animal.subcategory} += {points} points.")
                             counting_papillons += 1
-                            break
-                        elif elem.subcategory =="tabac_Espagne" and counting_papillons==0 and tabac_Espagne:
+                            return points
+                        elif elem.subcategory =="tabac_Espagne" and counting_papillons==0 and animal.subcategory == "tabac_Espagne":
                             points += self.points_papillon(points)
+                            print(f"{animal.subcategory} += {points} points.")
                             counting_papillons += 1
-                            break
+                            return points
 
                     # Plant
-                    elif mousse:
+                    elif animal.subcategory == "mousse":
                         if elem.subcategory == "mousse":
                             chene = Chêne()
                             total = self.how_many_per_category(chene, chene.category)
 
                             if total > 9:
                                 points += 10
+                                print(f"{animal.subcategory} += {points} points.")
+                                return points
 
-                    elif fraise_des_bois:
+                    elif animal.subcategory == "fraise_des_bois":
                         if elem.subcategory == "fraise_des_bois":
                             if self.at_least_1_tree_per_subcategory():
                                 points += 10
+                                print(f"{animal.subcategory} += {points} points.")
+                                return points
 
-
-        return points
+    # def count_all_points(self):
+    #     points=0
+    #     self.count_points_animal(animal)
+    #     if animal == None:
+    #         for anim in animals:
+    #             print(anim)
+    #             points = self.count_points_animal(anim, points)

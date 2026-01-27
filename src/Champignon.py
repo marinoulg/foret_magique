@@ -1,5 +1,4 @@
 from src.Player import Player, ElementsAnimal, Game
-from src.CountPoints import Plateau
 from src.Tree import *
 from src.helper_functions.colors import which_color
 

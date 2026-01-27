@@ -22,11 +22,11 @@
     chevreuil=False,
     daim=False,
 
-    # Champignon
-    amanite_tue_mouches=False,
-    coulemelle=False,
-    girolle=False,
-    cèpe_Bordeaux=False,
+  # ☑ Champignon
+  ☑ amanite_tue_mouches=False,
+  ☑ coulemelle=False,
+  ☑ girolle=False,
+  ☑ cèpe_Bordeaux=False,
 
     # ChauveSouris
     murin_de_Bechstein=False,
@@ -83,6 +83,7 @@
      points=0
 
 # Done :
+- ☑ total points automatique
 - ☑ subcategory names are aligned in all files, and if no color is given at initialising an animal, it is asked automatically
 - ☑ add winter_card possibilities
 - ☑ add grotte possibilities

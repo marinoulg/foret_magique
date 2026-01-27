@@ -28,8 +28,6 @@ clairiere = Clairiere()
 marine = Player(player_id=1,nb_cards=cards_start)
 marine_plateau = Plateau(marine.player_id)
 
-# distribute_and_verify_player_has_tree_in_distribution(marine, deck, cards_start)
-
 """
 User gets handed 6 cards in real life, so they get instantiated in the
 virtual version of the game.
@@ -101,9 +99,9 @@ marine_plateau.place_tree(chene) # 3
 marine_plateau.place_tree(marronnier) # 4
 marine_plateau.place_tree(sap_bl) # 5
 marine_plateau.place_tree(chene) # 6
-# marine_plateau.place_tree(sap_D) # 7
-# marine_plateau.place_tree(tilleul) # 8
-# marine_plateau.place_tree(erable) # 9
+marine_plateau.place_tree(sap_D) # 7
+marine_plateau.place_tree(tilleul) # 8
+marine_plateau.place_tree(erable) # 9
 # marine_plateau.place_tree(chene) # 10
 # marine_plateau.place_tree(chene) # 11
 
@@ -111,9 +109,11 @@ marine_plateau.place_tree(chene) # 6
 # attention, l'ordre/index de mes arbres EST IMPORTANT
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "chêne", down=True, which_tree_idx=2)
 marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", up=True, which_tree_idx=3)
+marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", down=True, which_tree_idx=3)
 marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", left=True, which_tree_idx=6)
 
-marine_plateau.place_non_tree_card(mars_rainette, on_tree = "érable", up=True)
+marine_plateau.place_non_tree_card(morioluciole, on_tree = "érable", up=True)
+marine_plateau.place_non_tree_card(mars_rainette, on_tree = "sapin_blanc", up=True)
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "hêtre", down=True, which_tree_idx=6)
 # marine_plateau.place_non_tree_card(card, on_tree = "chêne", down=True, which_tree_idx=2)
 
@@ -128,7 +128,8 @@ marine_plateau.pprint()
 # print(how_many_arbre_subcategory(marine_plateau.plateau_player))
 # print(marine_plateau.how_many_tree_subcat("chêne"))
 # print(marine_plate(bouleau))
-print(marine_plateau.count_points_animal(luciole=True))
+print()
+print(marine_plateau.count_points_animal())
 # print(marine_plateau.how_many_tree_subcat(bouleau))
 
 
