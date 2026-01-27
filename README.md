@@ -16,7 +16,7 @@
     crapaud_commun=False,
     salamandre_tachetée=False,
   ☑ rainette_verte=False,
-    cistude=False,
+  ☑ cistude=False,
 
     # CervidéOngulé
     cerf_élaphe=False,
@@ -64,7 +64,7 @@
     # Plant
     fougère_arborescente=False,
   ☑ mousse=False,
-    mûre=False,
+  ☑ mûre=False,
   ☑ fraise_des_bois=False,
 
     # Plantigrade

@@ -114,6 +114,13 @@ pic_cepe = Card(up_down=True)
 pic_cepe.up = PicEpeiche("jaune")
 pic_cepe.down = CèpeDeBordeaux("bleu clair")
 
+cist_morio = Card(up_down=True)
+cist_morio.up = Morio("rouge")
+cist_morio.down = Cistude("vert clair")
+
+tab_mure = Card(up_down=True)
+tab_mure.up = TabacEspagne("marron")
+tab_mure.down = Mûre("vert foncé")
 
 """
 # User places cards in Plateau
@@ -128,8 +135,8 @@ marine_plateau.place_tree(chene) # 6
 marine_plateau.place_tree(sap_D) # 7
 marine_plateau.place_tree(tilleul) # 8
 marine_plateau.place_tree(erable) # 9
-# marine_plateau.place_tree(chene) # 10
-# marine_plateau.place_tree(chene) # 11
+marine_plateau.place_tree(chene) # 10
+marine_plateau.place_tree(chene) # 11
 
 victor_plateau.place_tree(bouleau) # 0
 victor_plateau.place_tree(hetre) # 1
@@ -153,55 +160,15 @@ marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", left=True, wh
 
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "érable", up=True)
 marine_plateau.place_non_tree_card(mars_rainette, on_tree = "sapin_blanc", up=True)
-marine_plateau.place_non_tree_card(morioluciole, on_tree = "hêtre", down=True, which_tree_idx=6)
+marine_plateau.place_non_tree_card(tab_mure, on_tree = "hêtre", down=True, which_tree_idx=6)
 
 marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", up=True)
-marine_plateau.place_non_tree_card(pic_cepe, on_tree = "tilleul", up=True)
-
-# print(palom_mousse.down.subcategory)
-# marine_plateau.place_non_tree_card(card, on_tree = "chêne", down=True, which_tree_idx=2)
-
-# print(res["marine"]["plateau"].plateau_player)
-# points = 0
-# names = (game.who_max_trees(res))
-# for name in names:
-#     for elem in res[name]["plateau"].plateau_player:
-#         animal = elem["up"]
-#         if animal != None:
-#             if animal.subcategory == "pic_epeiche":
-#                 points += 10
-#                 print(f"{animal.subcategory} += {points} points.")
-#                 print(animal)
+marine_plateau.place_non_tree_card(tab_mure, on_tree = "tilleul", down=True)
 
 print()
 # print(marine_plateau.how_many_per_subcategory("chêne", arbre=True, print_=True))
-marine_plateau.pprint(only_animals=True)
+marine_plateau.pprint(index=True, category=True, subcategory = True, only_animals=True)
 print()
-# print(marine_plateau.how_many_per_category(chene, chene.category))
+print(marine_plateau.how_many_per_category("plant", down=True))
 
-# c = marine_plateau.how_many_per_subcategory(palom_mousse, palom_mousse.down.subcategory, down=True)
-# print(c)
-
-# print(how_many_arbre_subcategory(marine_plateau.plateau_player))
-# print(marine_plateau.how_many_tree_subcat("chêne"))
-# print(marine_plate(bouleau))
-# print()
 print(marine_plateau.count_points_animal(res=res, game=game))
-# print(marine_plateau.how_many_tree_subcat(bouleau))
-
-
-# pap_dict = (marine_plateau.count_papillons())
-# how_many_difft = 0
-# for k,v in pap_dict.items():
-#     if pap_dict[k] > 0:
-#         how_many_difft += 1
-
-# pprint(pap_dict)
-
-
-
-
-# daim_chevr = Card(left_right=True)
-# daim_chevr.left = Daim()
-# daim_chevr.right = Chevreuil() # problem recognising CervidéOngulé
-# marine.cards_player.append(daim_chevr)

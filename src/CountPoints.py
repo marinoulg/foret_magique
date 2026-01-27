@@ -93,8 +93,10 @@ class Plateau:
         self.player_id = player_id
         self.plateau_player = list()
 
-    def pprint(self, index=True, only_animals=False):
-        if only_animals == False:
+    def pprint(self, index=False, only_animals=False, subcategory=True, category=False):
+
+
+        if only_animals == False and category ==False and subcategory == False:
             if index == True:
                 for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
                     pprint({i:elem})
@@ -102,19 +104,90 @@ class Plateau:
                 for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
                     pprint(elem)
 
-        if only_animals:
-            for an in self.plateau_player:
-                if an["arbre"] != None:
-                    print(an["arbre"].subcategory, end=": ")
-                if an["up"] != None:
-                    print(an["up"].subcategory, end=", ")
-                if an["down"] != None:
-                    print(an["down"].subcategory, end=", ")
-                if an["left"] != None:
-                    print(an["left"].subcategory, end=", ")
-                if an["right"] != None:
-                    print(an["right"].subcategory, end=", ")
-                print(end="\n")
+        elif only_animals==True and category ==False and subcategory == True:
+            if index==True:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"] != None:
+                        print(f"{i}:", an["arbre"].subcategory, end=": ")
+                    if an["up"] != None:
+                        print(an["up"].subcategory, end=", ")
+                    if an["down"] != None:
+                        print(an["down"].subcategory, end=", ")
+                    if an["left"] != None:
+                        print(an["left"].subcategory, end=", ")
+                    if an["right"] != None:
+                        print(an["right"].subcategory, end=", ")
+                    print(end="\n")
+
+            if index==False:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"] != None:
+                        print(an["arbre"].subcategory, end=": ")
+                    if an["up"] != None:
+                        print(an["up"].subcategory, end=", ")
+                    if an["down"] != None:
+                        print(an["down"].subcategory, end=", ")
+                    if an["left"] != None:
+                        print(an["left"].subcategory, end=", ")
+                    if an["right"] != None:
+                        print(an["right"].subcategory, end=", ")
+                    print(end="\n")
+        elif only_animals==True and category ==True and subcategory == False:
+            if index==True:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"] != None:
+                        print(f"{i}:", an["arbre"].category, end=": ")
+                    if an["up"] != None:
+                        print(an["up"].category, end=", ")
+                    if an["down"] != None:
+                        print(an["down"].category, end=", ")
+                    if an["left"] != None:
+                        print(an["left"].category, end=", ")
+                    if an["right"] != None:
+                        print(an["right"].category, end=", ")
+                    print(end="\n")
+
+            if index==False:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"] != None:
+                        print(an["arbre"].category, end=": ")
+                    if an["up"] != None:
+                        print(an["up"].category, end=", ")
+                    if an["down"] != None:
+                        print(an["down"].category, end=", ")
+                    if an["left"] != None:
+                        print(an["left"].category, end=", ")
+                    if an["right"] != None:
+                        print(an["right"].category, end=", ")
+                    print(end="\n")
+        elif only_animals==True and category ==True and subcategory == True:
+            if index==True:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"] != None:
+                        print(f"{i}: {an["arbre"].subcategory} - {an["arbre"].category}", end=": ")
+                    if an["up"] != None:
+                        print(f"{an["up"].subcategory} - {an["up"].category}", end=", ")
+                    if an["down"] != None:
+                        print(f"{an["down"].subcategory} - {an["down"].category}", end=", ")
+                    if an["left"] != None:
+                        print(f"{an["left"].subcategory} - {an["left"].category}", end=", ")
+                    if an["right"] != None:
+                        print(f"{an["right"].subcategory} - {an["right"].category}", end=", ")
+                    print(end="\n")
+
+            if index==False:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"] != None:
+                        print(an["arbre"].category, end=": ")
+                    if an["up"] != None:
+                        print(an["up"].category, end=", ")
+                    if an["down"] != None:
+                        print(an["down"].category, end=", ")
+                    if an["left"] != None:
+                        print(an["left"].category, end=", ")
+                    if an["right"] != None:
+                        print(an["right"].category, end=", ")
+                    print(end="\n")
 
     def place_tree(self, Card):
         temp_dict = {}
@@ -423,7 +496,6 @@ class Plateau:
         else:
             points_dict = defaultdict(list)
 
-
             for an in self.plateau_player:
                 if an["up"] != None:
                     animal_string = (an["up"].subcategory)
@@ -475,6 +547,9 @@ class Plateau:
                                 print(f"{animal.subcategory} += {points} points.")
                                 return points
 
+                        if animal.subcategory == "cistude":
+                            points += 5
+                            return points
                         # Champignon
                         elif animal.category == "champignon":
                             return points
@@ -571,6 +646,13 @@ class Plateau:
                                     points += 10
                                     print(f"{animal.subcategory} += {points} points.")
                                     return points
+
+                        elif animal.subcategory == "mûre":
+                            if elem.subcategory == "mûre":
+                                total = self.how_many_per_category("plant", down=True)
+                                points += 2*total
+                                print(f"{animal.subcategory} += {points} points.")
+                                return points
 
                         elif animal.subcategory == "fraise_des_bois":
                             if elem.subcategory == "fraise_des_bois":
