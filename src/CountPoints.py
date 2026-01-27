@@ -96,9 +96,17 @@ all_categories = {
                 "sapin_Douglas":SapinDouglas(),
                 "tilleul":Tilleul(),
                 "érable":Erable()
-
-
             }
+
+all_trees = {   "chêne":Chêne(),
+                "bouleau":Bouleau(),
+                "hêtre":Hêtre(),
+                "marronnier_commun":Marronnier(),
+                "sapin_blanc":SapinBlanc(),
+                "sapin_Douglas":SapinDouglas(),
+                "tilleul":Tilleul(),
+                "érable":Erable()
+                }
 
 class Plateau:
     def __init__(self, player_id, name):
@@ -116,7 +124,6 @@ class Plateau:
             elif index == False:
                 for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
                     pprint(elem)
-
         elif only_animals==True and category ==False and subcategory == True:
             if index==True:
                 for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
@@ -201,6 +208,8 @@ class Plateau:
                     if an["right"] != None:
                         print(an["right"].category, end=", ")
                     print(end="\n")
+        # elif only_animals==False and subcategory==True and category==False:
+        #     pass
 
     def place_tree(self, Card):
         temp_dict = {}
@@ -534,9 +543,6 @@ class Plateau:
                     """
                     arbre_string = (an["arbre"].subcategory)
                     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=arbre_string, points_dict=points_dict)
-                # else:
-                #     print(an)
-
 
             print()
             pprint(points_dict)
@@ -616,6 +622,12 @@ class Plateau:
                                     return points
 
                         # Oiseau
+                        elif animal.subcategory == "geai_des_chênes":
+                            if elem.subcategory == "geai_des_chênes":
+                                points += 3
+                                print(f"{animal.subcategory} += {points} points.")
+                                return points
+
                         elif animal.subcategory == "autour_des_palombes":
                             try:
                                 if elem.subcategory == "autour_des_palombes":
@@ -673,6 +685,13 @@ class Plateau:
                                 return points
 
                         # Plant
+                        elif animal.subcategory == "fougère_arborescente":
+                            if elem.subcategory == "fougère_arborescente":
+                                total = self.how_many_per_category("amphibien", down=True)
+                                points += 6*total
+                                print(f"{animal.subcategory} += {points} points.")
+                                return points
+
                         elif animal.subcategory == "mousse":
                             if elem.subcategory == "mousse":
                                 total = self.how_many_per_category("arbre", arbre=True)
@@ -695,10 +714,42 @@ class Plateau:
                                     points += 10
                                     print(f"{animal.subcategory} += {points} points.")
                                     return points
+
+                        # Plantigrade
+                        elif animal.subcategory == "écureuil_roux":
+                            if elem.subcategory == "écureuil_roux":
+                                for elem in self.plateau_player:
+                                    if (elem["up"]) != None:
+                                        if elem["up"].subcategory == "écureuil_roux":
+                                            if (elem["arbre"].subcategory) == "chêne":
+                                                points += 5
+                                                print(f"{animal.subcategory} += {points} points.")
+                                                return points
+
                     elif elem.category == "arbre":
                         if animal.subcategory == "chêne":
+                            temp_dict = self.all_trees_player()
+
+                            missing = []
+                            for k,v in temp_dict.items():
+                                if k in list(all_trees.keys()):
+                                    if v > 0:
+                                        next
+                                    else:
+                                        print()
+                                        missing.append(k)
+                            if len(missing) > 0:
+                                print(f"You are missing {"a " + missing[0] if len(missing)==1 else missing} to have all 8 categories of trees.")
+                                points += 0
+                                return points
+                            else:
+                                points += 10
+                                print(f"{animal.subcategory} += {points} points.")
+                                return points
+
                             pass
                         elif animal.subcategory == "bouleau":
+                            print(f"{animal.subcategory} += {points} points.")
                             points += 1
                             return points
                         elif animal.subcategory == "hêtre":
@@ -744,13 +795,23 @@ class Plateau:
 
                             pass
                         elif animal.subcategory == "sapin_blanc":
-                            pass
+                            count = 0
+                            for elem in self.plateau_player:
+                                if elem["arbre"].subcategory == "sapin_blanc":
+                                    for k,v in elem.items():
+                                        if v != None and k != "arbre":
+                                            count += 1
+                                            print(v)
+
+                            points += (count)*2
+                            print(f"{animal.subcategory} += {points} points.")
+                            return points
                         elif animal.subcategory == "sapin_Douglas":
+                            print(f"{animal.subcategory} += {points} points.")
                             points += 5
                             return points
                         elif animal.subcategory == "tilleul":
                             names = (game.who_max_tilleuls(res))
-                            print(names)
 
                             for name in names:
                                 if name == self.name:
@@ -769,11 +830,3 @@ class Plateau:
                             pass
                 except AttributeError:
                     next
-
-    # def count_all_points(self):
-    #     points=0
-    #     self.count_points_animal(animal)
-    #     if animal == None:
-    #         for anim in animals:
-    #             print(anim)
-    #             points = self.count_points_animal(anim, points)

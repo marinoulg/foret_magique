@@ -32,7 +32,6 @@ def initialize_game_and_players(game, cards_start=6):
         res[name] = {"player":player,
                      "plateau":plateau,
                      "player_id":player.player_id,
-                    #  "name":name
                      }
         game.player_ids.append(player.player_id)
     return res, game

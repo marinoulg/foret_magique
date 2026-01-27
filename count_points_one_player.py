@@ -122,9 +122,14 @@ cist_morio.down = Cistude("vert clair")
 tab_mure = Card(up_down=True)
 tab_mure.up = TabacEspagne("marron")
 tab_mure.down = Mûre("vert foncé")
+
 ecu_salam = Card(up_down=True)
 ecu_salam.up = EcureuilRoux("vert foncé")
 ecu_salam.down = SalamandreTachetée("jaune")
+
+geai_foug = Card(up_down=True)
+geai_foug.up = GeaiDesChênes("vert clair")
+geai_foug.down = FougèreArborescente("orange")
 
 """
 # User places cards in Plateau
@@ -137,7 +142,7 @@ marine_plateau.place_tree(marronnier) # 4
 marine_plateau.place_tree(sap_bl) # 5
 marine_plateau.place_tree(chene) # 6
 marine_plateau.place_tree(sap_D) # 7
-marine_plateau.place_tree(tilleul) # 8
+marine_plateau.place_tree(chene) # 8
 marine_plateau.place_tree(erable) # 9
 marine_plateau.place_tree(chene) # 10
 marine_plateau.place_tree(chene) # 11
@@ -170,18 +175,18 @@ marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", up=True, whi
 
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "marronnier_commun", down=True, which_tree_idx=4)
 
-marine_plateau.place_non_tree_card(mars_rainette, on_tree = "sapin_blanc", up=True, which_tree_idx=5)
-marine_plateau.place_non_tree_card(palom_mousse, on_tree = "sapin_blanc", down=True, which_tree_idx=5)
+marine_plateau.place_non_tree_card(mars_rainette, on_tree = "sapin_blanc", down=True, which_tree_idx=5)
+marine_plateau.place_non_tree_card(palom_mousse, on_tree = "sapin_blanc", up=True, which_tree_idx=5)
 
 marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", left=True, which_tree_idx=6)
 
 marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", up=True, which_tree_idx=7)
 
-marine_plateau.place_non_tree_card(morioluciole, on_tree = "tilleul", up=True, which_tree_idx=8)
-marine_plateau.place_non_tree_card(ecu_salam, on_tree = "tilleul", down=True, which_tree_idx=8)
+marine_plateau.place_non_tree_card(morioluciole, on_tree = "chêne", down=True, which_tree_idx=8)
+marine_plateau.place_non_tree_card(ecu_salam, on_tree = "chêne", up=True, which_tree_idx=8)
 
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "érable", up=True, which_tree_idx=9)
-marine_plateau.place_non_tree_card(morioluciole, on_tree = "chêne", down=True, which_tree_idx=10)
+marine_plateau.place_non_tree_card(geai_foug, on_tree = "chêne", down=True, which_tree_idx=10)
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "chêne", down=True, which_tree_idx=11)
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "marronnier_commun", down=True, which_tree_idx=12)
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "bouleau", down=True, which_tree_idx=13)
@@ -189,16 +194,30 @@ marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", up=True,
 
 marine_plateau.place_non_tree_card(ecu_salam, on_tree = "tilleul", down=True, which_tree_idx=15)
 
-# marine_plateau.pprint(only_animals=True)
-# print(marine_plateau.name)
-
-
-# print()
-# # print(marine_plateau.how_many_per_subcategory("marronnier_commun", arbre=True, print_=True))
-# marine_plateau.pprint(index=True, category=False, subcategory = True, only_animals=True)
-# print()
-# # print(marine_plateau.how_many_per_category("plant", down=True))
-
-print(victor_plateau.count_points_animal(res=res, game=game))
+print(marine_plateau.name, end = "\n\n")
+marine_plateau.pprint(index=False, only_animals=True, subcategory=True, category=False)
 print()
 print(marine_plateau.count_points_animal(res=res, game=game))
+
+# print("---"*10)
+# print(victor_plateau.name, end = "\n\n")
+# victor_plateau.pprint(index=False, only_animals=True, subcategory=True, category=False)
+# print()
+# print(victor_plateau.count_points_animal(res=res, game=game))
+# print()
+
+# print(marine_plateau.all_trees_player())
+
+# points =0
+# for elem in marine_plateau.plateau_player:
+#     if (elem["up"]) != None:
+#         if elem["up"].subcategory == "écureuil_roux":
+#             if (elem["arbre"].subcategory) == "chêne":
+#                 points += 5
+        #     for k,v in elem.items():
+        #         if v != None and k == "arbre":
+        #             count += 1
+        #             print(v)
+
+# points += (count)*2
+# print(points)

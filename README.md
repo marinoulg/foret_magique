@@ -45,9 +45,9 @@
     # Oiseau
     bouvreuil_pivoire=False,
     pinson_des_arbres=False,
-    geai_des_chênes=False,
+  ☑ geai_des_chênes=False,
   ☑ autour_des_palombes=False,
-    pic_epeiche=False,
+  ☑ pic_epeiche=False,
   ☑ chouette_hulotte=False,
 
     # Ongulé
@@ -61,8 +61,8 @@
   ☑ grande_tortue=True,
   ☑ tabac_Espagne=True,
 
-    # Plant
-    fougère_arborescente=False,
+  # ☑ Plant
+  ☑ fougère_arborescente=False,
   ☑ mousse=False,
   ☑ mûre=False,
   ☑ fraise_des_bois=False,
@@ -75,18 +75,18 @@
     renard_roux=False,
     taupe=False,
     loir_gris=False,
-    écureuil_roux=False,
+  ☑ écureuil_roux=False,
     blaireau_européen=False,
     lynx=False,
     raton_laveur=False,
     ours_brun=False,
 
     # Tree
-    chêne=False
+  ☑ chêne=False
   ☑ bouleau=False
     hêtre=False
   ☑ marronnier_commun=False
-    sapin_blanc=False
+  ☑ sapin_blanc=False
   ☑ sapin_Douglas=False
   ☑ tilleul=False
     érable=False
