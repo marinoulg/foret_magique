@@ -27,11 +27,13 @@ def initialize_game_and_players(game, cards_start=6):
     res = {}
     for i,name in zip(range(1,(nb_of_players+1)),player_names):
         player = Player(nb_cards=cards_start, player_id=i)
-        plateau = Plateau(player.player_id)
+        plateau = Plateau(player.player_id, name=name)
 
         res[name] = {"player":player,
                      "plateau":plateau,
-                     "player_id":player.player_id}
+                     "player_id":player.player_id,
+                    #  "name":name
+                     }
         game.player_ids.append(player.player_id)
     return res, game
 

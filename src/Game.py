@@ -21,3 +21,15 @@ class Game:
                 names.append(name)
 
         return names
+
+    def who_max_tilleuls(self, res):
+        max_tilleuls = 0
+        names = []
+        for name in res:
+            count = res[name]["plateau"].how_many_per_subcategory("tilleul", arbre=True)
+            res[name]["count_trees"] = count
+            if count >= max_tilleuls:
+                max_tilleuls = count
+                names.append(name)
+
+        return names

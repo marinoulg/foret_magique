@@ -17,38 +17,38 @@ from src.CervidéOngulé import *
 from src.Plant import *
 from src.ChauveSouris import *
 
-animals = {
+all_categories = {
                 # Amphibien
                 "crapaud_commun":CrapaudCommun("rouge"),
                 "salamandre_tachetée":SalamandreTachetée("jaune"),
                 "rainette_verte":RainetteVerte("jaune"),
                 "cistude":Cistude("rouge"),
 
-                    # CervidéOngulé
+                # CervidéOngulé
                 "cerf_élaphe":CerfElaphe("orange"),
                 "chevreuil":Chevreuil("jaune"),
                 "daim":Daim("jaune"),
 
-                    # Champignon
+                # Champignon
                 "amanite_tue_mouches":Amanite("marron"),
                 "coulemelle":Coulemelle("orange"),
                 "girolle":Girolle("bleu foncé"),
                 "cèpe_Bordeaux":CèpeDeBordeaux("bleu clair"),
 
-                    # ChauveSouris
+                # ChauveSouris
                 "murin_de_Bechstein":MurinDeBechstein("marron"),
                 "grand_rhinolophe":GrandRhinolophe("jaune"),
                 "oreillard_roux":OreillardRoux("rouge"),
                 "barbastelle_Europe":BarbastelleEurope("orange"),
 
-                    # Insecte
+                # Insecte
                 "fourmi_rousse":FourmiRousse("vert foncé"),
                 "luciole":Luciole("jaune"),
                 "lucane":Lucane("rouge"),
                 "moustique":Moustique("orange"),
                 "xylocope_violet":XylocopeViolet("bleu clair"),
 
-                    #  Oiseau
+                #  Oiseau
                 "bouvreuil_pivoire":BouvreuilPivoire("bleu foncé"),
                 "pinson_des_arbres":PinsonDesArbres("rouge"),
                 "geai_des_chênes":GeaiDesChênes("rouge"),
@@ -56,24 +56,24 @@ animals = {
                 "pic_epeiche":PicEpeiche("jaune"),
                 "chouette_hulotte":ChouetteHulotte("rouge"),
 
-                    # Ongulé
+                # Ongulé
                 "sanglier":Sanglier("rouge"),
                 "marcassin":Marcassin("rouge"),
 
-                    # Papillon
+                # Papillon
                 "grand_mars_changeant":GrandMarsChangeant("jaune"),
                 "paon_du_jour":PaonDuJour("jaune"),
                 "morio":Morio("rouge"),
                 "grande_tortue":GrandeTortue("rouge"),
                 "tabac_Espagne":TabacEspagne("marron"),
 
-                    # Plant
+                # Plant
                 "fougère_arborescente":FougèreArborescente("jaune"),
                 "mousse":Mousse("jaune"),
                 "mûre":Mûre("bleu foncé"),
                 "fraise_des_bois":FraiseDesBois("rouge"),
 
-                    # Plantigrade
+                # Plantigrade
                 "hérisson":Hérisson("orange"),
                 "lièvre_Europe":LièvreEurope("marron"),
                 "fouine":Fouine("rouge"),
@@ -85,13 +85,26 @@ animals = {
                 "blaireau_européen":BlaireauEuropéen("orange"),
                 "lynx":Lynx("jaune"),
                 "raton_laveur":RatonLaveur("vert clair"),
-                "ours_brun":OursBrun("jaune")
+                "ours_brun":OursBrun("jaune"),
+
+                # Tree
+                "chêne":Chêne(),
+                "bouleau":Bouleau(),
+                "hêtre":Hêtre(),
+                "marronnier_commun":Marronnier(),
+                "sapin_blanc":SapinBlanc(),
+                "sapin_Douglas":SapinDouglas(),
+                "tilleul":Tilleul(),
+                "érable":Erable()
+
+
             }
 
 class Plateau:
-    def __init__(self, player_id):
+    def __init__(self, player_id, name):
         self.player_id = player_id
         self.plateau_player = list()
+        self.name = name
 
     def pprint(self, index=False, only_animals=False, subcategory=True, category=False):
 
@@ -339,7 +352,7 @@ class Plateau:
                     if elem["arbre"].subcategory == subcategory:
                         count += 1
         if print_==True:
-            print(f"{subcategory} has {count} number of cards on Plateau.")
+            print(f"Player {self.player_id} has {count} {subcategory}{"s" if count>1 else ""} on Plateau.")
         return count
 
     def how_many_per_category(self, category,
@@ -455,11 +468,11 @@ class Plateau:
                     c += 1
         return c
 
-    def count_luciole(self):
+    def count_luciole_salamandre(self, subcategory):
         c = 0
         for elem in self.plateau_player:
             if elem["down"] != None:
-                if elem["down"].subcategory == "luciole":
+                if elem["down"].subcategory == subcategory:
                     c += 1
         return c
 
@@ -467,11 +480,13 @@ class Plateau:
         can_only_be_counted_once_subcat = [
                                                "luciole",
                                                "amanite_tue_mouches", "coulemelle", "girolle", "cèpe_Bordeaux",
-                                               "grand_mars_changeant", "paon_du_jour", "morio", "grande_tortue", "tabac_Espagne"
+                                               "grand_mars_changeant", "paon_du_jour", "morio", "grande_tortue", "tabac_Espagne",
+
+                                               "marronnier_commun",
                                                ]
 
         p = (self.count_points_animal(res=res, game=game,animal_string=animal_string))
-        animal = animals[animal_string]
+        animal = all_categories[animal_string]
 
         if p != None and p!=0:
             # print(animal_string)
@@ -483,6 +498,8 @@ class Plateau:
                     points_dict["papillon"] = [p]
                 elif animal.subcategory == "luciole":
                     points_dict["luciole"] = [p]
+                elif animal.subcategory == "marronnier_commun":
+                    points_dict["marronnier_commun"] = [p]
 
         return points_dict
 
@@ -491,7 +508,7 @@ class Plateau:
                             ):
         points=0
         if animal_string != None:
-            animal = animals[animal_string]
+            animal = all_categories[animal_string]
 
         else:
             points_dict = defaultdict(list)
@@ -515,11 +532,10 @@ class Plateau:
                     """
                     not dealt with yet below
                     """
-                    animal_string = (an["arbre"].subcategory)
-                    # print(animal_string)
-                    # points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=animal_string, points_dict=points_dict)
-                else:
-                    print(an)
+                    arbre_string = (an["arbre"].subcategory)
+                    points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=arbre_string, points_dict=points_dict)
+                # else:
+                #     print(an)
 
 
             print()
@@ -539,6 +555,25 @@ class Plateau:
                         if animal.subcategory == "crapaud_commun":
                             # return points
                             pass
+                        elif animal.subcategory == "salamandre_tachetée":
+                            salamandre_tachetée_counted = 0
+                            if elem.subcategory == "salamandre_tachetée":
+                                c = self.count_luciole_salamandre(subcategory="salamandre_tachetée")
+                                if c == 1 and salamandre_tachetée_counted == 0:
+                                    print(f"{animal.subcategory} += {points} points.")
+                                    points += 5
+                                    salamandre_tachetée_counted += 1
+                                    return points
+                                elif c == 2 and salamandre_tachetée_counted == 0:
+                                    points += 15
+                                    salamandre_tachetée_counted += 1
+                                    print(f"{animal.subcategory} += {points} points.")
+                                    return points
+                                elif c == 3 and salamandre_tachetée_counted == 0:
+                                    points += 25
+                                    print(f"{animal.subcategory} += {points} points.")
+                                    salamandre_tachetée_counted += 1
+                                    return points
 
                         elif animal.subcategory == "rainette_verte":
                             if elem.subcategory == "rainette_verte":
@@ -558,7 +593,7 @@ class Plateau:
                         elif animal.subcategory == "luciole":
                             luciole_counted = 0
                             if elem.subcategory == "luciole":
-                                c = self.count_luciole()
+                                c = self.count_luciole_salamandre(subcategory="luciole")
                                 if c == 1 and luciole_counted == 0:
                                     print(f"{animal.subcategory} += {points} points.")
                                     points += 0
@@ -661,7 +696,77 @@ class Plateau:
                                     print(f"{animal.subcategory} += {points} points.")
                                     return points
                     elif elem.category == "arbre":
-                        pass
+                        if animal.subcategory == "chêne":
+                            pass
+                        elif animal.subcategory == "bouleau":
+                            points += 1
+                            return points
+                        elif animal.subcategory == "hêtre":
+                            pass
+                        elif animal.subcategory == "marronnier_commun":
+                            marronnier_counted = 0
+                            c = self.how_many_per_subcategory("marronnier_commun", arbre=True)
+                            if c == 1 and marronnier_counted == 0:
+                                    points += 1
+                                    print(f"{animal.subcategory} += {points} point.")
+                                    marronnier_counted += 1
+                                    return points
+                            elif c == 2 and marronnier_counted == 0:
+                                points += 4
+                                marronnier_counted += 1
+                                print(f"{animal.subcategory} += {points} points.")
+                                return points
+                            elif c == 3 and marronnier_counted == 0:
+                                points += 9
+                                print(f"{animal.subcategory} += {points} points.")
+                                marronnier_counted += 1
+                                return points
+                            elif c == 4 and marronnier_counted == 0:
+                                points += 16
+                                print(f"{animal.subcategory} += {points} points.")
+                                marronnier_counted += 1
+                                return points
+                            elif c == 5 and marronnier_counted == 0:
+                                points += 25
+                                print(f"{animal.subcategory} += {points} points.")
+                                marronnier_counted += 1
+                                return points
+                            elif c == 6 and marronnier_counted == 0:
+                                points += 36
+                                print(f"{animal.subcategory} += {points} points.")
+                                marronnier_counted += 1
+                                return points
+                            elif c >= 7 and marronnier_counted == 0:
+                                points += 49
+                                print(f"{animal.subcategory} += {points} points.")
+                                marronnier_counted += 1
+                                return points
+
+                            pass
+                        elif animal.subcategory == "sapin_blanc":
+                            pass
+                        elif animal.subcategory == "sapin_Douglas":
+                            points += 5
+                            return points
+                        elif animal.subcategory == "tilleul":
+                            names = (game.who_max_tilleuls(res))
+                            print(names)
+
+                            for name in names:
+                                if name == self.name:
+                                    for elem in res[name]["plateau"].plateau_player:
+                                        animal = elem["arbre"]
+                                        if animal != None:
+                                            if animal.subcategory == "tilleul":
+                                                points += 3
+                                                print(f"{animal.subcategory} += {points} points.")
+                                                return points
+                            else:
+                                points += 1
+                                print(f"{animal.subcategory} += {points} points.")
+                                return points
+                        elif animal.subcategory == "érable":
+                            pass
                 except AttributeError:
                     next
 

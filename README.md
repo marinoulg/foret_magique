@@ -14,7 +14,7 @@
 
     # Amphibien
     crapaud_commun=False,
-    salamandre_tachetée=False,
+  ☑ salamandre_tachetée=False,
   ☑ rainette_verte=False,
   ☑ cistude=False,
 
@@ -80,6 +80,16 @@
     lynx=False,
     raton_laveur=False,
     ours_brun=False,
+
+    # Tree
+    chêne=False
+  ☑ bouleau=False
+    hêtre=False
+  ☑ marronnier_commun=False
+    sapin_blanc=False
+  ☑ sapin_Douglas=False
+  ☑ tilleul=False
+    érable=False
 
      points=0
 
