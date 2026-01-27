@@ -1,9 +1,5 @@
-from collections import defaultdict
-from pprint import pprint
 # from src.CountPoints import Plateau
 # from src.helper_functions.game_functions import initialize_game_and_players
-from src.helper_functions.specific_functions import *
-from src.Tree import *
 from src.helper_functions.colors import which_color
 from random import randint
 

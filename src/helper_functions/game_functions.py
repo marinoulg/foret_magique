@@ -1,17 +1,20 @@
 from random import choice, randint
 from src.helper_functions.all_cards import all_cards
-from src.Player import *
-from src.CountPoints import *
+from src.CountPoints import Plateau
+from src.Player import Player
 
 # Initialising variables
 deck = all_cards
-clairiere = Clairiere()
+# clairiere = Clairiere()
 
-def initialize_game_and_players(nb_of_players = 0,
-                                names = [],
-                                cards_start=6):
+# nb_of_players = 0
+# names = []
+# cards_start=6
 
-    game = Game(nb_of_players=nb_of_players)
+def initialize_game_and_players(game, cards_start=6):
+
+    nb_of_players = game.nb_of_players
+    names = game.names
 
     if nb_of_players == 0:
         nb_of_players = int(input("Enter the number of players: "))

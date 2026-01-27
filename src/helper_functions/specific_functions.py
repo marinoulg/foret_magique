@@ -16,10 +16,6 @@ def how_many_arbre_subcategory(plateau_qqn_pt_plateau_player,
         print(f" has {num_tilleuls} number of {subcategory}.")
     return num_tilleuls
 
-def who_most_tilleuls(*num_tilleuls):
-    for pers in num_tilleuls:
-        pass
-
 # def who_most_tilleuls(nb_of_players, player_id, plateau_qqn_pt_arbre):
 #     counting_tilleuls = defaultdict(list)
 

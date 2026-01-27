@@ -5,6 +5,7 @@ from src.PossibleColors import PossibleColors
 from src.helper_functions.all_cards import get_the_deck
 from src.helper_functions.game_functions import *
 from src.CountPoints import *
+from src.Game import *
 
 from src.Champignon import *
 from src.Oiseau import *
@@ -18,22 +19,33 @@ from src.CervidéOngulé import *
 from src.Plant import *
 from src.ChauveSouris import *
 
+import os
 # ---------------------- Initialising .env variables ---------------------
-deck = all_cards
-cards_start = 6
-nb_of_cards = len(all_cards)
-clairiere = Clairiere()
+nb_of_players = int(os.getenv("NB_OF_PLAYERS"))
+PLAYER_NAMES=["marine", "victor"]
+cards_start = os.getenv("CARDS_START")
+
+deck=get_the_deck()
+nb_of_cards=len(all_cards)
 
 # ------------------------- Initialising players -------------------------
-res, game = initialize_game_and_players(nb_of_players=2,
-                                        names=["marine", "victor"])
+
+game = Game(nb_of_players, PLAYER_NAMES)
+res, game = initialize_game_and_players(game)
 
 marine = res["marine"]["player"]
 marine_plateau = res["marine"]["plateau"]
 
 victor_plateau = res["victor"]["plateau"]
-print(res)
-print(game.player_ids)
+
+# res, game = Game(nb_players, player_names).initialize_game()
+
+# marine = res["marine"]["player"]
+# marine_plateau = res["marine"]["plateau"]
+
+# victor_plateau = res["victor"]["plateau"]
+# print(res)
+# print(game.player_ids)
 
 
 
@@ -94,9 +106,13 @@ morioluciole.up = Morio("rouge")
 morioluciole.down = Luciole("jaune")
 # marine.print_cards()
 
-card = Card(up_down=True)
-card.up = BouvreuilPivoire('bleu clair')
-card.down = Moustique("orange")
+bouv_moust = Card(up_down=True)
+bouv_moust.up = BouvreuilPivoire('bleu clair')
+bouv_moust.down = Moustique("orange")
+
+pic_cepe = Card(up_down=True)
+pic_cepe.up = PicEpeiche("jaune")
+pic_cepe.down = CèpeDeBordeaux("bleu clair")
 
 
 """
@@ -130,12 +146,19 @@ victor_plateau.place_tree(erable)
 # attention, l'ordre/index de mes arbres EST IMPORTANT
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "chêne", down=True, which_tree_idx=2)
 marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", up=True, which_tree_idx=3)
-marine_plateau.place_non_tree_card(palom_mousse, on_tree = "chêne", down=True, which_tree_idx=3)
+marine_plateau.place_non_tree_card(fr_chouette, on_tree = "hêtre", up=True)
+
+marine_plateau.place_non_tree_card(palom_mousse, on_tree = "sapin_blanc", down=True, which_tree_idx=3)
 marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", left=True, which_tree_idx=6)
 
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "érable", up=True)
 marine_plateau.place_non_tree_card(mars_rainette, on_tree = "sapin_blanc", up=True)
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "hêtre", down=True, which_tree_idx=6)
+
+marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", up=True)
+marine_plateau.place_non_tree_card(pic_cepe, on_tree = "tilleul", up=True)
+
+# print(palom_mousse.down.subcategory)
 # marine_plateau.place_non_tree_card(card, on_tree = "chêne", down=True, which_tree_idx=2)
 
 # print(res["marine"]["plateau"].plateau_player)
@@ -150,8 +173,10 @@ marine_plateau.place_non_tree_card(morioluciole, on_tree = "hêtre", down=True, 
 #                 print(f"{animal.subcategory} += {points} points.")
 #                 print(animal)
 
-# print()
-# marine_plateau.pprint()
+print()
+# print(marine_plateau.how_many_per_subcategory("chêne", arbre=True, print_=True))
+marine_plateau.pprint(only_animals=True)
+print()
 # print(marine_plateau.how_many_per_category(chene, chene.category))
 
 # c = marine_plateau.how_many_per_subcategory(palom_mousse, palom_mousse.down.subcategory, down=True)
@@ -160,8 +185,8 @@ marine_plateau.place_non_tree_card(morioluciole, on_tree = "hêtre", down=True, 
 # print(how_many_arbre_subcategory(marine_plateau.plateau_player))
 # print(marine_plateau.how_many_tree_subcat("chêne"))
 # print(marine_plate(bouleau))
-print()
-print(marine_plateau.count_points_animal())
+# print()
+print(marine_plateau.count_points_animal(res=res, game=game))
 # print(marine_plateau.how_many_tree_subcat(bouleau))
 
 

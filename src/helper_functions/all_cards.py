@@ -7,6 +7,7 @@ from src.Papillon import *
 from src.Amphibien import *
 from src.Insecte import *
 from src.Cervidé import *
+from src.CervidéOngulé import *
 from src.Ongulé import *
 from src.Plant import *
 from src.ChauveSouris import *
