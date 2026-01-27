@@ -1,10 +1,37 @@
 from random import choice, randint
 from src.helper_functions.all_cards import all_cards
-from src.Player import Clairiere, Card
+from src.Player import *
+from src.CountPoints import *
 
 # Initialising variables
 deck = all_cards
 clairiere = Clairiere()
+
+def initialize_game_and_players(nb_of_players = 0,
+                                names = [],
+                                cards_start=6):
+
+    game = Game(nb_of_players=nb_of_players)
+
+    if nb_of_players == 0:
+        nb_of_players = int(input("Enter the number of players: "))
+    if names == []:
+        names = [input(f"Enter the name of player {i+1}: ") for i in range(nb_of_players)]
+
+    else:
+        player_names = [name for name in names]
+
+    res = {}
+    for i,name in zip(range(1,(nb_of_players+1)),player_names):
+        player = Player(nb_cards=cards_start, player_id=i)
+        plateau = Plateau(player.player_id)
+
+        res[name] = {"player":player,
+                     "plateau":plateau,
+                     "player_id":player.player_id}
+        game.player_ids.append(player.player_id)
+    return res, game
+
 
 def take_out_cards_from_deck(deck, nb_cards_to_take_out=30):
     nb_of_cards = len(deck)

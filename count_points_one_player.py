@@ -25,13 +25,23 @@ nb_of_cards = len(all_cards)
 clairiere = Clairiere()
 
 # ------------------------- Initialising players -------------------------
-marine = Player(player_id=1,nb_cards=cards_start)
-marine_plateau = Plateau(marine.player_id)
+res, game = initialize_game_and_players(nb_of_players=2,
+                                        names=["marine", "victor"])
+
+marine = res["marine"]["player"]
+marine_plateau = res["marine"]["plateau"]
+
+victor_plateau = res["victor"]["plateau"]
+print(res)
+print(game.player_ids)
+
+
 
 """
 User gets handed 6 cards in real life, so they get instantiated in the
 virtual version of the game.
 """
+
 chene = Chêne()
 marine.cards_player.append(chene)
 
@@ -90,7 +100,7 @@ card.down = Moustique("orange")
 
 
 """
-User places cards in Plateau
+# User places cards in Plateau
 """
 marine_plateau.place_tree(bouleau) # 0
 marine_plateau.place_tree(hetre) # 1
@@ -105,11 +115,22 @@ marine_plateau.place_tree(erable) # 9
 # marine_plateau.place_tree(chene) # 10
 # marine_plateau.place_tree(chene) # 11
 
+victor_plateau.place_tree(bouleau) # 0
+victor_plateau.place_tree(hetre) # 1
+victor_plateau.place_tree(chene) # 2
+victor_plateau.place_tree(chene) # 3
+victor_plateau.place_tree(marronnier) # 4
+victor_plateau.place_tree(sap_bl) # 5
+victor_plateau.place_tree(chene) # 6
+victor_plateau.place_tree(sap_D) # 7
+victor_plateau.place_tree(tilleul) # 8
+victor_plateau.place_tree(erable)
+
 # # I want to place down in Plateau above chene the autour_des_palombes bird
 # attention, l'ordre/index de mes arbres EST IMPORTANT
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "chêne", down=True, which_tree_idx=2)
 marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", up=True, which_tree_idx=3)
-marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", down=True, which_tree_idx=3)
+marine_plateau.place_non_tree_card(palom_mousse, on_tree = "chêne", down=True, which_tree_idx=3)
 marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", left=True, which_tree_idx=6)
 
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "érable", up=True)
@@ -117,9 +138,20 @@ marine_plateau.place_non_tree_card(mars_rainette, on_tree = "sapin_blanc", up=Tr
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "hêtre", down=True, which_tree_idx=6)
 # marine_plateau.place_non_tree_card(card, on_tree = "chêne", down=True, which_tree_idx=2)
 
+# print(res["marine"]["plateau"].plateau_player)
+# points = 0
+# names = (game.who_max_trees(res))
+# for name in names:
+#     for elem in res[name]["plateau"].plateau_player:
+#         animal = elem["up"]
+#         if animal != None:
+#             if animal.subcategory == "pic_epeiche":
+#                 points += 10
+#                 print(f"{animal.subcategory} += {points} points.")
+#                 print(animal)
 
 # print()
-marine_plateau.pprint()
+# marine_plateau.pprint()
 # print(marine_plateau.how_many_per_category(chene, chene.category))
 
 # c = marine_plateau.how_many_per_subcategory(palom_mousse, palom_mousse.down.subcategory, down=True)

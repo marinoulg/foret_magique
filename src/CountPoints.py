@@ -88,6 +88,23 @@ animals = {
                 "ours_brun":OursBrun("jaune")
             }
 
+class Game:
+    def __init__(self, nb_of_players, names=[]):
+        self.nb_of_players = nb_of_players
+        self.player_ids = []
+        self.names = names
+
+    def who_max_trees(self, res):
+        max_trees = 0
+        names = []
+        for name in res:
+            count = res[name]["plateau"].count_trees_per_player()
+            res[name]["count_trees"] = count
+            if count >= max_trees:
+                max_trees = count
+                names.append(name)
+
+        return names
 
 class Plateau:
     def __init__(self, player_id):
@@ -319,7 +336,7 @@ class Plateau:
             # print()
         return count
 
-    def at_least_1_tree_per_subcategory(self):
+    def all_trees_player(self):
         boul = self.how_many_tree_subcat("bouleau")
         ch = self.how_many_tree_subcat("chêne")
         ht = self.how_many_tree_subcat("hêtre")
@@ -328,10 +345,32 @@ class Plateau:
         spD = self.how_many_tree_subcat("sapin_Douglas")
         tll = self.how_many_tree_subcat("tilleul")
         er = self.how_many_tree_subcat("érable")
+        return {
+            "bouleau":boul,
+            "chêne":ch,
+            "hêtre":ht,
+            "marronnier_commun":marr,
+            "sapin_blanc":sbl,
+            "sapin_Douglas":spD,
+            "tilleul":tll,
+            "érable":er
+        }
 
-        if boul > 0 and ch > 0 and ht > 0 and marr > 0 and sbl > 0 and spD > 0 and tll > 0 and er > 0:
-            return True
-        else: return False
+    def count_trees_per_player(self):
+        my_dict = self.all_trees_player()
+        return sum(list(my_dict.values()))
+
+    def at_least_1_tree_per_subcategory(self):
+        my_dict = self.all_trees_player()
+        for elem in my_dict:
+            if my_dict[elem] > 0:
+                next
+            else: return False
+        return True
+
+        # if boul > 0 and ch > 0 and ht > 0 and marr > 0 and sbl > 0 and spD > 0 and tll > 0 and er > 0:
+        #     return True
+        # else: return False
 
     def count_papillons(self):
         papillons_dict = {
@@ -385,8 +424,7 @@ class Plateau:
         return c
 
     def count_points_animal(self,
-                            animal_string=None,
-                            ):
+                            animal_string=None):
 
         points=0
         if animal_string != None:
@@ -478,7 +516,17 @@ class Plateau:
                             print(f"{animal.subcategory} += {points} points.")
                             return points
 
-
+                    elif animal.subcategory == "pic_epeiche":
+                        pass
+                        # names = (game.who_max_trees(res))
+                        # for name in names:
+                        #     for elem in res[name]["plateau"].plateau_player:
+                        #         animal = elem["up"]
+                        #         if animal != None:
+                        #             if animal.subcategory == "pic_epeiche":
+                        #                 points += 10
+                        #                 print(f"{animal.subcategory} += {points} points.")
+                        #                 print(animal)
 
                     # Papillon
                     elif animal.category == "papillon" :

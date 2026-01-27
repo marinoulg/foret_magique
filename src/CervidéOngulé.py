@@ -1,4 +1,4 @@
-from src.Player import Player, ElementsAnimal, Game
+from src.Player import *
 from src.Ongulé import Ongulé
 from src.Cervidé import Cervidé
 from src.helper_functions.colors import which_color

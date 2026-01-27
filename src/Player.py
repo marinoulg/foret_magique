@@ -1,8 +1,11 @@
 from collections import defaultdict
 from pprint import pprint
+# from src.CountPoints import Plateau
+# from src.helper_functions.game_functions import initialize_game_and_players
 from src.helper_functions.specific_functions import *
 from src.Tree import *
 from src.helper_functions.colors import which_color
+from random import randint
 
 class Player:
     """
@@ -27,8 +30,11 @@ class Player:
 
     """
 
-    def __init__(self, player_id, nb_cards=6):
-        self.player_id = player_id
+    def __init__(self, nb_cards=6, player_id=None):
+        if player_id == None:
+            self.player_id = randint(1,1000)
+        else:
+            self.player_id = player_id
         self.nb_cards = nb_cards
         self.puncts = 0
         self.cards_player = []
@@ -256,8 +262,3 @@ class Clairiere:
                         next
             idx += 1
             print()
-
-
-class Game:
-    def __init__(self, nb_of_players):
-        self.nb_of_players = nb_of_players
