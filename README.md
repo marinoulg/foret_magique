@@ -120,43 +120,43 @@ As of now, and with all these 5 cards placed on my Plateau, this means I would h
   10
 ```
 
-# next steps:
+# Next steps:
 - raise ValueError pour toutes les combinaisons impossibles (TBD)
 - run scenarios
 - build a game for 2 players
 
-# Done (count_point_animal):
-  # ☑ Amphibien
+# Done (count_point_animal()):
+  ### ☑ Amphibien
   ☑ crapaud_commun=False,
   ☑ salamandre_tachetée=False,
   ☑ rainette_verte=False,
   ☑ cistude=False,
 
-  # ☑ CervidéOngulé
+  ### ☑ CervidéOngulé
   ☑ cerf_élaphe=False,
   ☑ chevreuil=False,
   ☑ daim=False,
 
-  # ☑ Champignon
+  ### ☑ Champignon
   ☑ amanite_tue_mouches=False,
   ☑ coulemelle=False,
   ☑ girolle=False,
   ☑ cèpe_Bordeaux=False,
 
-  # ☑ ChauveSouris
+  ### ☑ ChauveSouris
   ☑ murin_de_Bechstein=False,
   ☑ grand_rhinolophe=False,
   ☑ oreillard_roux=False,
   ☑ barbastelle_Europe=False,
 
-  # ☑ Insecte
+  ### ☑ Insecte
   ☑ fourmi_rousse=False,
   ☑ luciole=False,
   ☑ lucane=False,
   ☑ moustique=False,
   ☑ xylocope_violet=False,
 
-  # ☑ Oiseau
+  ### ☑ Oiseau
   ☑ bouvreuil_pivoire=False,
   ☑ pinson_des_arbres=False,
   ☑ geai_des_chênes=False,
@@ -164,24 +164,24 @@ As of now, and with all these 5 cards placed on my Plateau, this means I would h
   ☑ pic_epeiche=False,
   ☑ chouette_hulotte=False,
 
-  # ☑ Ongulé
+  ### ☑ Ongulé
   ☑ sanglier=False,
   ☑ marcassin=False,
 
-  # ☑ Papillon
+  ### ☑ Papillon
   ☑ grand_mars_changeant=True,
   ☑ paon_du_jour=True,
   ☑ morio=True,
   ☑ grande_tortue=True,
   ☑ tabac_Espagne=True,
 
-  # ☑ Plant
+  ### ☑ Plant
   ☑ fougère_arborescente=False,
   ☑ mousse=False,
   ☑ mûre=False,
   ☑ fraise_des_bois=False,
 
-  # ☑ Plantigrade
+  ### ☑ Plantigrade
   ☑ hérisson=False,
   ☑ lièvre_Europe=False
   ☑ fouine=False,
@@ -195,7 +195,7 @@ As of now, and with all these 5 cards placed on my Plateau, this means I would h
   ☑ raton_laveur=False,
   ☑ ours_brun=False,
 
-  # ☑ Tree
+  ### ☑ Tree
   ☑ chêne=False
   ☑ bouleau=False
   ☑ hêtre=False
