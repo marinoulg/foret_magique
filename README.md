@@ -42,9 +42,9 @@
   ☑ moustique=False,
   ☑ xylocope_violet=False,
 
-    # Oiseau
+  # ☑☑ Oiseau
   ☑☑ bouvreuil_pivoire=False,
-    pinson_des_arbres=False, --> dépend des autres autour
+  ☑☑ pinson_des_arbres=False, --> dépend des autres autour
   ☑☑ geai_des_chênes=False,
   ☑☑ autour_des_palombes=False,
   ☑☑ pic_epeiche=False,
@@ -75,18 +75,18 @@
     renard_roux=False,
   ☑☑ taupe=False,
     loir_gris=False,
-  écureuil_roux=False, --> dépend des autres autour
+  ☑ écureuil_roux=False, --> dépend des autres autour
   ☑ blaireau_européen=False,
   ☑ lynx=False,
   ☑ raton_laveur=False,
   ☑ ours_brun=False,
 
-    # Tree
+  # ☑☑ Tree
   ☑☑ chêne=False
   ☑☑ bouleau=False
   ☑☑ hêtre=False
   ☑☑ marronnier_commun=False
-  sapin_blanc=False --> dépend des autres autour
+  ☑ sapin_blanc=False --> dépend des autres autour
   ☑☑ sapin_Douglas=False
   ☑☑ tilleul=False
   ☑☑ érable=False
@@ -116,12 +116,6 @@ question ouverte : *que faire pour le déroulement d'une partie ? instancier une
 --> avoir une grosse liste qui contienne toutes les cartes, et on randomchoice dedans (sachant que dans tous les cas on va randomchoice/randint etc.)
 
 # Organising my thoughts
-
-## cards that depend on their surrounding:
-- pinson_des_arbres
-- écureuil_roux
-- sapin_blanc
-
 
 ## à corriger :
 mes papillons sont tous aussi des insectes!!!
