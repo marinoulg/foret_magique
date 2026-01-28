@@ -252,8 +252,8 @@ marine_plateau.place_non_tree_card(palom_crapaud, on_tree = "bouleau", down=True
 marine_plateau.place_non_tree_card(sangl_chev, on_tree = "bouleau", right=True, which_tree_idx=0)
 marine_plateau.place_non_tree_card(sangl_chev, on_tree = "bouleau", left=True, which_tree_idx=0)
 
-marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "hêtre", up=True, which_tree_idx=1)
-marine_plateau.place_non_tree_card(chouette_lucane, on_tree = "hêtre", down=True, which_tree_idx=1)
+marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "hêtre", down=True, which_tree_idx=1)
+# marine_plateau.place_non_tree_card(chouette_lucane, on_tree = "hêtre", down=True, which_tree_idx=1)
 marine_plateau.place_non_tree_card(marca_cerf, on_tree = "hêtre", left=True, which_tree_idx=1)
 marine_plateau.place_non_tree_card(marca_cerf, on_tree = "hêtre", right=True, which_tree_idx=1)
 
@@ -267,8 +267,8 @@ marine_plateau.place_non_tree_card(tab_mure, on_tree = "chêne", up=True, which_
 marine_plateau.place_non_tree_card(oreill_loir, on_tree = "chêne", right=True, which_tree_idx=3)
 marine_plateau.place_non_tree_card(murin_loir, on_tree = "chêne", left=True, which_tree_idx=3)
 
-marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "marronnier_commun", up=True, which_tree_idx=4)
-marine_plateau.place_non_tree_card(palom_crapaud, on_tree = "marronnier_commun", down=True, which_tree_idx=4)
+marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "marronnier_commun", down=True, which_tree_idx=4)
+# marine_plateau.place_non_tree_card(palom_crapaud, on_tree = "marronnier_commun", down=True, which_tree_idx=4)
 marine_plateau.place_non_tree_card(palom_crapaud, on_tree = "marronnier_commun", down=True, which_tree_idx=4)
 marine_plateau.place_non_tree_card(murin_loir, on_tree = "marronnier_commun", left=True, which_tree_idx=4)
 marine_plateau.place_non_tree_card(raton_chev, on_tree = "marronnier_commun", right=True, which_tree_idx=4)
@@ -435,3 +435,5 @@ points =0
 
 # print(sum(list(dict_colors.values())))
 # print(dict_colors)
+
+print()

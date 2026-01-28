@@ -662,6 +662,25 @@ class Plateau:
 
         return all_subcategories_on_plateau
 
+    def count_all_subcategories_down(self):
+        all_subcategories_down = {}
+        for dict_ in self.plateau_player:
+            if dict_["down"] != None:
+                for elem in dict_["down"]:
+                    if isinstance(elem.subcategory, str):
+                        if (elem.subcategory) in all_subcategories_down:
+                            all_subcategories_down[(elem.subcategory)] += 1
+                        else:
+                            all_subcategories_down[(elem.subcategory)] = 1
+                    else:
+                        for cat in elem.subcategory:
+                            if cat in all_subcategories_down:
+                                all_subcategories_down[cat] += 1
+                            else:
+                                all_subcategories_down[(cat)] = 1
+
+        return (all_subcategories_down)
+
     def count_cards_around_sapin_blanc(self):
         total_points = []
         for dict_ in self.plateau_player:
@@ -910,13 +929,11 @@ class Plateau:
 
                         # Insecte
                         elif animal.subcategory == "fourmi_rousse":
-                            # if elem.subcategory == "fourmi_rousse":
-                            #     if isinstance(elem, list):
-                            #         count = 0
-                            #         for elem in self.plateau_player:
-                            #             if (elem["down"]) != None:
-                            #                 count += 1
-                            #         points += (count)*2
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "fourmi_rousse":
+                                    c = sum(list(self.count_all_subcategories_down().values()))
+                                    print("fourmi", c)
+                                    points += c*2
                                     return points
                         elif animal.subcategory == "luciole":
                             if isinstance(elem, list):
