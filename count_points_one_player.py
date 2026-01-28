@@ -148,6 +148,14 @@ chouette_lucane = Card(up_down=True)
 chouette_lucane.up = ChouetteHulotte("vert foncé")
 chouette_lucane.down = Lucane("rouge")
 
+paon_crapaud = Card(up_down=True)
+paon_crapaud.up = PaonDuJour("jaune")
+paon_crapaud.down = CrapaudCommun("vert foncé")
+
+palom_crapaud = Card(up_down=True)
+palom_crapaud.up = AutourDesPalombes("marron")
+palom_crapaud.down = CrapaudCommun("rouge")
+
 """
 # User places cards in Plateau
 """
@@ -184,7 +192,9 @@ victor_plateau.place_tree(erable)
 
 # # I want to place down in Plateau above chene the autour_des_palombes bird
 # attention, l'ordre/index de mes arbres EST IMPORTANT
-marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "bouleau", down=True, which_tree_idx=0)
+marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "bouleau", up=True, which_tree_idx=0)
+marine_plateau.place_non_tree_card(palom_crapaud, on_tree = "bouleau", down=True, which_tree_idx=0)
+marine_plateau.place_non_tree_card(paon_crapaud, on_tree = "bouleau", down=True, which_tree_idx=0)
 
 marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "hêtre", up=True, which_tree_idx=1)
 marine_plateau.place_non_tree_card(chouette_lucane, on_tree = "hêtre", down=True, which_tree_idx=1)

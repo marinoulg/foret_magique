@@ -296,13 +296,26 @@ class Plateau:
 
         # Place the card
         if up:
-            tree["up"] = [Card.up]
+            if tree["up"] ==None :
+                tree["up"] = [Card.up]
+            else:
+                tree["up"].append(Card.up)
+
         elif down:
-            tree["down"] = [Card.down]
+            if tree["down"]==None:
+                tree["down"] = [Card.down]
+            else:
+                tree["down"].append(Card.down)
         elif left:
-            tree["left"] = [Card.left]
+            if tree["left"]==None :
+                tree["left"] = [Card.left]
+            else:
+                tree["left"].append(Card.left)
         elif right:
-            tree["right"] = [Card.right]
+            if tree["right"]==None :
+                tree["right"] = [Card.right]
+            else:
+                tree["right"].append(Card.right)
 
         return self
 
@@ -609,7 +622,12 @@ class Plateau:
 
                         # Amphibien
                         if animal.subcategory == "crapaud_commun":
-                            pass
+                            if isinstance(elem, list):
+                                if elem[0].subcategory in can_place_multiple_cards_same_spot:
+                                    if elem[0].subcategory == "crapaud_commun":
+
+
+                                                pass
 
                         elif animal.subcategory == "salamandre_tachetée":
                             if isinstance(elem, list):
