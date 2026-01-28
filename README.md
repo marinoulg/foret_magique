@@ -1,6 +1,6 @@
 # ForêtMagique
 
-# How to use automatic counting :
+# How to use the automatic counting of Player's score:
 ### 1. Starting the Game for automatic counting of points
 To start the game in order to have access to your score at all times, you need to import the following files/librairies:
   ```
