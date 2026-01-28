@@ -125,7 +125,31 @@ As of now, and with all these 5 cards placed on my Plateau, this means I would h
 - run scenarios
 - build a game for 2 players
 
-# Done (count_point_animal()):
+
+# Done :
+## List
+- ☑ tester toutes les méthodes de classes créées (ish)
+- ☑ implémenter le comptage des points
+- ☑ place_non_tree_card corrected
+- ☑ total points automatique
+- ☑ faire le point pour avoid circular imports
+- ☑ subcategory names are aligned in all files, and if no color is given at initialising an animal, it is asked automatically
+- ☑  problem recognising an animal of instance CervidéOngulé when instanciating it from start (but not all CervidéOngulé animals, ex it works for CerfElaphe, and Chevreuil?, but not for Daim)
+- ☑ add winter_card possibilities
+- ☑ add grotte possibilities
+- ☑ build the start of a game for 2 players
+- ☑ print out player's cards
+- ☑ have all possible existing cards in a list in ```all_cards.py```
+- ☑ create all cards and have them actionable and ready to use (e.g., we can put a left/right/up/down card on any Tree)
+- ☑ deal with positions
+- ☑ create a module: you need to do ```pip install -e .``` to install it
+- ☑ raise ValueError pour toutes les couleurs impossibles
+- ☑ add color for the correct couleur_feuille
+- ☑ deal with colors
+- ☑ create classes for all possible cards with their adequate information
+- ☑ coder les autres cartes restantes (cervidés etc.)
+- ☑ check names of class MarineVictor not Marine_victor
+## count_point_animal():
   ### ☑ Amphibien
   - ☑ crapaud_commun=False,
   - ☑ salamandre_tachetée=False,
@@ -204,26 +228,3 @@ As of now, and with all these 5 cards placed on my Plateau, this means I would h
   - ☑ sapin_Douglas=False
   - ☑ tilleul=False
   - ☑ érable=False
-
-# Done :
-- ☑ tester toutes les méthodes de classes créées (ish)
-- ☑ implémenter le comptage des points
-- ☑ place_non_tree_card corrected
-- ☑ total points automatique
-- ☑ faire le point pour avoid circular imports
-- ☑ subcategory names are aligned in all files, and if no color is given at initialising an animal, it is asked automatically
-- ☑  problem recognising an animal of instance CervidéOngulé when instanciating it from start (but not all CervidéOngulé animals, ex it works for CerfElaphe, and Chevreuil?, but not for Daim)
-- ☑ add winter_card possibilities
-- ☑ add grotte possibilities
-- ☑ build the start of a game for 2 players
-- ☑ print out player's cards
-- ☑ have all possible existing cards in a list in ```all_cards.py```
-- ☑ create all cards and have them actionable and ready to use (e.g., we can put a left/right/up/down card on any Tree)
-- ☑ deal with positions
-- ☑ create a module: you need to do ```pip install -e .``` to install it
-- ☑ raise ValueError pour toutes les couleurs impossibles
-- ☑ add color for the correct couleur_feuille
-- ☑ deal with colors
-- ☑ create classes for all possible cards with their adequate information
-- ☑ coder les autres cartes restantes (cervidés etc.)
-- ☑ check names of class MarineVictor not Marine_victor
