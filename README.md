@@ -12,8 +12,8 @@
 # Ongoing (count_point_animal):
 2 cards cannot be on the same place (for now, to be corrected for Lievre et Crapaud etc.). If so, the lattest one takes the place of the former one, which it erases.
 
-    # Amphibien
-    crapaud_commun=False,
+  # ☑☑ Amphibien
+  ☑☑ crapaud_commun=False,
   ☑☑ salamandre_tachetée=False,
   ☑☑ rainette_verte=False,
   ☑☑ cistude=False,
@@ -29,11 +29,11 @@
   ☑☑ girolle=False,
   ☑☑ cèpe_Bordeaux=False,
 
-  # ☑ ChauveSouris
-  ☑ murin_de_Bechstein=False,
-  ☑ grand_rhinolophe=False,
-  ☑ oreillard_roux=False,
-  ☑ barbastelle_Europe=False,
+  # ☑☑ ChauveSouris
+  ☑☑ murin_de_Bechstein=False,
+  ☑☑ grand_rhinolophe=False,
+  ☑☑ oreillard_roux=False,
+  ☑☑ barbastelle_Europe=False,
 
     # Insecte
     fourmi_rousse=False, --> à retravailler avec la MAJ du place_non_tree_card() pour pouvoir poser plusieurs cartes au même endroit
