@@ -69,7 +69,7 @@
 
     # Plantigrade
   ☑☑ hérisson=False,
-    lièvre_Europe=False, --> si j'en ai 2 l'un sur l'autre (ou plus), il n'en compte que 1 seul pour le moment
+  ☑☑ lièvre_Europe=False
     fouine=False,
   ☑☑ loup=False,
   ☑☑ renard_roux=False,

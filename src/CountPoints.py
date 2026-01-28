@@ -343,8 +343,8 @@ class Plateau:
 
     def how_many_per_category(self, category,
                             print_=False):
-
-        count = self.count_all_categories_on_plateau()[category]
+        if category in self.count_all_categories_on_plateau():
+            count = self.count_all_categories_on_plateau()[category]
 
         if print_==True:
             print(f"Player {self.player_id} has {count} {category}{"s" if count>1 else ""} on Plateau.")
@@ -728,7 +728,6 @@ class Plateau:
                             "blaireau_européen",
                             "marcassin",
                             "moustique",
-                            "lièvre_Europe",
                             "lynx",
                             "cerf_élaphe",
                             "loup",
@@ -848,8 +847,12 @@ class Plateau:
                         elif animal.subcategory == "cerf_élaphe":
                             if isinstance(elem, list):
                                 if elem[0].subcategory == "cerf_élaphe":
-                                    c_arbre = self.count_all_categories_on_plateau()["arbre"]
-                                    c_plant = self.count_all_categories_on_plateau()["plant"]
+                                    if "arbre" in self.count_all_categories_on_plateau():
+                                        c_arbre = self.count_all_categories_on_plateau()["arbre"]
+                                    else: c_arbre = 0
+                                    if "plant" in self.count_all_categories_on_plateau():
+                                        c_plant = self.count_all_categories_on_plateau()["plant"]
+                                    else: c_plant = 0
                                     points += (1*c_plant) + (1*c_arbre)
                                     return points
                         elif animal.subcategory == "chevreuil":
@@ -1055,20 +1058,24 @@ class Plateau:
                         elif animal.subcategory == "lièvre_Europe":
                             if isinstance(elem, list):
                                 if elem[0].subcategory == "lièvre_Europe":
-                                    points += 1
+                                    if "lièvre_Europe" in self.count_all_subcategories_on_plateau():
+                                        c = self.count_all_subcategories_on_plateau()["lièvre_Europe"]
+                                        points += 1*c
                                     return points
                         elif animal.subcategory == "loup":
                             if isinstance(elem, list):
                                 if elem[0].subcategory == "loup":
-                                    c_cervidé = self.count_all_categories_on_plateau()["cervidé"]
-                                    points += c_cervidé*5
+                                    if "cervidé" in self.count_all_categories_on_plateau():
+                                        c_cervidé = self.count_all_categories_on_plateau()["cervidé"]
+                                        points += c_cervidé*5
                                     return points
                         elif animal.subcategory == "renard_roux":
                             if isinstance(elem, list):
                                 # print(elem)
                                 if elem[0].subcategory == "renard_roux":
-                                    c_lievre = self.count_all_subcategories_on_plateau()["lièvre_Europe"]
-                                    points += c_lievre*2
+                                    if "lièvre_Europe" in self.count_all_subcategories_on_plateau():
+                                        c_lievre = self.count_all_subcategories_on_plateau()["lièvre_Europe"]
+                                        points += c_lievre*2
                                     return points
                         elif animal.subcategory == "taupe":
                             if isinstance(elem, list):

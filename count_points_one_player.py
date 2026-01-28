@@ -332,7 +332,7 @@ print()
 # print(marca_cerf.right.category)
 # print(xylo_lynx.right.category)
 # , animal_string="écureuil_roux"
-# print(marine_plateau.count_all_subcategories_on_plateau()["lièvre_Europe"])
+print(marine_plateau.count_all_subcategories_on_plateau()["lièvre_Europe"])
 # print()
 print(marine_plateau.count_points_animal(res=res, game=game
                                         #  , animal_string="chevreuil"
