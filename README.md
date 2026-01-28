@@ -10,6 +10,7 @@
 - faire le point pour avoid circular imports
 
 # Ongoing (count_point_animal):
+attention: problème de "concurrence" avec les bouleau --> which_tree_idx does not seem to work all the time :/
 2 cards cannot be on the same place (for now, to be corrected for Lievre et Crapaud etc.). If so, the lattest one takes the place of the former one, which it erases.
 
     # Amphibien
@@ -44,7 +45,7 @@
 
     # Oiseau
     bouvreuil_pivoire=False,
-    pinson_des_arbres=False,
+    pinson_des_arbres=False, --> pb quand automatique/non unitaire
   ☑ geai_des_chênes=False,
   ☑ autour_des_palombes=False,
   ☑ pic_epeiche=False,
@@ -73,9 +74,9 @@
     fouine=False,
     loup=False,
     renard_roux=False,
-    taupe=False,
+  ☑ taupe=False,
     loir_gris=False,
-  ☑ écureuil_roux=False,
+  écureuil_roux=False, --> potentiel pb quand automatique/non unitaire (à vérifier)
     blaireau_européen=False,
     lynx=False,
     raton_laveur=False,
