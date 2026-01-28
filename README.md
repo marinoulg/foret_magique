@@ -2,16 +2,10 @@
 
 # next steps:
 - raise ValueError pour toutes les combinaisons impossibles (TBD)
-- tester toutes les méthodes de classes créées
-- implémenter le comptage des points (comment ? avoir une méthode .points() -- not sure)
 - run scenarios
 - build a game for 2 players
-- problem recognising an animal of instance CervidéOngulé when instanciating it from start (but not all CervidéOngulé animals, ex it works for CerfElaphe, and Chevreuil?, but not for Daim)
-- faire le point pour avoid circular imports
 
-# Ongoing (count_point_animal):
-2 cards cannot be on the same place (for now, to be corrected for Lievre et Crapaud etc.). If so, the lattest one takes the place of the former one, which it erases.
-
+# Done (count_point_animal):
   # ☑☑ Amphibien
   ☑☑ crapaud_commun=False,
   ☑☑ salamandre_tachetée=False,
@@ -20,7 +14,7 @@
 
   # ☑☑ CervidéOngulé
   ☑☑ cerf_élaphe=False,
-  ☑ chevreuil=False,
+  ☑☑ chevreuil=False,
   ☑☑ daim=False,
 
   # ☑☑ Champignon
@@ -35,24 +29,24 @@
   ☑☑ oreillard_roux=False,
   ☑☑ barbastelle_Europe=False,
 
-    # Insecte
-    fourmi_rousse=False, --> à retravailler avec la MAJ du place_non_tree_card() pour pouvoir poser plusieurs cartes au même endroit
+  # ☑☑ Insecte
+  ☑☑ fourmi_rousse=False,
   ☑☑ luciole=False,
   ☑☑ lucane=False,
-  ☑ moustique=False,
-  ☑ xylocope_violet=False,
+  ☑☑ moustique=False,
+  ☑☑ xylocope_violet=False,
 
   # ☑☑ Oiseau
   ☑☑ bouvreuil_pivoire=False,
-  ☑☑ pinson_des_arbres=False, --> dépend des autres autour
+  ☑☑ pinson_des_arbres=False,
   ☑☑ geai_des_chênes=False,
   ☑☑ autour_des_palombes=False,
   ☑☑ pic_epeiche=False,
   ☑☑ chouette_hulotte=False,
 
-  # ☑ Ongulé
-  ☑ sanglier=False,
-  ☑ marcassin=False,
+  # ☑☑ Ongulé
+  ☑☑ sanglier=False,
+  ☑☑ marcassin=False,
 
   # ☑☑ Papillon
   ☑☑ grand_mars_changeant=True,
@@ -61,42 +55,44 @@
   ☑☑ grande_tortue=True,
   ☑☑ tabac_Espagne=True,
 
-  # ☑ Plant
+  # ☑☑ Plant
   ☑☑ fougère_arborescente=False,
   ☑☑ mousse=False,
-  ☑ mûre=False,
+  ☑☑ mûre=False,
   ☑☑ fraise_des_bois=False,
 
-    # Plantigrade
+  # ☑☑ Plantigrade
   ☑☑ hérisson=False,
   ☑☑ lièvre_Europe=False
-    fouine=False,
+  ☑☑ fouine=False,
   ☑☑ loup=False,
   ☑☑ renard_roux=False,
   ☑☑ taupe=False,
-    loir_gris=False,
-  ☑ écureuil_roux=False, --> dépend des autres autour
-  ☑ blaireau_européen=False,
-  ☑ lynx=False,
-  ☑ raton_laveur=False,
-  ☑ ours_brun=False,
+  ☑☑ loir_gris=False,
+  ☑☑ écureuil_roux=False, --> dépend des autres autour
+  ☑☑ blaireau_européen=False,
+  ☑☑ lynx=False,
+  ☑☑ raton_laveur=False,
+  ☑☑ ours_brun=False,
 
   # ☑☑ Tree
   ☑☑ chêne=False
   ☑☑ bouleau=False
   ☑☑ hêtre=False
   ☑☑ marronnier_commun=False
-  ☑ sapin_blanc=False --> dépend des autres autour
+  ☑☑ sapin_blanc=False --> dépend des autres autour
   ☑☑ sapin_Douglas=False
   ☑☑ tilleul=False
   ☑☑ érable=False
 
-     points=0
-
 # Done :
+- ☑ tester toutes les méthodes de classes créées (ish)
+- ☑ implémenter le comptage des points
 - ☑ place_non_tree_card corrected
 - ☑ total points automatique
+- ☑ faire le point pour avoid circular imports
 - ☑ subcategory names are aligned in all files, and if no color is given at initialising an animal, it is asked automatically
+- ☑  problem recognising an animal of instance CervidéOngulé when instanciating it from start (but not all CervidéOngulé animals, ex it works for CerfElaphe, and Chevreuil?, but not for Daim)
 - ☑ add winter_card possibilities
 - ☑ add grotte possibilities
 - ☑ build the start of a game for 2 players
@@ -111,11 +107,3 @@
 - ☑ create classes for all possible cards with their adequate information
 - ☑ coder les autres cartes restantes (cervidés etc.)
 - ☑ check names of class MarineVictor not Marine_victor
-
-question ouverte : *que faire pour le déroulement d'une partie ? instancier une carte dès qu'on en tire une nouvelle, ou bien avoir une grosse liste qui contienne toutes les cartes, et on randomchoice dedans (sachant que dans tous les cas on va randomchoice/randint etc.)* ?
---> avoir une grosse liste qui contienne toutes les cartes, et on randomchoice dedans (sachant que dans tous les cas on va randomchoice/randint etc.)
-
-# Organising my thoughts
-
-## à corriger :
-mes papillons sont tous aussi des insectes!!!

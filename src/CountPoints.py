@@ -319,7 +319,7 @@ class Plateau:
 
         return self
 
-    def how_many_per_subcategory(self, subcategory, subcategory2=None,
+    def how_many_per_subcategory(self, subcategory, subcategory2=None, category2=None,
                             up=False,
                             down=False,
                             left=False,
@@ -333,6 +333,20 @@ class Plateau:
                         if elem["up"] != None:
                             if (elem["up"][0].subcategory) == subcategory:
                                 count += 1
+            # elif left == True and right ==True and down == False and arbre == False and up == False:
+            #     if isinstance(elem["right"], list):
+            #         if elem["right"][0].category == category2:
+            #                 if elem["left"] != None:
+            #                     if (elem["left"][0].subcategory) == subcategory:
+            #                         count += 1
+            # elif left == True and right ==True and down == False and arbre == False and up == False:
+            #     if isinstance(elem["left"], list):
+            #         if elem["left"][0].category == category2:
+            #             if elem["right"] != None:
+            #                 print(elem)
+            #                 if (elem["right"][0].subcategory) == subcategory:
+            #                     print(elem)
+            #                     count += 1
             else:
                 if subcategory in self.count_all_subcategories_on_plateau():
                     count = self.count_all_subcategories_on_plateau()[subcategory]
@@ -535,6 +549,26 @@ class Plateau:
 
         # print(sum(list(dict_colors.values())))
         return (dict_colors)
+
+    def count_trees_full(self):
+        c = 0
+        for dict_ in self.plateau_player:
+            if None not in (dict_.values()):
+                c += 1
+        return c
+
+    def count_pairs_loir_gris_chauve_souris(self):
+        c = 0
+        for dict_ in self.plateau_player:
+            if dict_["left"] != None:
+                if (dict_["left"][0].subcategory) == "loir_gris":
+                    if (dict_["right"][0].category) == "chauve_souris":
+                        c += 1
+            if dict_["right"] != None:
+                if (dict_["right"][0].subcategory) == "loir_gris":
+                    if (dict_["left"][0].category) == "chauve_souris":
+                        c += 1
+        return c
 
     def count_all_categories_on_plateau(self):
         all_categories_on_plateau = {}
@@ -751,7 +785,8 @@ class Plateau:
                             "cerf_élaphe",
                             "loup",
                             "renard_roux",
-                            "daim"
+                            "daim",
+                            "fouine",
                              ]
 
 
@@ -799,8 +834,8 @@ class Plateau:
 
     def count_points_animal(self, res, game,
                             animal_string=None,
+                            print_dict=False,
                             ):
-
 
         if animal_string != None:
             animal = all_categories[animal_string]
@@ -812,8 +847,10 @@ class Plateau:
                                                         game=game,
                                                         animal_string=animal,
                                                         points_dict=points_dict)
-            print()
-            pprint(points_dict)
+            if print_dict:
+                print()
+                pprint(points_dict)
+
             for animal in points_dict:
                 print(f"{animal} += {points_dict[animal][0]} points.")
             tmp_list = (list(points_dict.values()))
@@ -932,7 +969,6 @@ class Plateau:
                             if isinstance(elem, list):
                                 if elem[0].subcategory == "fourmi_rousse":
                                     c = sum(list(self.count_all_subcategories_down().values()))
-                                    print("fourmi", c)
                                     points += c*2
                                     return points
                         elif animal.subcategory == "luciole":
@@ -1086,6 +1122,12 @@ class Plateau:
                                         c = self.count_all_subcategories_on_plateau()["lièvre_Europe"]
                                         points += 1*c
                                     return points
+                        elif animal.subcategory == "fouine":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "fouine":
+                                    c = self.count_trees_full()
+                                    points += 5*c
+                                    return points
                         elif animal.subcategory == "loup":
                             if isinstance(elem, list):
                                 if elem[0].subcategory == "loup":
@@ -1103,6 +1145,12 @@ class Plateau:
                         elif animal.subcategory == "taupe":
                             if isinstance(elem, list):
                                 if elem[0].subcategory == "taupe":
+                                    return points
+                        elif animal.subcategory == "loir_gris":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "loir_gris":
+                                    c = self.count_pairs_loir_gris_chauve_souris()
+                                    points += 15*c
                                     return points
                         elif animal.subcategory == "écureuil_roux":
                             if isinstance(elem, list):
@@ -1133,7 +1181,6 @@ class Plateau:
                             if isinstance(elem, list):
                                 if elem[0].subcategory == "ours_brun":
                                             return points
-
 
                     elif animal.category == "arbre":
                         if animal.subcategory == "chêne":
@@ -1238,110 +1285,3 @@ class Plateau:
                                     c = self.how_many_per_category(category="arbre")
                                     points += 1*c
                                     return points
-
-
-    # def count(self, res, game):
-    #     points_dict = defaultdict(list)
-
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="bouleau", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="hêtre", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="chêne", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="chouette_hulotte", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="luciole", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="marronnier_commun", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="mûre", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="pic_epeiche", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="pinson_des_arbres", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="sapin_Douglas", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="sapin_blanc", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="tilleul", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="écureuil_roux", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="marcassin", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="rainette_verte", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="morio", points_dict=points_dict)
-    #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="fougère_arborescente", points_dict=points_dict)
-    #     # points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="pic_epeiche", points_dict=points_dict)
-    #     # points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="pic_epeiche", points_dict=points_dict)
-    #     # points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="pic_epeiche", points_dict=points_dict)
-    #     # points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="pic_epeiche", points_dict=points_dict)
-    #     # points_dict = self.count_point_all_tmp(res=res,game=game,animal_string="pic_epeiche", points_dict=points_dict)
-
-    #     # for an in self.plateau_player:
-    #     #         pprint(an)
-    #     #         print()
-    #     #         # Tree is full
-    #     #         if an["up"] != None and an["down"] != None and an["left"] != None and an["right"] != None:
-    #     #             up = (an["up"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=up, points_dict=points_dict)
-
-    #     #             down = (an["down"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=down, points_dict=points_dict)
-
-    #     #             left = (an["left"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=left, points_dict=points_dict)
-
-    #     #             right = (an["right"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=right, points_dict=points_dict)
-
-    #     #         # Tree missing "right"
-    #     #         elif an["up"] != None and an["down"] != None and an["left"] != None and an["right"] == None:
-    #     #             up = (an["up"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=up, points_dict=points_dict)
-
-    #     #             down = (an["down"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=down, points_dict=points_dict)
-
-    #     #             left = (an["left"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=left, points_dict=points_dict)
-
-    #     #         # Tree missing left
-    #     #         elif an["up"] != None and an["down"] != None and an["left"] == None and an["right"] != None:
-    #     #             up = (an["up"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=up, points_dict=points_dict)
-
-    #     #             down = (an["down"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=down, points_dict=points_dict)
-
-    #     #             right = (an["right"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=right, points_dict=points_dict)
-
-    #     #         # Tree missing up
-    #     #         if an["up"] == None and an["down"] != None and an["left"] != None and an["right"] != None:
-    #     #             down = (an["down"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=down, points_dict=points_dict)
-
-    #     #             left = (an["left"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=left, points_dict=points_dict)
-
-    #     #             right = (an["right"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=right, points_dict=points_dict)
-
-    #     #         # Tree missing down
-    #     #         if an["up"] != None and an["down"] == None and an["left"] != None and an["right"] != None:
-    #     #             up = (an["up"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=up, points_dict=points_dict)
-
-    #     #             left = (an["left"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=left, points_dict=points_dict)
-
-    #     #             right = (an["right"].subcategory)
-    #     #             points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=right, points_dict=points_dict)
-
-
-
-
-    #             # if an["arbre"] != None:
-    #             #     """
-    #             #     not dealt with yet below
-    #             #     """
-    #             #     arbre_string = (an["arbre"].subcategory)
-    #             #     points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=arbre_string, points_dict=points_dict)
-
-    #     print()
-    #     pprint(points_dict)
-    #     tmp_list = (list(points_dict.values()))
-    #     totals = []
-    #     for i in range(len(tmp_list)):
-    #         totals.append(sum(tmp_list[i]))
-    #     return sum(totals)
-    #     # points_dict = self.count_point_all_tmp(res=res,game=game,animal_string=animal_string, points_dict=points_dict)
