@@ -242,8 +242,8 @@ marine_plateau.place_non_tree_card(pic_fourmi, on_tree = "sapin_Douglas", down=T
 marine_plateau.place_non_tree_card(bouv_moust, on_tree = "tilleul", up=True, which_tree_idx=15)
 marine_plateau.place_non_tree_card(ecu_salam, on_tree = "tilleul", down=True, which_tree_idx=15)
 
-marine_plateau.place_non_tree_card(palom_mousse, on_tree = "sapin_blanc", up=True, which_tree_idx=16)
-marine_plateau.place_non_tree_card(cist_morio, on_tree = "sapin_blanc", down=True, which_tree_idx=16)
+marine_plateau.place_non_tree_card(palom_mousse, on_tree = "sapin_blanc", down=True, which_tree_idx=16)
+marine_plateau.place_non_tree_card(cist_morio, on_tree = "sapin_blanc", up=True, which_tree_idx=16)
 
 
 # print(marine_plateau.name, end = "\n\n")

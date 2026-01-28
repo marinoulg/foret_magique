@@ -14,20 +14,20 @@
 
     # Amphibien
     crapaud_commun=False,
-  ☑ salamandre_tachetée=False,
+  ☑☑ salamandre_tachetée=False,
   ☑☑ rainette_verte=False,
-  ☑ cistude=False,
+  ☑☑ cistude=False,
 
     # CervidéOngulé
     cerf_élaphe=False,
     chevreuil=False,
     daim=False,
 
-  # ☑ Champignon
-  ☑ amanite_tue_mouches=False,
-  ☑ coulemelle=False,
-  ☑ girolle=False,
-  ☑ cèpe_Bordeaux=False,
+  # ☑☑ Champignon
+  ☑☑ amanite_tue_mouches=False,
+  ☑☑ coulemelle=False,
+  ☑☑ girolle=False,
+  ☑☑ cèpe_Bordeaux=False,
 
     # ChauveSouris
     murin_de_Bechstein=False,
@@ -37,18 +37,18 @@
 
     # Insecte
     fourmi_rousse=False, --> à retravailler avec la MAJ du place_non_tree_card() pour pouvoir poser plusieurs cartes au même endroit
-  ☑ luciole=False,
-    lucane=False,
+  ☑☑ luciole=False,
+  ☑☑ lucane=False,
     moustique=False,
     xylocope_violet=False,
 
     # Oiseau
-    bouvreuil_pivoire=False,
+  ☑☑ bouvreuil_pivoire=False,
     pinson_des_arbres=False, --> dépend des autres autour
-  ☑ geai_des_chênes=False,
-  ☑ autour_des_palombes=False,
-  ☑ pic_epeiche=False,
-  ☑ chouette_hulotte=False,
+  ☑☑ geai_des_chênes=False,
+  ☑☑ autour_des_palombes=False,
+  ☑☑ pic_epeiche=False,
+  ☑☑ chouette_hulotte=False,
 
     # Ongulé
     sanglier=False,
@@ -62,18 +62,18 @@
   ☑☑ tabac_Espagne=True,
 
   # ☑ Plant
-  ☑ fougère_arborescente=False,
-  ☑ mousse=False,
+  ☑☑ fougère_arborescente=False,
+  ☑☑ mousse=False,
   ☑ mûre=False,
-  ☑ fraise_des_bois=False,
+  ☑☑ fraise_des_bois=False,
 
     # Plantigrade
-    hérisson=False,
+  ☑☑ hérisson=False,
     lièvre_Europe=False,
     fouine=False,
     loup=False,
     renard_roux=False,
-  ☑ taupe=False,
+  ☑☑ taupe=False,
     loir_gris=False,
   écureuil_roux=False, --> dépend des autres autour
     blaireau_européen=False,
@@ -82,13 +82,13 @@
     ours_brun=False,
 
     # Tree
-  ☑ chêne=False
-  ☑ bouleau=False
+  ☑☑ chêne=False
+  ☑☑ bouleau=False
     hêtre=False
-  ☑ marronnier_commun=False
+  ☑☑ marronnier_commun=False
   sapin_blanc=False --> dépend des autres autour
-  ☑ sapin_Douglas=False
-  ☑ tilleul=False
+  ☑☑ sapin_Douglas=False
+  ☑☑ tilleul=False
     érable=False
 
      points=0

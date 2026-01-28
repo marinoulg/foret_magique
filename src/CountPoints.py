@@ -332,7 +332,7 @@ class Plateau:
                 if elem["up"] != None:
                     if isinstance(elem["up"], list):
                         if elem["up"][0] not in can_place_multiple_cards_same_spot:
-                            if elem["up"][0].category == subcategory:
+                            if elem["up"][0].subcategory == subcategory:
                                 count += 1
 
             if down == True:
