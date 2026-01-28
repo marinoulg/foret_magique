@@ -10,7 +10,6 @@
 - faire le point pour avoid circular imports
 
 # Ongoing (count_point_animal):
-attention: problème de "concurrence" avec les bouleau --> which_tree_idx does not seem to work all the time :/
 2 cards cannot be on the same place (for now, to be corrected for Lievre et Crapaud etc.). If so, the lattest one takes the place of the former one, which it erases.
 
     # Amphibien
@@ -95,6 +94,7 @@ attention: problème de "concurrence" avec les bouleau --> which_tree_idx does n
      points=0
 
 # Done :
+- ☑ place_non_tree_card corrected
 - ☑ total points automatique
 - ☑ subcategory names are aligned in all files, and if no color is given at initialising an animal, it is asked automatically
 - ☑ add winter_card possibilities
