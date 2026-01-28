@@ -20,7 +20,7 @@
 
     # CervidéOngulé
     cerf_élaphe=False,
-    chevreuil=False,
+  ☑ chevreuil=False,
     daim=False,
 
   # ☑☑ Champignon
@@ -29,18 +29,18 @@
   ☑☑ girolle=False,
   ☑☑ cèpe_Bordeaux=False,
 
-    # ChauveSouris
-    murin_de_Bechstein=False,
-    grand_rhinolophe=False,
-    oreillard_roux=False,
-    barbastelle_Europe=False,
+  # ☑ ChauveSouris
+  ☑ murin_de_Bechstein=False,
+  ☑ grand_rhinolophe=False,
+  ☑ oreillard_roux=False,
+  ☑ barbastelle_Europe=False,
 
     # Insecte
     fourmi_rousse=False, --> à retravailler avec la MAJ du place_non_tree_card() pour pouvoir poser plusieurs cartes au même endroit
   ☑☑ luciole=False,
   ☑☑ lucane=False,
-    moustique=False,
-    xylocope_violet=False,
+  ☑ moustique=False,
+  ☑ xylocope_violet=False,
 
     # Oiseau
   ☑☑ bouvreuil_pivoire=False,
@@ -50,9 +50,9 @@
   ☑☑ pic_epeiche=False,
   ☑☑ chouette_hulotte=False,
 
-    # Ongulé
-    sanglier=False,
-    marcassin=False,
+  # ☑ Ongulé
+  ☑ sanglier=False,
+  ☑ marcassin=False,
 
   # ☑☑ Papillon
   ☑☑ grand_mars_changeant=True,
@@ -69,27 +69,27 @@
 
     # Plantigrade
   ☑☑ hérisson=False,
-    lièvre_Europe=False,
+    lièvre_Europe=False, --> si j'en ai 2 l'un sur l'autre (ou plus), il n'en compte que 1 seul pour le moment
     fouine=False,
     loup=False,
     renard_roux=False,
   ☑☑ taupe=False,
     loir_gris=False,
   écureuil_roux=False, --> dépend des autres autour
-    blaireau_européen=False,
-    lynx=False,
-    raton_laveur=False,
-    ours_brun=False,
+  ☑ blaireau_européen=False,
+  ☑ lynx=False,
+  ☑ raton_laveur=False,
+  ☑ ours_brun=False,
 
     # Tree
   ☑☑ chêne=False
   ☑☑ bouleau=False
-    hêtre=False
+  ☑☑ hêtre=False
   ☑☑ marronnier_commun=False
   sapin_blanc=False --> dépend des autres autour
   ☑☑ sapin_Douglas=False
   ☑☑ tilleul=False
-    érable=False
+  ☑☑ érable=False
 
      points=0
 
@@ -121,9 +121,6 @@ question ouverte : *que faire pour le déroulement d'une partie ? instancier une
 - pinson_des_arbres
 - écureuil_roux
 - sapin_blanc
-
-
-## cards with points that need to be counted per card:
 
 
 ## à corriger :

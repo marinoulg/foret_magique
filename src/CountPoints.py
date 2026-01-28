@@ -164,16 +164,16 @@ class Plateau:
         elif only_animals==True and category ==True and subcategory == False:
             if index==True:
                 for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
-                    if an["arbre"] != None:
+                    if an["arbre"]!= None:
                         print(f"{i}:", an["arbre"].category, end=": ")
                     if an["up"] != None:
-                        print(an["up"].category, end=", ")
+                        print(an["up"][0].category, end=", ")
                     if an["down"] != None:
-                        print(an["down"].category, end=", ")
+                        print(an["down"][0].category, end=", ")
                     if an["left"] != None:
-                        print(an["left"].category, end=", ")
+                        print(an["left"][0].category, end=", ")
                     if an["right"] != None:
-                        print(an["right"].category, end=", ")
+                        print(an["right"][0].category, end=", ")
                     print(end="\n")
 
             if index==False:
@@ -181,13 +181,13 @@ class Plateau:
                     if an["arbre"] != None:
                         print(an["arbre"].category, end=": ")
                     if an["up"] != None:
-                        print(an["up"].category, end=", ")
+                        print(an["up"][0].category, end=", ")
                     if an["down"] != None:
-                        print(an["down"].category, end=", ")
+                        print(an["down"][0].category, end=", ")
                     if an["left"] != None:
-                        print(an["left"].category, end=", ")
+                        print(an["left"][0].category, end=", ")
                     if an["right"] != None:
-                        print(an["right"].category, end=", ")
+                        print(an["right"][0].category, end=", ")
                     print(end="\n")
         elif only_animals==True and category ==True and subcategory == True:
             if index==True:
@@ -195,13 +195,13 @@ class Plateau:
                     if an["arbre"] != None:
                         print(f"{i}: {an["arbre"].subcategory} - {an["arbre"].category}", end=": ")
                     if an["up"] != None:
-                        print(f"{an["up"].subcategory} - {an["up"].category}", end=", ")
+                        print(f"{an["up"][0].subcategory} - {an["up"][0].category}", end=", ")
                     if an["down"] != None:
-                        print(f"{an["down"].subcategory} - {an["down"].category}", end=", ")
+                        print(f"{an["down"][0].subcategory} - {an["down"][0].category}", end=", ")
                     if an["left"] != None:
-                        print(f"{an["left"].subcategory} - {an["left"].category}", end=", ")
+                        print(f"{an["left"][0].subcategory} - {an["left"][0].category}", end=", ")
                     if an["right"] != None:
-                        print(f"{an["right"].subcategory} - {an["right"].category}", end=", ")
+                        print(f"{an["right"][0].subcategory} - {an["right"][0].category}", end=", ")
                     print(end="\n")
 
             if index==False:
@@ -209,13 +209,13 @@ class Plateau:
                     if an["arbre"] != None:
                         print(an["arbre"].category, end=": ")
                     if an["up"] != None:
-                        print(an["up"].category, end=", ")
+                        print(an["up"][0].category, end=", ")
                     if an["down"] != None:
-                        print(an["down"].category, end=", ")
+                        print(an["down"][0].category, end=", ")
                     if an["left"] != None:
-                        print(an["left"].category, end=", ")
+                        print(an["left"][0].category, end=", ")
                     if an["right"] != None:
-                        print(an["right"].category, end=", ")
+                        print(an["right"][0].category, end=", ")
                     print(end="\n")
         # elif only_animals==False and subcategory==True and category==False:
         #     pass
@@ -457,6 +457,29 @@ class Plateau:
         #     return True
         # else: return False
 
+    def count_bats(self):
+        bats_dict = {
+            "murin_de_Bechstein":0,
+            "grand_rhinolophe":0,
+            "oreillard_roux":0,
+            "barbastelle_Europe":0
+        }
+
+        for elem in self.plateau_player:
+            if elem["left"] != None:
+                if isinstance(elem["left"], list):
+                    if elem["left"][0] not in can_place_multiple_cards_same_spot:
+                        if elem["left"][0].category == "chauve_souris":
+                            bats_dict[(elem["left"][0].subcategory)] += 1
+
+            if elem["right"] != None:
+                if isinstance(elem["right"], list):
+                    if elem["right"][0] not in can_place_multiple_cards_same_spot:
+                        if elem["right"][0].category == "chauve_souris":
+                            bats_dict[(elem["right"][0].subcategory)] += 1
+
+        return bats_dict
+
     def count_papillons(self):
         papillons_dict = {
             "grand_mars_changeant":0,
@@ -468,11 +491,23 @@ class Plateau:
 
         for elem in self.plateau_player:
             if elem["up"] != None:
-                if isinstance(elem["arbre"], list):
-                    if elem["arbre"][0] not in can_place_multiple_cards_same_spot:
+                if isinstance(elem["up"], list):
+                    if elem["up"][0] not in can_place_multiple_cards_same_spot:
                         if elem["up"][0].category == "papillon":
-                            papillons_dict[(elem["up"].subcategory)] += 1
+                            papillons_dict[(elem["up"][0].subcategory)] += 1
         return papillons_dict
+
+    def points_bats(self, points):
+        bats_dict = self.count_bats()
+        how_many_difft = 0
+        for k in bats_dict.keys():
+            if bats_dict[k] > 0:
+                how_many_difft += 1
+
+        if how_many_difft == 3:
+            points += 5
+
+        return points
 
     def points_papillon(self, points):
         pap_dict = (self.count_papillons())
@@ -512,6 +547,53 @@ class Plateau:
                         c += 1
         return c
 
+    def count_couleur_feuille(self):
+        dict_colors = {
+                    "vert clair":0,
+                    "vert foncé":0,
+                    "marron":0,
+                    "orange":0,
+                    "bleu clair":0,
+                    "bleu foncé":0,
+                    "jaune":0,
+                    "rouge":0
+                    }
+
+        for color in dict_colors:
+            count = 0
+            # tmp = []
+
+            for dict_ in self.plateau_player:
+                if dict_["up"] != None:
+                    for elem in (dict_["up"]):
+                        if color == (elem.couleur_feuille):
+                            # tmp.append(elem.subcategory)
+                            count += 1
+                if dict_["down"] != None:
+                    for elem in (dict_["down"]):
+                        if color == (elem.couleur_feuille):
+                            # tmp.append(elem.subcategory)
+                            count += 1
+                if dict_["left"] != None:
+                    for elem in (dict_["left"]):
+                        if color == (elem.couleur_feuille):
+                            # tmp.append(elem.subcategory)
+                            count += 1
+                if dict_["right"] != None:
+                    for elem in (dict_["right"]):
+                        if color == (elem.couleur_feuille):
+                            # tmp.append(elem.subcategory)
+                            count += 1
+                if dict_["arbre"] != None:
+                    if color == (dict_["arbre"].couleur_feuille):
+                        # tmp.append(dict_["arbre"].subcategory)
+                        count += 1
+
+            dict_colors[color] = count #(count,tmp)
+
+        # print(sum(list(dict_colors.values())))
+        return (dict_colors)
+
     def count_point_all_tmp(self,res, game, animal_string, points_dict):
         can_only_be_counted_once_subcat = [
                                                "luciole",
@@ -547,6 +629,22 @@ class Plateau:
                             "chêne",
                             "sapin_Douglas",
                             "bouleau",
+                            "hêtre",
+                            "érable",
+                             ]
+
+        points_per_card_left_and_right = [
+                            "barbastelle_Europe",
+                            "murin_de_Bechstein",
+                            "oreillard_roux",
+                            "grand_rhinolophe",
+                            "sanglier",
+                            "blaireau_européen",
+                            "marcassin",
+                            "moustique",
+                            "lièvre_Europe",
+                            "lynx",
+
                              ]
 
 
@@ -565,6 +663,10 @@ class Plateau:
 
             elif animal_string in points_per_card_arbre:
                     c = self.how_many_per_subcategory(animal_string, arbre=True)
+                    points_dict[animal_string] = [c*p]
+
+            elif animal_string in points_per_card_left_and_right:
+                    c = self.how_many_per_subcategory(animal_string, right=True, left=True)
                     points_dict[animal_string] = [c*p]
 
 
@@ -628,7 +730,6 @@ class Plateau:
 
 
                                                 pass
-
                         elif animal.subcategory == "salamandre_tachetée":
                             if isinstance(elem, list):
                                 if elem[0].subcategory == "salamandre_tachetée":
@@ -649,17 +750,58 @@ class Plateau:
                                     points += c*5
 
                                     return points
-                        if animal.subcategory == "cistude":
+                        elif animal.subcategory == "cistude":
                             if isinstance(elem, list):
                                 if elem[0].subcategory == "cistude":
                                     points += 5
                                     return points
+
+                        # CervidéOngulé
+                        elif animal.subcategory == "chevreuil":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "chevreuil":
+
+                                    possible_couleurs = []
+                                    for dict_ in self.plateau_player:
+                                        if dict_["left"] != None:
+                                            if (dict_["left"][0].subcategory) == "chevreuil":
+                                                possible_couleurs.append(dict_["left"][0].couleur_feuille)
+                                        if dict_["right"] != None:
+                                            if (dict_["right"][0].subcategory) == "chevreuil":
+                                                possible_couleurs.append(dict_["right"][0].couleur_feuille)
+
+                                    p = []
+                                    for couleur in possible_couleurs:
+                                        c = self.count_couleur_feuille()[couleur]
+                                        points = 3*c
+                                        print(f"chevreuil_{couleur.replace(" ", "_")} += {points} points.")
+                                        p.append(points)
+                                    return sum(p)
+
 
                         # Champignon
                         elif animal.category == "champignon":
                             if isinstance(elem, list):
                                 if elem[0].category == "champignon":
                                     return points
+
+                        # ChauveSouris
+                        elif animal.category == "chauve_souris":
+                            if isinstance(elem, list):
+                                if elem[0].category == "chauve_souris":
+                                    if animal.subcategory == "barbastelle_Europe":
+                                        points += self.points_bats(points)
+                                        return points
+                                    elif animal.subcategory == "oreillard_roux":
+                                        points += self.points_bats(points)
+                                        return points
+                                    elif animal.subcategory == "grand_rhinolophe":
+                                        points += self.points_bats(points)
+                                        return points
+                                    elif animal.subcategory == "murin_de_Bechstein":
+                                        points += self.points_bats(points)
+                                        return points
+
 
                         # Insecte
                         elif animal.subcategory == "fourmi_rousse":
@@ -691,6 +833,16 @@ class Plateau:
                                 if elem.subcategory == "lucane":
                                     c = self.how_many_per_category(category="plantigrade", down=True, up=True)
                                     points += 1*c
+                                    return points
+                        elif animal.subcategory == "moustique":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "moustique":
+                                    c = self.how_many_per_category("chauve_souris", left=True, right=True)
+                                    points += c * 1
+                                    return points
+                        elif animal.subcategory == "xylocope_violet":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "xylocope_violet":
                                     return points
 
                         # Oiseau
@@ -736,6 +888,20 @@ class Plateau:
                                                 if animal[0].subcategory == "pic_epeiche":
                                                     points += 10
                                                     return points
+
+                        # Ongulé
+                        elif animal.subcategory == "sanglier":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "sanglier":
+                                    c = self.how_many_per_subcategory("marcassin", left=True, right=True)
+                                    if c > 0:
+                                        points += 10
+                                        return points
+                        elif animal.subcategory == "marcassin":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "marcassin":
+                                    points += 1
+                                    return points
 
                         # Papillon
                         elif animal.category == "papillon" :
@@ -785,6 +951,21 @@ class Plateau:
                                         return points
 
                         # Plantigrade
+                        elif animal.subcategory == "hérisson":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "hérisson":
+                                        c = self.how_many_per_category("papillon",up=True)
+                                        points += (3*c)
+                                        return points
+                        elif animal.subcategory == "lièvre_Europe":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "lièvre_Europe":
+                                    points += 1
+                                    return points
+                        elif animal.subcategory == "taupe":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "taupe":
+                                    return points
                         elif animal.subcategory == "écureuil_roux":
                             if isinstance(elem, list):
                                 if elem[0].subcategory == "écureuil_roux":
@@ -792,20 +973,29 @@ class Plateau:
                                         # if (dict_["arbre"].subcategory) == "chêne":
                                         #     points += 5
                                             return points
-                        elif animal.subcategory == "taupe":
+                        elif animal.subcategory == "blaireau_européen":
                             if isinstance(elem, list):
-                                if elem[0].subcategory == "taupe":
+                                if elem[0].subcategory == "blaireau_européen":
+                                    points += 2
                                     return points
-
-                        elif animal.subcategory == "hérisson":
+                        elif animal.subcategory == "lynx":
                             if isinstance(elem, list):
-                                if elem[0].subcategory == "hérisson":
-                                        c = self.how_many_per_category("papillon",up=True)
-                                        points += (3*c)
+                                if elem[0].subcategory == "lynx":
+                                    c = self.how_many_per_subcategory("chevreuil",left=True, right=True)
+                                    if c > 0:
+                                        points += 10
                                         return points
+                        elif animal.subcategory == "raton_laveur":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "raton_laveur":
+                                            return points
+                        elif animal.subcategory == "ours_brun":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "ours_brun":
+                                            return points
+
+
                     elif animal.category == "arbre":
-                        # print(dict_)
-                        # print()
                         if animal.subcategory == "chêne":
                             if not isinstance(elem, list):
                                 if elem.subcategory == "chêne":
@@ -834,7 +1024,13 @@ class Plateau:
                         elif animal.subcategory == "hêtre":
                             if not isinstance(elem, list):
                                 if elem.subcategory == "hêtre":
-                                    pass
+                                    c = self.how_many_tree_subcat(tree="hêtre")
+                                    if c > 3:
+                                        points += 5
+                                        return points
+                                    else:
+                                        points += 0
+                                        return points
                         elif animal.subcategory == "marronnier_commun":
                             if not isinstance(elem, list):
                                 if elem.subcategory == "marronnier_commun":
@@ -905,7 +1101,10 @@ class Plateau:
                         elif animal.subcategory == "érable":
                             if not isinstance(elem, list):
                                 if elem.subcategory == "érable":
-                                    pass
+                                    c = self.how_many_per_category(category="arbre", arbre=True)
+                                    points += 1*c
+                                    return points
+
 
     # def count(self, res, game):
     #     points_dict = defaultdict(list)
