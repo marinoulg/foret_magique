@@ -36,7 +36,7 @@
     barbastelle_Europe=False,
 
     # Insecte
-    fourmi_rousse=False,
+    fourmi_rousse=False, --> à retravailler avec la MAJ du place_non_tree_card() pour pouvoir poser plusieurs cartes au même endroit
   ☑ luciole=False,
     lucane=False,
     moustique=False,
