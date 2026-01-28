@@ -87,7 +87,7 @@ marine.cards_player.append(pic_fourmi)
 
 marca_cerf = Card(left_right=True)
 marca_cerf.left = Marcassin("orange")
-marca_cerf.rigth = CerfElaphe("marron")
+marca_cerf.right = CerfElaphe("marron")
 marine.cards_player.append(marca_cerf)
 
 palom_mousse = Card(up_down=True)
@@ -189,7 +189,7 @@ marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "bouleau", down=True,
 marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "hêtre", up=True, which_tree_idx=1)
 marine_plateau.place_non_tree_card(chouette_lucane, on_tree = "hêtre", down=True, which_tree_idx=1)
 marine_plateau.place_non_tree_card(marca_cerf, on_tree = "hêtre", left=True, which_tree_idx=1)
-# marine_plateau.place_non_tree_card(marca_cerf, on_tree = "hêtre", right=True, which_tree_idx=1)
+marine_plateau.place_non_tree_card(marca_cerf, on_tree = "hêtre", right=True, which_tree_idx=1)
 
 marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", up=True, which_tree_idx=2)
 marine_plateau.place_non_tree_card(chouette_lucane, on_tree = "chêne", down=True, which_tree_idx=2)
@@ -237,7 +237,7 @@ marine_plateau.place_non_tree_card(cist_morio, on_tree = "sapin_blanc", down=Tru
 
 
 # print(marine_plateau.name, end = "\n\n")
-marine_plateau.pprint(index=True, only_animals=True, subcategory=True, category=True)
+marine_plateau.pprint(index=True, only_animals=True, subcategory=True, category=False)
 print()
 # , animal_string="écureuil_roux"
 print(marine_plateau.count_points_animal(res=res, game=game

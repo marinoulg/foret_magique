@@ -238,96 +238,62 @@ class Plateau:
         if print_: print("Player", self.player_id, end = "")
         return how_many_arbre_subcategory(self.plateau_player, tree, print_=print_)
 
-    def place_non_tree_card(self, Card, on_tree,
-                            which_tree_idx = None,
-                            up=False,
-                            down=False,
-                            left=False,
-                            right=False,
-                            print_=False):
+    def place_non_tree_card(self,
+                        Card,
+                        on_tree,
+                        which_tree_idx=None,
+                        up=False,
+                        down=False,
+                        left=False,
+                        right=False,
+                        print_=False):
 
-        """
-        à revoir, ça fait des problèmes
-        """
-        count = 0
-        for elem in [up, down, left, right]:
-            if elem == True:
-                count += 1
+        # Check direction
+        directions = [up, down, left, right]
+        if sum(directions) != 1:
+            raise ValueError(f"You can only place the card at 1 specific place, not {directions}.")
 
-        if count == 0:
+        if directions == 0:
             raise ValueError("You need to say where you want to place the card.")
-        elif count > 1:
-            raise ValueError(f"You can only place the card at 1 specific place, not {count}.")
+
+        # Find all trees of the specified subcategory
+        matching_trees = [
+            (i, elem) for i, elem in enumerate(self.plateau_player)
+            if elem["arbre"].subcategory == on_tree
+        ]
+
+        if not matching_trees:
+            raise ValueError(f"No tree of subcategory '{on_tree}' found.")
+
+        # Determine which tree to use
+        if which_tree_idx is not None:
+            # Use the provided index
+            tree_index, tree = next(
+                ((i, elem) for i, elem in matching_trees if i == which_tree_idx),
+                (None, None)
+            )
+            if tree_index is None:
+                raise ValueError(f"No tree of subcategory '{on_tree}' at index {which_tree_idx}.")
         else:
-            if self.how_many_tree_subcat(on_tree, print_) == 1:
-                for elem in self.plateau_player:
-                    if elem["arbre"].subcategory == on_tree:
-                        if up == True:
-                            elem["up"] = Card.up
-                        elif down == True:
-                            elem["down"] = Card.down
-                        elif left == True:
-                            elem["left"] = Card.left
-                        elif right == True:
-                            elem["right"] = Card.right
+            # If no index provided, use the first match if only one, else ask
+            if len(matching_trees) == 1:
+                tree_index, tree = matching_trees[0]
             else:
-                count = 0
-                for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
-                    if elem["arbre"].subcategory == on_tree:
-                        if up == True and elem["up"] == None:
-                            count += 1
-                            if print_ == True:
-                                print(f"{i}. {elem}")
-                        if down == True and elem["down"] == None:
-                            count += 1
-                            if print_ == True:
-                                print(f"{i}. {elem}")
-                        if left == True and elem["left"] == None:
-                            count += 1
-                            if print_ == True:
-                                print(f"{i}. {elem}")
-                        if right == True and elem["right"] == None:
-                            count += 1
-                            if print_ == True:
-                                print(f"{i}. {elem}")
+                if print_:
+                    for i, (idx, elem) in enumerate(matching_trees):
+                        print(f"{i}. {elem}")
+                num = int(input("Choose the index of the tree on which you want to put your card: "))
+                tree_index, tree = matching_trees[num]
 
-                if print_ == True: print()
-
-                if count > 1 and which_tree_idx == None:
-                    num = int(input("Choose the index of the tree on which you want to put your card, eg type in 1, 2 etc.: \n"))
-                    for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
-
-                        if elem["arbre"].subcategory == on_tree and i == num:
-                            if up == True:
-                                elem["up"] = Card.up
-                            elif down == True:
-                                elem["down"] = Card.down
-                            elif left == True:
-                                elem["left"] = Card.left
-                            elif right == True:
-                                elem["right"] = Card.right
-                elif count > 1 and which_tree_idx:
-                    for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
-                        if elem["arbre"].subcategory == on_tree and i == which_tree_idx:
-                            if up == True:
-                                elem["up"] = Card.up
-                            elif down == True:
-                                elem["down"] = Card.down
-                            elif left == True:
-                                elem["left"] = Card.left
-                            elif right == True:
-                                elem["right"] = Card.right
-                else:
-                    for elem in self.plateau_player:
-                        if elem["arbre"].subcategory == on_tree:
-                            if up == True:
-                                elem["up"] = Card.up
-                            elif down == True:
-                                elem["down"] = Card.down
-                            elif left == True:
-                                elem["left"] = Card.left
-                            elif right == True:
-                                elem["right"] = Card.right
+        # Place the card
+        if up:
+            tree["up"] = Card.up
+        elif down:
+            tree["down"] = Card.down
+        elif left:
+            tree["left"] = Card.left
+        elif right:
+            tree["right"] = Card.right
 
         return self
 
