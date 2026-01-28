@@ -19,7 +19,7 @@
   ☑☑ cistude=False,
 
     # CervidéOngulé
-    cerf_élaphe=False,
+  ☑☑ cerf_élaphe=False,
   ☑ chevreuil=False,
     daim=False,
 
@@ -71,8 +71,8 @@
   ☑☑ hérisson=False,
     lièvre_Europe=False, --> si j'en ai 2 l'un sur l'autre (ou plus), il n'en compte que 1 seul pour le moment
     fouine=False,
-    loup=False,
-    renard_roux=False,
+  ☑☑ loup=False,
+  ☑☑ renard_roux=False,
   ☑☑ taupe=False,
     loir_gris=False,
   ☑ écureuil_roux=False, --> dépend des autres autour

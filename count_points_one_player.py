@@ -198,6 +198,14 @@ xylo_lynx = Card(left_right=True)
 xylo_lynx.left = XylocopeViolet("bleu clair")
 xylo_lynx.right = Lynx("vert foncé")
 
+murin_loup = Card(left_right=True)
+murin_loup.left = MurinDeBechstein("marron")
+murin_loup.right = Loup("bleu foncé")
+
+renard_loup = Card(left_right=True)
+renard_loup.left = RenardRoux("jaune")
+renard_loup.right = Loup("bleu foncé")
+
 """
 # User places cards in Plateau
 """
@@ -271,12 +279,13 @@ marine_plateau.place_non_tree_card(blair_daim, on_tree = "sapin_blanc", left=Tru
 marine_plateau.place_non_tree_card(xylo_lievre, on_tree = "sapin_blanc", right=True,which_tree_idx=5)
 marine_plateau.place_non_tree_card(xylo_lievre, on_tree = "sapin_blanc", right=True,which_tree_idx=5)
 
-marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", left=True, which_tree_idx=6)
+# marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", left=True, which_tree_idx=6)
 marine_plateau.place_non_tree_card(ecu_salam, on_tree = "chêne", up=True, which_tree_idx=6)
 marine_plateau.place_non_tree_card(xylo_lynx, on_tree = "chêne", right=True, which_tree_idx=6)
+marine_plateau.place_non_tree_card(renard_loup, on_tree = "chêne", left=True, which_tree_idx=6)
 
 marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", up=True, which_tree_idx=7)
-marine_plateau.place_non_tree_card(fr_chouette, on_tree = "sapin_Douglas", down=True, which_tree_idx=7)
+marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", down=True, which_tree_idx=7)
 marine_plateau.place_non_tree_card(blair_daim, on_tree = "sapin_Douglas", left=True, which_tree_idx=7)
 marine_plateau.place_non_tree_card(blair_moust, on_tree = "sapin_Douglas", right=True, which_tree_idx=7)
 
@@ -290,15 +299,19 @@ marine_plateau.place_non_tree_card(xylo_lynx, on_tree = "érable", right=True, w
 
 marine_plateau.place_non_tree_card(geai_foug, on_tree = "chêne", up=True, which_tree_idx=10)
 marine_plateau.place_non_tree_card(mars_rainette, on_tree = "chêne", down=True, which_tree_idx=10)
+marine_plateau.place_non_tree_card(murin_loup, on_tree = "chêne", right=True, which_tree_idx=10)
 
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "chêne", up=True, which_tree_idx=11)
 marine_plateau.place_non_tree_card(geai_foug, on_tree = "chêne", down=True, which_tree_idx=11)
 marine_plateau.place_non_tree_card(chev_marc, on_tree = "chêne", left=True, which_tree_idx=11)
+marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", right=True, which_tree_idx=11)
 
 marine_plateau.place_non_tree_card(heris_palom, on_tree = "marronnier_commun", up=True, which_tree_idx=12)
+marine_plateau.place_non_tree_card(murin_loup, on_tree = "marronnier_commun", right=True, which_tree_idx=12)
 
 marine_plateau.place_non_tree_card(bouv_rainette, on_tree = "bouleau", up=True, which_tree_idx=13)
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "bouleau", down=True, which_tree_idx=13)
+marine_plateau.place_non_tree_card(renard_loup, on_tree = "bouleau", left=True, which_tree_idx=13)
 
 marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", up=True, which_tree_idx=14)
 marine_plateau.place_non_tree_card(pic_fourmi, on_tree = "sapin_Douglas", down=True, which_tree_idx=14)
@@ -315,10 +328,16 @@ marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "hêtre", up=True, wh
 print(marine_plateau.name, end = "\n\n")
 marine_plateau.pprint(index=True, only_animals=True, subcategory=True, category=False)
 print()
+
+# print(marca_cerf.right.category)
+# print(xylo_lynx.right.category)
 # , animal_string="écureuil_roux"
+# print(marine_plateau.count_all_subcategories_on_plateau()["lièvre_Europe"])
+# print()
 print(marine_plateau.count_points_animal(res=res, game=game
                                         #  , animal_string="chevreuil"
                                         ))
+
 
 # print(marine_plateau.how_many_per_subcategory(subcategory="écureuil_roux",
 #                                               subcategory2="chêne",
@@ -332,8 +351,6 @@ print(marine_plateau.count_points_animal(res=res, game=game
 #     animal = all_categories[animal_string]
 #     print(animal.subcategory)
 # points_dict = defaultdict(list)
-# print(marine_plateau.count_point_all_tmp(res, game, "rainette_verte", points_dict))
-
 # print("---"*10)
 # print(victor_plateau.name, end = "\n\n")
 # victor_plateau.pprint(index=False, only_animals=True, subcategory=True, category=False)
@@ -363,22 +380,9 @@ points =0
 # print(points)
 # total_points = []
 # # # écureuil_roux
-# for dict_ in marine_plateau.plateau_player:
-#     points = 0
-#     if dict_["arbre"].subcategory == "sapin_blanc":
-#         pprint(dict_)
-#         if dict_["up"] != None:
-#             points += (len(dict_["up"]))
-#         if dict_["down"] != None:
-#             points += (len(dict_["down"]))
-#         if dict_["left"] != None:
-#             points += (len(dict_["left"]))
-#         if dict_["right"] != None:
-#             points += (len(dict_["right"]))
-#         total_points.append(points)
 
-# print(sum(total_points))
-
+# print(marine_plateau.count_all_categories_on_plateau()["arbre"])
+# print(marine_plateau.count_all_categories_on_plateau()["plant"])
 #     print()
 #     for elem in list(dict_.values()):
 #         if elem !=None:

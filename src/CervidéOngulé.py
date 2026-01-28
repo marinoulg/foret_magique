@@ -9,7 +9,7 @@ class CerfElaphe(Cervidé, Ongulé):
         self.subcategory = "cerf_élaphe"
         if couleur_feuille == None:
             self.couleur_feuille = which_color(self.subcategory)
-        self.category = "cervidé" and "ongulé"
+        self.category = ["cervidé", "ongulé"]
         self.cost_card = 2
 
     def effet(self):
@@ -37,7 +37,7 @@ class Chevreuil(Cervidé, Ongulé):
         super().__init__(couleur_feuille)
         if couleur_feuille == None:
             self.couleur_feuille = which_color(self.subcategory)
-        self.category = "cervidé" and "ongulé"
+        self.category = ["cervidé", "ongulé"]
         self.cost_card = 2
 
     def effet(self):
@@ -64,7 +64,7 @@ class Daim(Cervidé):
         self.subcategory = "daim"
         if couleur_feuille == None:
             self.couleur_feuille = which_color(self.subcategory)
-        self.category = "cervidé" and "ongulé"
+        self.category = ["cervidé", "ongulé"]
         self.cost_card = 2
 
     def effet(self):

@@ -4,7 +4,7 @@ from src.helper_functions.colors import which_color
 class Papillon(ElementsAnimal):
     def __init__(self, couleur_feuille):
         self.couleur_feuille = couleur_feuille
-        self.category = "papillon"
+        self.category = ["papillon", "insecte"]
 
     def points(self):
         # how_many = Plateau().how_many_per_species(self, subcategory = self.subcategory[0])
