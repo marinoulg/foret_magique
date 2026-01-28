@@ -16,7 +16,7 @@ attention: problème de "concurrence" avec les bouleau --> which_tree_idx does n
     # Amphibien
     crapaud_commun=False,
   ☑ salamandre_tachetée=False,
-  ☑ rainette_verte=False,
+  ☑☑ rainette_verte=False,
   ☑ cistude=False,
 
     # CervidéOngulé
@@ -45,7 +45,7 @@ attention: problème de "concurrence" avec les bouleau --> which_tree_idx does n
 
     # Oiseau
     bouvreuil_pivoire=False,
-    pinson_des_arbres=False, --> pb quand automatique/non unitaire
+    pinson_des_arbres=False, --> dépend des autres autour
   ☑ geai_des_chênes=False,
   ☑ autour_des_palombes=False,
   ☑ pic_epeiche=False,
@@ -55,12 +55,12 @@ attention: problème de "concurrence" avec les bouleau --> which_tree_idx does n
     sanglier=False,
     marcassin=False,
 
-  # ☑ Papillon
-  ☑ grand_mars_changeant=True,
-  ☑ paon_du_jour=True,
-  ☑ morio=True,
-  ☑ grande_tortue=True,
-  ☑ tabac_Espagne=True,
+  # ☑☑ Papillon
+  ☑☑ grand_mars_changeant=True,
+  ☑☑ paon_du_jour=True,
+  ☑☑ morio=True,
+  ☑☑ grande_tortue=True,
+  ☑☑ tabac_Espagne=True,
 
   # ☑ Plant
   ☑ fougère_arborescente=False,
@@ -76,7 +76,7 @@ attention: problème de "concurrence" avec les bouleau --> which_tree_idx does n
     renard_roux=False,
   ☑ taupe=False,
     loir_gris=False,
-  écureuil_roux=False, --> potentiel pb quand automatique/non unitaire (à vérifier)
+  écureuil_roux=False, --> dépend des autres autour
     blaireau_européen=False,
     lynx=False,
     raton_laveur=False,
@@ -87,7 +87,7 @@ attention: problème de "concurrence" avec les bouleau --> which_tree_idx does n
   ☑ bouleau=False
     hêtre=False
   ☑ marronnier_commun=False
-  ☑ sapin_blanc=False
+  sapin_blanc=False --> dépend des autres autour
   ☑ sapin_Douglas=False
   ☑ tilleul=False
     érable=False
@@ -114,3 +114,17 @@ attention: problème de "concurrence" avec les bouleau --> which_tree_idx does n
 
 question ouverte : *que faire pour le déroulement d'une partie ? instancier une carte dès qu'on en tire une nouvelle, ou bien avoir une grosse liste qui contienne toutes les cartes, et on randomchoice dedans (sachant que dans tous les cas on va randomchoice/randint etc.)* ?
 --> avoir une grosse liste qui contienne toutes les cartes, et on randomchoice dedans (sachant que dans tous les cas on va randomchoice/randint etc.)
+
+# Organising my thoughts
+
+## cards that depend on their surrounding:
+- pinson_des_arbres
+- écureuil_roux
+- sapin_blanc
+
+
+## cards with points that need to be counted per card:
+
+
+## à corriger :
+mes papillons sont tous aussi des insectes!!!

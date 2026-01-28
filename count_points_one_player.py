@@ -64,6 +64,7 @@ marine.cards_player.append(bouleau)
 marronnier = Marronnier()
 hetre = Hêtre()
 sap_bl = SapinBlanc()
+sap_bl2 = SapinBlanc()
 sap_D = SapinDouglas()
 tilleul = Tilleul()
 erable = Erable()
@@ -139,6 +140,14 @@ pinson_fourm = Card(up_down=True)
 pinson_fourm.up = PinsonDesArbres("vert clair")
 pinson_fourm.down = FourmiRousse("vert foncé")
 
+heris_palom = Card(up_down=True)
+heris_palom.up = AutourDesPalombes("bleu foncé")
+heris_palom.down = Hérisson("orange")
+
+chouette_lucane = Card(up_down=True)
+chouette_lucane.up = ChouetteHulotte("vert foncé")
+chouette_lucane.down = Lucane("rouge")
+
 """
 # User places cards in Plateau
 """
@@ -158,7 +167,7 @@ marine_plateau.place_tree(marronnier) # 12
 marine_plateau.place_tree(bouleau) # 13
 marine_plateau.place_tree(sap_D) # 14
 marine_plateau.place_tree(tilleul) # 15
-marine_plateau.place_tree(sap_bl) # 5
+marine_plateau.place_tree(sap_bl2) # 16
 
 
 victor_plateau.place_tree(bouleau) # 0
@@ -175,52 +184,72 @@ victor_plateau.place_tree(erable)
 
 # # I want to place down in Plateau above chene the autour_des_palombes bird
 # attention, l'ordre/index de mes arbres EST IMPORTANT
-marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "bouleau", up=True, which_tree_idx=0)
+marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "bouleau", down=True, which_tree_idx=0)
 
 marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "hêtre", up=True, which_tree_idx=1)
-marine_plateau.place_non_tree_card(tab_mure, on_tree = "hêtre", down=True, which_tree_idx=1)
+marine_plateau.place_non_tree_card(chouette_lucane, on_tree = "hêtre", down=True, which_tree_idx=1)
 marine_plateau.place_non_tree_card(marca_cerf, on_tree = "hêtre", left=True, which_tree_idx=1)
 # marine_plateau.place_non_tree_card(marca_cerf, on_tree = "hêtre", right=True, which_tree_idx=1)
 
 marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", up=True, which_tree_idx=2)
+marine_plateau.place_non_tree_card(chouette_lucane, on_tree = "chêne", down=True, which_tree_idx=2)
 
-marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", up=True, which_tree_idx=3)
+marine_plateau.place_non_tree_card(fr_chouette, on_tree = "chêne", down=True, which_tree_idx=3)
+marine_plateau.place_non_tree_card(tab_mure, on_tree = "chêne", up=True, which_tree_idx=3)
 
-marine_plateau.place_non_tree_card(morioluciole, on_tree = "marronnier_commun", down=True, which_tree_idx=3)
+marine_plateau.place_non_tree_card(fr_chouette, on_tree = "marronnier_commun", up=True, which_tree_idx=4)
+marine_plateau.place_non_tree_card(morioluciole, on_tree = "marronnier_commun", down=True, which_tree_idx=4)
 
-marine_plateau.place_non_tree_card(mars_rainette, on_tree = "sapin_blanc", down=True, which_tree_idx=4)
-marine_plateau.place_non_tree_card(palom_mousse, on_tree = "sapin_blanc", up=True, which_tree_idx=4)
-
-marine_plateau.place_non_tree_card(ecu_salam, on_tree = "sapin_blanc", up=True, which_tree_idx=5)
+marine_plateau.place_non_tree_card(mars_rainette, on_tree = "sapin_blanc", down=True,which_tree_idx=5)
+marine_plateau.place_non_tree_card(ecu_salam, on_tree = "sapin_blanc", up=True,which_tree_idx=5)
 
 marine_plateau.place_non_tree_card(marca_cerf, on_tree = "chêne", left=True, which_tree_idx=6)
-marine_plateau.place_non_tree_card(ecu_salam, on_tree = "chêne", up=True, which_tree_idx=6)
+marine_plateau.place_non_tree_card(ecu_salam, on_tree = "chêne", down=True, which_tree_idx=6)
 
 marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", up=True, which_tree_idx=7)
+marine_plateau.place_non_tree_card(fr_chouette, on_tree = "sapin_Douglas", down=True, which_tree_idx=7)
 
-marine_plateau.place_non_tree_card(morioluciole, on_tree = "chêne", down=True, which_tree_idx=8)
+marine_plateau.place_non_tree_card(geai_foug, on_tree = "chêne", down=True, which_tree_idx=8)
 marine_plateau.place_non_tree_card(ecu_salam, on_tree = "chêne", up=True, which_tree_idx=8)
 
 marine_plateau.place_non_tree_card(morioluciole, on_tree = "érable", up=True, which_tree_idx=9)
-marine_plateau.place_non_tree_card(geai_foug, on_tree = "chêne", down=True, which_tree_idx=10)
-marine_plateau.place_non_tree_card(morioluciole, on_tree = "chêne", down=True, which_tree_idx=11)
-marine_plateau.place_non_tree_card(morioluciole, on_tree = "marronnier_commun", down=True, which_tree_idx=12)
+marine_plateau.place_non_tree_card(bouv_moust, on_tree = "érable", down=True, which_tree_idx=9)
+
+marine_plateau.place_non_tree_card(geai_foug, on_tree = "chêne", up=True, which_tree_idx=10)
+marine_plateau.place_non_tree_card(mars_rainette, on_tree = "chêne", down=True, which_tree_idx=10)
+
+marine_plateau.place_non_tree_card(morioluciole, on_tree = "chêne", up=True, which_tree_idx=11)
+# marine_plateau.place_non_tree_card(geai_foug, on_tree = "chêne", down=True, which_tree_idx=11)
+
+marine_plateau.place_non_tree_card(heris_palom, on_tree = "marronnier_commun", down=True, which_tree_idx=12)
+
+marine_plateau.place_non_tree_card(bouv_moust, on_tree = "bouleau", up=True, which_tree_idx=13)
+marine_plateau.place_non_tree_card(morioluciole, on_tree = "bouleau", down=True, which_tree_idx=13)
+
+marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", up=True, which_tree_idx=14)
+marine_plateau.place_non_tree_card(pic_fourmi, on_tree = "sapin_Douglas", down=True, which_tree_idx=14)
+
+marine_plateau.place_non_tree_card(bouv_moust, on_tree = "tilleul", up=True, which_tree_idx=15)
+marine_plateau.place_non_tree_card(ecu_salam, on_tree = "tilleul", down=True, which_tree_idx=15)
 
 marine_plateau.place_non_tree_card(palom_mousse, on_tree = "sapin_blanc", up=True, which_tree_idx=16)
+marine_plateau.place_non_tree_card(cist_morio, on_tree = "sapin_blanc", down=True, which_tree_idx=16)
 
-# marine_plateau.place_non_tree_card(morioluciole, on_tree = "bouleau", down=True)
-# marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", up=True, which_tree_idx=14)
-# marine_plateau.place_non_tree_card(ecu_salam, on_tree = "tilleul", down=True, which_tree_idx=15)
 
 # print(marine_plateau.name, end = "\n\n")
-marine_plateau.pprint(index=True, only_animals=True, subcategory=True, category=False)
+marine_plateau.pprint(index=True, only_animals=True, subcategory=True, category=True)
 print()
 # , animal_string="écureuil_roux"
 print(marine_plateau.count_points_animal(res=res, game=game
-                                        #  , animal_string="sapin_blanc"
+                                        #  , animal_string="mousse"
                                         ))
 
-
+# print(marine_plateau.how_many_per_category("insecte",down=True, up=True))
+# for animal_string in all_categories:
+#     animal = all_categories[animal_string]
+#     print(animal.subcategory)
+# points_dict = defaultdict(list)
+# print(marine_plateau.count_point_all_tmp(res, game, "rainette_verte", points_dict))
 
 # print("---"*10)
 # print(victor_plateau.name, end = "\n\n")
