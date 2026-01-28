@@ -1,4 +1,5 @@
 # ForêtMagique
+This repo was created in order to be able to know all players' scores at all times during a game of "Forêt Mixte" (which I always call "forêt magique" for some reason).
 
 # How to use the automatic counting of Player's score:
 ### 1. Starting the Game for automatic counting of points
@@ -126,7 +127,7 @@ As of now, and with all these 5 cards placed on my Plateau, this means I would h
 - build a game for 2 players
 
 
-# Done :
+# Done:
 ## List
 - ☑ tester toutes les méthodes de classes créées (ish)
 - ☑ implémenter le comptage des points
