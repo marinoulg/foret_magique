@@ -107,3 +107,14 @@
 - ☑ create classes for all possible cards with their adequate information
 - ☑ coder les autres cartes restantes (cervidés etc.)
 - ☑ check names of class MarineVictor not Marine_victor
+
+# How to use automatic counting :
+### 1. Instantiate the cards you want to put on Plateau
+NB: (make sure to instantiate the Tree as well)
+  ```
+  chene = Chêne()
+
+  bouv_rainette = Card(up_down=True)
+  bouv_rainette.up = BouvreuilPivoire('bleu clair')
+  bouv_rainette.down = Moustique("orange")
+  ```
