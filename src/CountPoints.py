@@ -732,7 +732,7 @@ class Plateau:
                             "cerf_élaphe",
                             "loup",
                             "renard_roux",
-                            # "daim"
+                            "daim"
                              ]
 
 
