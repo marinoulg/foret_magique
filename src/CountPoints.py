@@ -731,7 +731,8 @@ class Plateau:
                             "lynx",
                             "cerf_élaphe",
                             "loup",
-                            "renard_roux"
+                            "renard_roux",
+                            # "daim"
                              ]
 
 
@@ -875,6 +876,13 @@ class Plateau:
                                         print(f"chevreuil_{couleur.replace(" ", "_")} += {points} points.")
                                         p.append(points)
                                     return sum(p)
+                        elif animal.subcategory == "daim":
+                            if isinstance(elem, list):
+                                if elem[0].subcategory == "daim":
+                                    if "ongulé" in self.count_all_categories_on_plateau():
+                                        c_ongulé = self.count_all_categories_on_plateau()["ongulé"]
+                                        points += 3*c_ongulé
+                                    return points
 
 
                         # Champignon
@@ -899,7 +907,6 @@ class Plateau:
                                     elif animal.subcategory == "murin_de_Bechstein":
                                         points += self.points_bats(points)
                                         return points
-
 
                         # Insecte
                         elif animal.subcategory == "fourmi_rousse":
@@ -1071,7 +1078,6 @@ class Plateau:
                                     return points
                         elif animal.subcategory == "renard_roux":
                             if isinstance(elem, list):
-                                # print(elem)
                                 if elem[0].subcategory == "renard_roux":
                                     if "lièvre_Europe" in self.count_all_subcategories_on_plateau():
                                         c_lievre = self.count_all_subcategories_on_plateau()["lièvre_Europe"]

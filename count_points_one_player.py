@@ -286,8 +286,8 @@ marine_plateau.place_non_tree_card(renard_loup, on_tree = "chêne", left=True, w
 
 marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", up=True, which_tree_idx=7)
 marine_plateau.place_non_tree_card(pic_cepe, on_tree = "sapin_Douglas", down=True, which_tree_idx=7)
-marine_plateau.place_non_tree_card(blair_daim, on_tree = "sapin_Douglas", left=True, which_tree_idx=7)
-marine_plateau.place_non_tree_card(blair_moust, on_tree = "sapin_Douglas", right=True, which_tree_idx=7)
+marine_plateau.place_non_tree_card(blair_daim, on_tree = "sapin_Douglas", right=True, which_tree_idx=7)
+marine_plateau.place_non_tree_card(blair_moust, on_tree = "sapin_Douglas", left=True, which_tree_idx=7)
 
 marine_plateau.place_non_tree_card(palom_crapaud, on_tree = "chêne", down=True, which_tree_idx=8)
 marine_plateau.place_non_tree_card(ecu_salam, on_tree = "chêne", up=True, which_tree_idx=8)
@@ -326,7 +326,7 @@ marine_plateau.place_non_tree_card(pinson_fourm, on_tree = "hêtre", up=True, wh
 
 
 print(marine_plateau.name, end = "\n\n")
-marine_plateau.pprint(index=True, only_animals=True, subcategory=True, category=False)
+marine_plateau.pprint(index=True, only_animals=True, subcategory=True, category=True)
 print()
 
 # print(marca_cerf.right.category)

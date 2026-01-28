@@ -18,10 +18,10 @@
   ☑☑ rainette_verte=False,
   ☑☑ cistude=False,
 
-    # CervidéOngulé
+  # ☑☑ CervidéOngulé
   ☑☑ cerf_élaphe=False,
   ☑ chevreuil=False,
-    daim=False,
+  ☑☑ daim=False,
 
   # ☑☑ Champignon
   ☑☑ amanite_tue_mouches=False,
