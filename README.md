@@ -217,7 +217,7 @@ As of now, and with all these 5 cards placed on my Plateau, this means I would h
   0: chêne: geai_des_chênes, crapaud_commun, blaireau_européen, fouine,
 ```
 - The console is otherwise indicating me some information:
-``
+```
   You are missing ['bouleau', 'hêtre', 'marronnier_commun', 'sapin_blanc', 'sapin_Douglas', 'tilleul', 'érable'] to have all 8 categories of trees.
   geai_des_chênes += 3 points.
   fouine += 5 points.
