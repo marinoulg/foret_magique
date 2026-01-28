@@ -36,14 +36,43 @@ res, game = initialize_game_and_players(game)
 marine = res["marine"]["player"]
 marine_plateau = res["marine"]["plateau"]
 
+victor = res["victor"]["player"]
 victor_plateau = res["victor"]["plateau"]
 
+chene = Chêne()
+
+geai_foug = Card(up_down=True)
+geai_foug.up = GeaiDesChênes("vert clair")
+geai_foug.down = FougèreArborescente("orange")
+
+paon_crapaud = Card(up_down=True)
+paon_crapaud.up = PaonDuJour("jaune")
+paon_crapaud.down = CrapaudCommun("vert foncé")
+
+blair_moust = Card(left_right=True)
+blair_moust.left = BlaireauEuropéen("orange")
+blair_moust.right = Moustique("marron")
+
+barbas_fouine = Card(left_right=True)
+barbas_fouine.left = BarbastelleEurope("bleu foncé")
+barbas_fouine.right = Fouine("orange")
+
+marine_plateau.place_tree(chene) # 0
+marine_plateau.place_non_tree_card(geai_foug, on_tree = "chêne", up=True, which_tree_idx=0)
+marine_plateau.place_non_tree_card(paon_crapaud, on_tree = "chêne", down=True, which_tree_idx=0)
+marine_plateau.place_non_tree_card(blair_moust, on_tree = "chêne", left=True, which_tree_idx=0)
+marine_plateau.place_non_tree_card(barbas_fouine, on_tree = "chêne", right=True, which_tree_idx=0)
+
+print(marine_plateau.name, end = "\n\n") # so as to compare your score with some other player and see directly who's who
+marine_plateau.pprint(index=True, only_animals=True, subcategory=True, category=False) # so that you get the descriptive of where you got your points from
+print() # for some clarity on screen
+print(marine_plateau.count_points_animal(res=res, game=game)) # this is the code that interests you particularly, the rest is purely optional
+
+
+# User gets handed 6 cards in real life, so they get instantiated in the
+# virtual version of the game.
 
 """
-User gets handed 6 cards in real life, so they get instantiated in the
-virtual version of the game.
-"""
-
 chene = Chêne()
 marine.cards_player.append(chene)
 
@@ -320,3 +349,4 @@ marine_plateau.pprint(index=True, only_animals=True, subcategory=True, category=
 print()
 
 print(marine_plateau.count_points_animal(res=res, game=game))
+"""
