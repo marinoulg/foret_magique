@@ -57,11 +57,11 @@ barbas_fouine = Card(left_right=True)
 barbas_fouine.left = BarbastelleEurope("bleu foncé")
 barbas_fouine.right = Fouine("orange")
 
-marine_plateau.place_tree(chene) # 0
-marine_plateau.place_non_tree_card(geai_foug, on_tree = "chêne", up=True, which_tree_idx=0)
-marine_plateau.place_non_tree_card(paon_crapaud, on_tree = "chêne", down=True, which_tree_idx=0)
-marine_plateau.place_non_tree_card(blair_moust, on_tree = "chêne", left=True, which_tree_idx=0)
-marine_plateau.place_non_tree_card(barbas_fouine, on_tree = "chêne", right=True, which_tree_idx=0)
+# marine_plateau.place_tree(chene) # 0
+# marine_plateau.place_non_tree_card(geai_foug, on_tree = "chêne", up=True, which_tree_idx=0)
+# marine_plateau.place_non_tree_card(paon_crapaud, on_tree = "chêne", down=True, which_tree_idx=0)
+# marine_plateau.place_non_tree_card(blair_moust, on_tree = "chêne", left=True, which_tree_idx=0)
+# marine_plateau.place_non_tree_card(barbas_fouine, on_tree = "chêne", right=True, which_tree_idx=0)
 
 print(marine_plateau.name, end = "\n\n") # so as to compare your score with some other player and see directly who's who
 marine_plateau.pprint(index=True, only_animals=True, subcategory=True, category=False) # so that you get the descriptive of where you got your points from
@@ -72,7 +72,7 @@ print(marine_plateau.count_points_animal(res=res, game=game)) # this is the code
 # User gets handed 6 cards in real life, so they get instantiated in the
 # virtual version of the game.
 
-"""
+
 chene = Chêne()
 marine.cards_player.append(chene)
 
@@ -349,4 +349,3 @@ marine_plateau.pprint(index=True, only_animals=True, subcategory=True, category=
 print()
 
 print(marine_plateau.count_points_animal(res=res, game=game))
-"""

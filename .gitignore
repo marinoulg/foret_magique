@@ -5,3 +5,7 @@ depend*
 sources.txt
 top_level*
 *zip*
+.python-version
+.DS*
+*.csv
+*.egg-info

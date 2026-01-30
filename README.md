@@ -229,3 +229,6 @@ As of now, and with all these 5 cards placed on my Plateau, this means I would h
   - ☑ sapin_Douglas=False
   - ☑ tilleul=False
   - ☑ érable=False
+
+# Streamlit
+Wheel from: https://github.com/rishitha4303/random-wheel/blob/master/random_wheel.py

@@ -98,8 +98,9 @@ all_categories = {
                 "érable":Erable()
             }
 
-all_trees = {   "chêne":Chêne(),
+all_trees = {
                 "bouleau":Bouleau(),
+                "chêne":Chêne(),
                 "hêtre":Hêtre(),
                 "marronnier_commun":Marronnier(),
                 "sapin_blanc":SapinBlanc(),

@@ -144,21 +144,22 @@ class Player:
 
 class ElementsAnimal:
     """
-    Is it important to know who a card belongs to?
+    These are the characteristics of the animal /
+    plant you want to put on the Plateau.
     """
 
     def __init__(self):
         self.cost_card = 0
         self.category = [None] # attention it has changed
         self.subcategory = None
-        self.effect_attr = None
-        self.bonuss = None
+        # self.effect_attr = None
+        # self.bonuss = None
         self.couleur_feuille = None
         self.position = None
         self.cost_card = None
 
-    def choose_color(self):
-        return which_color()
+    # def choose_color(self):
+    #     return which_color()
 
 class Card(ElementsAnimal):
     def __init__(self, up_down=False, left_right=False,
