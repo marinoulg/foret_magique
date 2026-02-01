@@ -320,10 +320,10 @@ def play_turn(i, name):
                     res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, down=True, which_tree_idx=which_tree)
 
     # Always show plateau and points if validated
-    if st.session_state[f'validated_{name}']:
-        cols[i].write(res[name]["plateau"].name)
-        res[name]["plateau"].st_write(index=True, only_animals=True, subcategory=True, category=False)
-        cols[i].write(f"Total points: {res[name]['plateau'].count_points_animal(res=res, game=game)}")
+    # if st.session_state[f'validated_{name}']:
+    #     cols[i].write(res[name]["plateau"].name)
+    #     res[name]["plateau"].st_write(index=True, only_animals=True, subcategory=True, category=False)
+    #     cols[i].write(f"Total points: {res[name]['plateau'].count_points_animal(res=res, game=game)}")
 
     return st.session_state[f'validated_{name}']
 
@@ -352,6 +352,8 @@ with cols[i]:
             st.session_state = {}
             if validate:
                 placeholder.empty()
+    res[name]["plateau"].st_write(index=True, only_animals=True, subcategory=True, category=False)
+    cols[i].write(f"Total points: {res[name]["plateau"].count_points_animal(res=res, game=game)}")
 
 
 
