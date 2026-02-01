@@ -188,7 +188,6 @@ class Card(ElementsAnimal):
         elif grotte == True:
             self.grotte = []
 
-
 class Clairiere:
     def __init__(self):
         self.cards_clairiere = list()

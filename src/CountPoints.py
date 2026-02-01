@@ -1,4 +1,5 @@
 import os
+import streamlit as st
 
 from pprint import pprint
 from src.helper_functions.specific_functions import *
@@ -218,6 +219,106 @@ class Plateau:
                     if an["right"] != None:
                         print(an["right"][0].category, end=", ")
                     print(end="\n")
+        # elif only_animals==False and subcategory==True and category==False:
+        #     pass
+    def st_write(self, index=False, only_animals=False, subcategory=True, category=False):
+
+
+        if only_animals == False and category ==False and subcategory == False:
+            if index == True:
+                for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
+                    st.write({i:elem})
+            elif index == False:
+                for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
+                    st.write(elem)
+        elif only_animals==True and category ==False and subcategory == True:
+            if index==True:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"] != None:
+                        st.write(f"{i}:", an["arbre"].subcategory, )
+                    if an["up"] != None:
+                        for element_card in an["up"]:
+                            st.write(element_card.subcategory, )
+                    if an["down"] != None:
+                        for element_card in an["down"]:
+                            st.write(element_card.subcategory, )
+                    if an["left"] != None:
+                        for element_card in an["left"]:
+                            st.write(element_card.subcategory, )
+                    if an["right"] != None:
+                        for element_card in an["right"]:
+                            st.write(element_card.subcategory, )
+                    st.write()
+
+            if index==False:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"] != None:
+                        st.write(an["arbre"].subcategory, )
+                    if an["up"] != None:
+                        st.write(an["up"].subcategory, )
+                    if an["down"] != None:
+                        st.write(an["down"].subcategory, )
+                    if an["left"] != None:
+                        st.write(an["left"].subcategory, )
+                    if an["right"] != None:
+                        st.write(an["right"].subcategory, )
+                    st.write()
+        elif only_animals==True and category ==True and subcategory == False:
+            if index==True:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"]!= None:
+                        st.write(f"{i}:", an["arbre"].category, )
+                    if an["up"] != None:
+                        st.write(an["up"][0].category, )
+                    if an["down"] != None:
+                        st.write(an["down"][0].category, )
+                    if an["left"] != None:
+                        st.write(an["left"][0].category, )
+                    if an["right"] != None:
+                        st.write(an["right"][0].category, )
+                    st.write()
+
+            if index==False:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"] != None:
+                        st.write(an["arbre"].category, )
+                    if an["up"] != None:
+                        st.write(an["up"][0].category, )
+                    if an["down"] != None:
+                        st.write(an["down"][0].category, )
+                    if an["left"] != None:
+                        st.write(an["left"][0].category, )
+                    if an["right"] != None:
+                        st.write(an["right"][0].category, )
+                    st.write()
+        elif only_animals==True and category ==True and subcategory == True:
+            if index==True:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"] != None:
+                        st.write(f"{i}: {an["arbre"].subcategory} - {an["arbre"].category}", )
+                    if an["up"] != None:
+                        st.write(f"{an["up"][0].subcategory} - {an["up"][0].category}", )
+                    if an["down"] != None:
+                        st.write(f"{an["down"][0].subcategory} - {an["down"][0].category}", )
+                    if an["left"] != None:
+                        st.write(f"{an["left"][0].subcategory} - {an["left"][0].category}", )
+                    if an["right"] != None:
+                        st.write(f"{an["right"][0].subcategory} - {an["right"][0].category}", )
+                    st.write()
+
+            if index==False:
+                for i,an in zip(range(len(self.plateau_player)), self.plateau_player):
+                    if an["arbre"] != None:
+                        st.write(an["arbre"].category, )
+                    if an["up"] != None:
+                        st.write(an["up"][0].category, )
+                    if an["down"] != None:
+                        st.write(an["down"][0].category, )
+                    if an["left"] != None:
+                        st.write(an["left"][0].category, )
+                    if an["right"] != None:
+                        st.write(an["right"][0].category, )
+                    st.write()
         # elif only_animals==False and subcategory==True and category==False:
         #     pass
 
