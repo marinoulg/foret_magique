@@ -4,8 +4,8 @@ from streamlit_card import card
 from src.helper_functions.all_cards import get_the_deck, all_cards
 from src.helper_functions.game_functions import initialize_game_and_players
 from src.Game import *
-
-from src.CountPoints import all_trees
+from src.Player import Card
+from src.CountPoints import all_categories, all_trees
 
 import os
 import pandas as pd
@@ -24,7 +24,19 @@ colors = [
     "bleu clair",
     "bleu foncé",
 ]
-
+categories = [
+    "Amphibien",
+    "Arbre",
+    "Cervidé",
+    "Champignon",
+    "Chauve-souris",
+    "Insecte",
+    "Oiseau",
+    "Ongulé",
+    "Papillon",
+    "Plante",
+    "Plantigrade/digigrade"
+]
 df = pd.read_csv("settings.csv")
 df = df.set_index("index")
 
