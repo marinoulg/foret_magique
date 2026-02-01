@@ -87,6 +87,9 @@ res, game = initialize_game_and_players(game)
 marine = res["Marine"]["player"]
 marine_plateau = res["Marine"]["plateau"]
 
+st.write(st.session_state)
+st.session_state = dict()
+
 # st.write((marine))
 
 chene = Chêne()
