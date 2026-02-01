@@ -273,3 +273,4 @@ for i,name in enumerate(names):
     keys = [num for num in range(start,start+8)]
     place_cards_UX(name,i,cols, keys)
     start = start+9
+    # attention : verify // points all species, bc it seems it does not add points to Papillons (??)
