@@ -36,7 +36,6 @@ def initialize_game_and_players(game, cards_start=6):
         game.player_ids.append(player.player_id)
     return res, game
 
-
 def take_out_cards_from_deck(deck, nb_cards_to_take_out=30):
     nb_of_cards = len(deck)
     print(f"There are a total of {len(deck)} cards in the deck.")
@@ -135,9 +134,6 @@ def mix_cards_and_place_winter_cards(deck):
     deck = add_winter_cards(deck, first_and_second_deck, third_deck)
     return deck
 
-
-
-
 def who_starts(player1, player2, biggest_in=6):
     player1.who_start = randint(1,biggest_in)
     player2.who_start = randint(1,biggest_in)
@@ -174,7 +170,6 @@ either from the deck, or from the Clairière.")
     else:
         print("TypeError. Please input your answer again.")
         bool = input("Draw 1 card from deck or Clairière?. Type in D for deck or C for Clairière: ")
-
 
 def player_plays_a_turn(Player):
     """

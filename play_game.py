@@ -1,33 +1,12 @@
 import streamlit as st
 from streamlit_card import card
-import time
 
-from src.Tree import *
-from src.Player import *
-from src.helper_functions.specific_functions import *
-from src.PossibleColors import PossibleColors
-from src.helper_functions.all_cards import get_the_deck
-from src.helper_functions.game_functions import *
-from src.CountPoints import *
+from src.helper_functions.all_cards import get_the_deck, all_cards
+from src.helper_functions.game_functions import initialize_game_and_players
 from src.Game import *
-
-from src.Champignon import *
-from src.Oiseau import *
-from src.Plantigrade import *
-from src.Papillon import *
-from src.Amphibien import *
-from src.Insecte import *
-from src.Cervidé import *
-from src.Ongulé import *
-from src.CervidéOngulé import *
-from src.Plant import *
-from src.ChauveSouris import *
 
 from src.CountPoints import all_trees
 
-from streamlit_functions import *
-# from main import names, winner
-# from streamlit_functions import draw_spinning_wheel
 import os
 import pandas as pd
 
@@ -45,19 +24,6 @@ colors = [
     "bleu clair",
     "bleu foncé",
 ]
-categories = [
-    "Amphibien",
-    "Arbre",
-    "Cervidé",
-    "Champignon",
-    "Chauve-souris",
-    "Insecte",
-    "Oiseau",
-    "Ongulé",
-    "Papillon",
-    "Plante",
-    "Plantigrade/digigrade"
-]
 
 df = pd.read_csv("settings.csv")
 df = df.set_index("index")
@@ -71,9 +37,6 @@ nb_of_players = len(res_tmp)
 names = list(res_tmp.keys())
 game = Game(nb_of_players, names)
 res, game = initialize_game_and_players(game)
-
-# Not obligatory
-# marine = res["Marine"]["player"]
 
 # ------------------ getting information from first page -----------------
 st.set_page_config(

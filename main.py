@@ -1,51 +1,15 @@
 import streamlit as st
 from streamlit_card import card
 
-from src.Tree import *
-from src.Player import *
-from src.helper_functions.specific_functions import *
-from src.PossibleColors import PossibleColors
-from src.helper_functions.all_cards import get_the_deck
-from src.helper_functions.game_functions import *
-from src.CountPoints import *
-from src.Game import *
+from src.helper_functions.game_functions import initialize_game_and_players
+from src.Game import Game
+from streamlit_functions import draw_spinning_wheel
 
-from src.Champignon import *
-from src.Oiseau import *
-from src.Plantigrade import *
-from src.Papillon import *
-from src.Amphibien import *
-from src.Insecte import *
-from src.Cervidé import *
-from src.Ongulé import *
-from src.CervidéOngulé import *
-from src.Plant import *
-from src.ChauveSouris import *
-
-from streamlit_functions import *
-
-import os
-from random import choice
 import random
 import matplotlib.pyplot as plt
 import numpy as np
 import time
 import pandas as pd
-
-def initialize_session_states():
-    if "button" not in st.session_state:
-        st.session_state["button"] = False
-    if "choice" not in st.session_state:
-        st.session_state["choice"] = None
-    if "up_down" not in st.session_state:
-        st.session_state["up_down"] = None
-    if "res" not in st.session_state:
-        st.session_state["res"] = None
-
-initialize_session_states()
-
-
-
 
 # ------------------------------- Streamlit ------------------------------
 
@@ -123,4 +87,4 @@ if winner:
     df = pd.DataFrame(res)
     df.reset_index().to_csv("settings.csv", index=False)
     pd.DataFrame([winner], columns=["winner"]).to_csv("winner.csv", index=False)
-    st.page_link("http://localhost:8507/", label="Start the game!")
+    st.page_link("http://localhost:8504/", label="Start the game!")

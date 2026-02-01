@@ -122,8 +122,6 @@ class Plateau:
         self.name = name
 
     def pprint(self, index=False, only_animals=False, subcategory=True, category=False):
-
-
         if only_animals == False and category ==False and subcategory == False:
             if index == True:
                 for i, elem in zip(range(len(self.plateau_player)),self.plateau_player):
@@ -221,6 +219,7 @@ class Plateau:
                     print(end="\n")
         # elif only_animals==False and subcategory==True and category==False:
         #     pass
+
     def st_write(self, index=False, only_animals=False, subcategory=True, category=False):
 
 
