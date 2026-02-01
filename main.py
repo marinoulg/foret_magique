@@ -32,7 +32,17 @@ import numpy as np
 import time
 import pandas as pd
 
+def initialize_session_states():
+    if "button" not in st.session_state:
+        st.session_state["button"] = False
+    if "choice" not in st.session_state:
+        st.session_state["choice"] = None
+    if "up_down" not in st.session_state:
+        st.session_state["up_down"] = None
+    if "res" not in st.session_state:
+        st.session_state["res"] = None
 
+initialize_session_states()
 
 
 
@@ -42,6 +52,7 @@ import pandas as pd
 st.set_page_config(
     page_title="ForetMagique",
     page_icon="🌲",
+    layout="centered"
 )
 
 hasClicked = card(
@@ -110,7 +121,6 @@ if winner:
     game = Game(nb_of_players, names)
     res, game = initialize_game_and_players(game)
     df = pd.DataFrame(res)
-    st.write(df)
     df.reset_index().to_csv("settings.csv", index=False)
     pd.DataFrame([winner], columns=["winner"]).to_csv("winner.csv", index=False)
-    st.page_link("pages/play_game.py", label="Start the game!")
+    st.page_link("http://localhost:8507/", label="Start the game!")

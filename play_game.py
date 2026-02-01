@@ -131,8 +131,8 @@ def click_button(name):
     #     if n != name:
     #         st.session_state[f'clicked_{n}'] = False
 
-for n in names:
-    st.session_state[f'clicked_{n}'] = False
+# for n in names:
+#     st.session_state[f'clicked_{n}'] = False
 
 cols = st.columns(nb_of_players, gap="medium")
 placeholder = st.empty()
@@ -193,6 +193,7 @@ def play_turn(i, name):
                     ).T
                 df.columns=["Carte d'identité de l'Arbre"]
                 cols[i].write(df)
+                res[name]["plateau"].place_tree(Arbre)
 
         elif card == "Card has components on the **left/right** sides":
                 card_ = Card(left_right=True)
@@ -248,6 +249,12 @@ def play_turn(i, name):
                             ["left", "right"],
                             key=(i+20)*5
                         )
+                        if left_right == "left":
+                            card_.left = Animal
+                            res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, left=True, which_tree_idx=which_tree)
+                        elif left_right == "right":
+                            card_.right = Animal
+                            res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, right=True, which_tree_idx=which_tree)
         elif card == "Card has components on the **up/down** sides":
                 card_ = Card(up_down=True)
                 possibles = []
@@ -302,25 +309,31 @@ def play_turn(i, name):
                             ["up", "down"],
                             key=(i+20)*6
                         )
-
-        if cols[i].button("Validate", key=(i+20)*9):
-            st.session_state[f'validated_{name}'] = True
-            if card == "Card is a **tree**":
-                res[name]["plateau"].place_tree(Arbre)
-            elif card == "Card has components on the **left/right** sides":
-                if left_right == "left":
-                        card_.left = Animal
-                        res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, left=True, which_tree_idx=which_tree)
-                elif left_right == "right":
-                    card_.right = Animal
-                    res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, right=True, which_tree_idx=which_tree)
-            elif card == "Card has components on the **up/down** sides":
-                if up_down == "up":
-                        card_.up = Animal
-                        res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, up=True, which_tree_idx=which_tree)
-                elif up_down == "down":
-                    card_.down = Animal
-                    res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, down=True, which_tree_idx=which_tree)
+                        if up_down == "up":
+                            card_.up = Animal
+                            res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, up=True, which_tree_idx=which_tree)
+                        elif up_down == "down":
+                            card_.down = Animal
+                            res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, down=True, which_tree_idx=which_tree)
+        # if cols[i].button("Validate", key=(i+20)*9):
+        #     st.session_state[f'validated_{name}'] = True
+        #     st.page_link("http://localhost:8504/play_game")
+            # if card == "Card is a **tree**":
+            #     res[name]["plateau"].place_tree(Arbre)
+            # elif card == "Card has components on the **left/right** sides":
+            #     if left_right == "left":
+            #             card_.left = Animal
+            #             res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, left=True, which_tree_idx=which_tree)
+            #     elif left_right == "right":
+            #         card_.right = Animal
+            #         res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, right=True, which_tree_idx=which_tree)
+            # elif card == "Card has components on the **up/down** sides":
+            #     if up_down == "up":
+            #             card_.up = Animal
+            #             res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, up=True, which_tree_idx=which_tree)
+            #     elif up_down == "down":
+            #         card_.down = Animal
+            #         res[name]["plateau"].place_non_tree_card(card_, on_tree=res[name]["plateau"].plateau_player[which_tree]["arbre"].subcategory, down=True, which_tree_idx=which_tree)
 
     # Always show plateau and points if validated
     # if st.session_state[f'validated_{name}']:
@@ -329,6 +342,11 @@ def play_turn(i, name):
     #     cols[i].write(f"Total points: {res[name]['plateau'].count_points_animal(res=res, game=game)}")
 
     return st.session_state[f'validated_{name}']
+
+
+def click_monbutton():
+    st.session_state[f'mon_bouton'] = True
+
 
 i= 0
 with cols[i]:
@@ -343,20 +361,35 @@ with cols[i]:
     res[name]["plateau"].st_write(index=True, only_animals=True, subcategory=True, category=False)
     cols[i].write(f"Total points: {res[name]["plateau"].count_points_animal(res=res, game=game)}")
 
-    # once validated, i want all of this to diseappear to only show the updated score etc (whose code is above)
-    with placeholder.container():
-        submitted = cols[i].button("Add a card", key=i+10, on_click=click_button(name))
-        if submitted:
-            st.session_state[f'clicked_{name}'] = True
-            st.session_state[f'validated_{name}'] = False
 
-        if st.session_state[f'clicked_{name}'] and not st.session_state[f'validated_{name}']:
-            validate = play_turn(i, name)
-            st.session_state = {}
-            if validate:
-                placeholder.empty()
-    res[name]["plateau"].st_write(index=True, only_animals=True, subcategory=True, category=False)
-    cols[i].write(f"Total points: {res[name]["plateau"].count_points_animal(res=res, game=game)}")
+    st.session_state["mon_bouton"] = []
+    b = st.button("add a card", on_click=click_monbutton)
+    st.write(st.session_state)
+    # if b: st.session_state["mon_bouton"].append(True)
+    if st.session_state["mon_bouton"]:
+        play_turn(i, name)
+        b = st.page_link("pages/play_game.py", label="validate")
+        if b: st.session_state["mon_bouton"] = False
+
+
+    # once validated, i want all of this to diseappear to only show the updated score etc (whose code is above)
+    # if cols[i].button("Validate", key=(i+20)*9):
+            # st.session_state[f'validated_{name}'] = True
+
+    # with placeholder.container():
+    #     submitted = cols[i].button("Add a card", key=i+10, on_click=click_button(name))
+    #     if submitted:
+    #         st.session_state[f'clicked_{name}'] = True
+    #         st.session_state[f'validated_{name}'] = False
+
+    #     if st.session_state[f'clicked_{name}'] and not st.session_state[f'validated_{name}']:
+    #         validate = play_turn(i, name)
+    #         st.session_state = {}
+    #         if validate:
+
+    #             placeholder.empty()
+    # res[name]["plateau"].st_write(index=True, only_animals=True, subcategory=True, category=False)
+    # cols[i].write(f"Total points: {res[name]["plateau"].count_points_animal(res=res, game=game)}")
 
 
 
